@@ -1,0 +1,5 @@
+res://scenes/base_scenes/base_enemy.tscn
+res://scenes/control.tscn
+res://scripts/base_enemy.gd
+res://scenes/battlefield_base.tscn
+res://scenes/base_scenes/stage_base.tscn

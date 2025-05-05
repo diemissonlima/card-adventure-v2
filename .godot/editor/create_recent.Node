@@ -1,0 +1,9 @@
+TextureRect
+CharacterBody2D
+HBoxContainer
+Label
+TextureProgressBar
+CollisionShape2D
+Area2D
+AnimationPlayer
+Sprite2D
