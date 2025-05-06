@@ -1,5 +1,10 @@
 res://scenes/base_scenes/base_enemy.tscn
-res://scenes/control.tscn
-res://scripts/base_enemy.gd
-res://scenes/battlefield_base.tscn
 res://scenes/base_scenes/stage_base.tscn
+res://scenes/enemies/bat.tscn
+res://scenes/enemies/yellow_bat.tscn
+res://scenes/enemies/blue_bat.tscn
+res://scenes/enemies/brown_boar.tscn
+res://scenes/enemies/green_boar.tscn
+res://scripts/base_enemy.gd
+res://scenes/enemies/yellow_dino.tscn
+res://scenes/enemies/red_dragon.tscn

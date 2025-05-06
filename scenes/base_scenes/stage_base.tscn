@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://cljny4fmsa6p0"]
+[gd_scene load_steps=6 format=3 uid="uid://cljny4fmsa6p0"]
 
 [ext_resource type="Texture2D" uid="uid://dsyf56oya5asg" path="res://assets/RpgBattleSystem/backgrounds/1-night.png" id="1_5vcpi"]
+[ext_resource type="PackedScene" uid="uid://33yfhmffyu87" path="res://scenes/enemies/blue_bat.tscn" id="2_ihe33"]
+[ext_resource type="PackedScene" uid="uid://d1g4pcfy7ymqq" path="res://scenes/enemies/green_boar.tscn" id="3_0fsvo"]
+[ext_resource type="PackedScene" uid="uid://bop258dqw5sis" path="res://scenes/enemies/yellow_dino.tscn" id="4_lului"]
+[ext_resource type="PackedScene" uid="uid://bqu0l8l0tkwx5" path="res://scenes/enemies/red_dragon.tscn" id="5_yidlo"]
 
 [node name="StageBase" type="Control"]
 layout_mode = 3
@@ -19,3 +23,29 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_5vcpi")
 expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_right = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="BlueBat" parent="Background/HBoxContainer" instance=ExtResource("2_ihe33")]
+layout_mode = 2
+
+[node name="GreenBoar" parent="Background/HBoxContainer" instance=ExtResource("3_0fsvo")]
+layout_mode = 2
+
+[node name="YellowDino" parent="Background/HBoxContainer" instance=ExtResource("4_lului")]
+layout_mode = 2
+
+[node name="RedDragon" parent="Background/HBoxContainer" instance=ExtResource("5_yidlo")]
+layout_mode = 2

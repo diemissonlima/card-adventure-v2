@@ -1,9 +1,10 @@
-TextureRect
-CharacterBody2D
-HBoxContainer
 Label
+AnimationPlayer
+HBoxContainer
+CharacterBody2D
+Control
+TextureRect
 TextureProgressBar
 CollisionShape2D
 Area2D
-AnimationPlayer
 Sprite2D
