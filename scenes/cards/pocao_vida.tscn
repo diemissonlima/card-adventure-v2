@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtooybw46lmvc"]
+
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/cards/card_base.tscn" id="1_blb6u"]
+[ext_resource type="Texture2D" uid="uid://b6nbn37yq4wte" path="res://assets/Card Sprites/images/potionRed.png" id="3_aql45"]
+[ext_resource type="Texture2D" uid="uid://dxa4u0oim7d2v" path="res://assets/Card Sprites/_Rarity/rarity (2).png" id="4_asjy0"]
+
+[node name="PocaoVida" instance=ExtResource("1_blb6u")]
+card_name = "Poção de Vida"
+card_id = "pocao_vida"
+card_value = 20
+times_used = 1
+card_type = "effect"
+attack_type = "single"
+damage_type = "null"
+status_type = "null"
+
+[node name="Sprite" parent="Background" index="2"]
+offset_left = -81.4444
+offset_top = -107.0
+offset_right = 79.5556
+texture = ExtResource("3_aql45")
+
+[node name="Name" parent="Background/BoxName" index="0"]
+text = "Poção de Vida"
+
+[node name="Type" parent="Background/Type" index="0"]
+text = "Efeito"
+
+[node name="Rarity" parent="Background/BoxDescription" index="0"]
+texture = ExtResource("4_asjy0")
+
+[node name="Description" parent="Background/BoxDescription" index="1"]
+text = "Recupera 20% da vida máxima"

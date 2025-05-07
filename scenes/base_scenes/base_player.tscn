@@ -1,0 +1,158 @@
+[gd_scene load_steps=12 format=3 uid="uid://kocvxnp1iysl"]
+
+[ext_resource type="Texture2D" uid="uid://c7886sytemuui" path="res://assets/RpgBattleSystem/char/paladin/sprite-sheet-b-249x100.png" id="1_3nfye"]
+[ext_resource type="Script" path="res://scripts/base_player.gd" id="1_hw64s"]
+[ext_resource type="Texture2D" uid="uid://7013h4tej6cb" path="res://assets/RpgBattleSystem/HUD/bar/background.png" id="2_iag2b"]
+[ext_resource type="Texture2D" uid="uid://iq5ww53oaivr" path="res://assets/RpgBattleSystem/HUD/bar/red.png" id="3_wyvxk"]
+[ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="4_hvgfi"]
+[ext_resource type="Texture2D" uid="uid://c4ivufdqq72ll" path="res://assets/RpgBattleSystem/HUD/bar/purple.png" id="5_a8ueb"]
+[ext_resource type="Texture2D" uid="uid://bgwcfyp3kr1u8" path="res://assets/Environment/StatusIcon/block.png" id="6_w1mbq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vxohi"]
+font = ExtResource("4_hvgfi")
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_n5mal"]
+line_spacing = 0.0
+font = ExtResource("4_hvgfi")
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lbasa"]
+line_spacing = 0.0
+font = ExtResource("4_hvgfi")
+font_size = 22
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_erupi"]
+radius = 63.3333
+
+[node name="BasePlayer" type="Control" node_paths=PackedStringArray("health_bar", "action_bar", "status_container", "shield_container", "animation") groups=["player"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -340.0
+offset_bottom = -192.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hw64s")
+health_bar = NodePath("CharacterBody2D/HealthBar")
+action_bar = NodePath("CharacterBody2D/ActionBar")
+status_container = NodePath("CharacterBody2D/StatusContainer")
+shield_container = NodePath("CharacterBody2D/ShieldContainer")
+animation = NodePath("CharacterBody2D/Animation")
+max_actions = 4
+actions = 4
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(0.3, 0.3)
+
+[node name="HealthBar" type="TextureProgressBar" parent="CharacterBody2D"]
+custom_minimum_size = Vector2(127, 17)
+offset_left = -86.6667
+offset_top = 56.6667
+offset_right = 40.3333
+offset_bottom = 73.6667
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_iag2b")
+texture_progress = ExtResource("3_wyvxk")
+
+[node name="Label" type="Label" parent="CharacterBody2D/HealthBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -8.50001
+offset_right = 30.0
+offset_bottom = 8.49999
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_vxohi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ActionBar" type="TextureProgressBar" parent="CharacterBody2D"]
+custom_minimum_size = Vector2(127, 17)
+offset_left = -86.6666
+offset_top = 76.6667
+offset_right = 40.3334
+offset_bottom = 93.6667
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_iag2b")
+texture_progress = ExtResource("5_a8ueb")
+
+[node name="Label" type="Label" parent="CharacterBody2D/ActionBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_n5mal")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShieldContainer" type="TextureRect" parent="CharacterBody2D"]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+offset_left = -116.667
+offset_top = 43.3334
+offset_right = -76.6667
+offset_bottom = 83.3334
+texture = ExtResource("6_w1mbq")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CharacterBody2D/ShieldContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_lbasa")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatusContainer" type="HBoxContainer" parent="CharacterBody2D"]
+custom_minimum_size = Vector2(163, 20)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -98.1667
+offset_top = -80.0
+offset_right = 64.8333
+offset_bottom = -60.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Collision" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-23.3333, 3.33333)
+shape = SubResource("CircleShape2D_erupi")
+
+[node name="Sprite" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_3nfye")
+flip_h = true
+hframes = 6
+vframes = 7
+
+[node name="Animation" type="AnimationPlayer" parent="CharacterBody2D"]

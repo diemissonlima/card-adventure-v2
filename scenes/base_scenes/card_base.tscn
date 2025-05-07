@@ -1,0 +1,254 @@
+[gd_scene load_steps=18 format=3 uid="uid://bjekvwsvl0b1h"]
+
+[ext_resource type="Texture2D" uid="uid://r6w31d608bf3" path="res://assets/CardSprites/Minion/minion (1).png" id="1_27dmq"]
+[ext_resource type="Script" path="res://scripts/card_base.gd" id="1_y5r1s"]
+[ext_resource type="Texture2D" uid="uid://bt5eyb6ngcxic" path="res://assets/CardSprites/Minion/minion (5).png" id="2_0ircm"]
+[ext_resource type="Texture2D" uid="uid://crj4co0h4s6wb" path="res://assets/CardSprites/Minion/minion (7).png" id="2_ng1q8"]
+[ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="3_sev07"]
+[ext_resource type="Shader" path="res://scenes/shaders/card_base.gdshader" id="4_gyndk"]
+[ext_resource type="Texture2D" uid="uid://cj57vys2hswus" path="res://assets/CardSprites/Minion/minion (6).png" id="4_wkwiu"]
+[ext_resource type="Texture2D" uid="uid://csde01y82clmp" path="res://assets/CardSprites/Minion/minion (2).png" id="5_lddxl"]
+[ext_resource type="Texture2D" uid="uid://boj36dh0anhjr" path="res://assets/CardSprites/Minion/minion (3).png" id="6_2wc1b"]
+[ext_resource type="Texture2D" uid="uid://byxalfwtbesqh" path="res://assets/CardSprites/Sprites/potionGreen.png" id="7_24cks"]
+[ext_resource type="Texture2D" uid="uid://cnb511x6opq0" path="res://assets/CardSprites/_Rarity/rarity (1).png" id="11_06fk2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u6666"]
+line_spacing = 0.0
+font = ExtResource("3_sev07")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2r8ly"]
+shader = ExtResource("4_gyndk")
+
+[sub_resource type="LabelSettings" id="LabelSettings_darwe"]
+font = ExtResource("3_sev07")
+font_size = 18
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1iluj"]
+line_spacing = 0.0
+font = ExtResource("3_sev07")
+font_size = 14
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e2in4"]
+line_spacing = 0.0
+font = ExtResource("3_sev07")
+font_size = 14
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyeym"]
+size = Vector2(167.778, 257.778)
+
+[node name="CardBase" type="Control" node_paths=PackedStringArray("box_name_label")]
+custom_minimum_size = Vector2(180, 230)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -160.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+mouse_filter = 2
+script = ExtResource("1_y5r1s")
+box_name_label = NodePath("Background/BoxName/Name")
+card_name = "Envenenar"
+
+[node name="Background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(180, 230)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_27dmq")
+expand_mode = 1
+
+[node name="Cost" type="TextureRect" parent="Background"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_top = -17.0
+offset_right = 39.0
+offset_bottom = 23.0
+grow_horizontal = 2
+texture = ExtResource("2_ng1q8")
+expand_mode = 1
+
+[node name="Cost" type="Label" parent="Background/Cost"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -16.2778
+offset_right = 3.0
+offset_bottom = 0.722229
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_u6666")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardBg" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -102.0
+offset_right = 77.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_0ircm")
+expand_mode = 1
+
+[node name="Sprite" type="TextureRect" parent="Background"]
+material = SubResource("ShaderMaterial_2r8ly")
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -99.0
+offset_right = 75.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_24cks")
+expand_mode = 1
+
+[node name="BoxName" type="TextureRect" parent="Background"]
+layout_mode = 0
+offset_left = -35.0
+offset_top = -16.0
+offset_right = 204.0
+offset_bottom = 57.0
+texture = ExtResource("4_wkwiu")
+expand_mode = 1
+
+[node name="Name" type="Label" parent="Background/BoxName"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.0
+offset_top = -15.3889
+offset_right = 28.0
+offset_bottom = 1.61111
+grow_horizontal = 2
+grow_vertical = 2
+text = "Envenenar"
+label_settings = SubResource("LabelSettings_darwe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Type" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -58.0
+offset_top = -50.0
+offset_right = 54.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("6_2wc1b")
+expand_mode = 1
+
+[node name="Type" type="Label" parent="Background/Type"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -6.5
+offset_right = 0.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Técnica"
+label_settings = SubResource("LabelSettings_1iluj")
+
+[node name="BoxDescription" type="TextureRect" parent="Background"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = -4.0
+offset_right = 92.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_lddxl")
+expand_mode = 1
+
+[node name="Rarity" type="TextureRect" parent="Background/BoxDescription"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -10.0
+offset_top = 15.0
+offset_right = 10.0
+offset_bottom = 35.0
+grow_horizontal = 2
+texture = ExtResource("11_06fk2")
+expand_mode = 1
+
+[node name="Description" type="Label" parent="Background/BoxDescription"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -26.0
+offset_right = 57.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Aplica 1 de Veneno"
+label_settings = SubResource("LabelSettings_e2in4")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Area" type="Area2D" parent="."]
+show_behind_parent = true
+
+[node name="Collision" type="CollisionShape2D" parent="Area"]
+position = Vector2(89.4445, 114.444)
+shape = SubResource("RectangleShape2D_iyeym")
+
+[connection signal="mouse_entered" from="Area" to="." method="_on_area_mouse_entered"]
+[connection signal="mouse_exited" from="Area" to="." method="_on_area_mouse_exited"]

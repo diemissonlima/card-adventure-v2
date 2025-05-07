@@ -1,4 +1,6 @@
-res://scenes/enemies
 res://scenes/base_scenes
 res://scripts
+res://scenes/actors
+res://scenes/shaders
+res://scenes/enemies
 res://scenes

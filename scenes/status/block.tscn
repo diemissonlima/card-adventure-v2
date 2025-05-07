@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://6u6m5v63sefm"]
+
+[ext_resource type="PackedScene" uid="uid://dnaoyo4xpa2we" path="res://scenes/base_scenes/base_status.tscn" id="1_eju2a"]
+[ext_resource type="Texture2D" uid="uid://c0h3j3ge7ggq0" path="res://assets/Environment/StatusIcon/block1.png" id="2_xkkup"]
+
+
+[node name="Block" instance=ExtResource("1_eju2a")]
+texture = ExtResource("2_xkkup")
+status_name = "block"
+
+[node name="Durability" parent="." index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -25.0
+offset_right = 3.0
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 2

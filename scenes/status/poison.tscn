@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvs1cw3lc4bhp"]
+
+[ext_resource type="PackedScene" uid="uid://dnaoyo4xpa2we" path="res://scenes/base_scenes/base_status.tscn" id="1_10wki"]
+
+[node name="Poison" instance=ExtResource("1_10wki")]
+offset_right = 20.0
+offset_bottom = 20.0
+status_name = "poison"
+status_modifier = 15
+status_description = "Causa dano de veneno de 15% da vida máxima"
+
+[node name="Durability" parent="." index="0"]
+offset_left = -1.5
+offset_right = 3.5
+text = "1"

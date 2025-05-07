@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmit550isx4br"]
+
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/cards/card_base.tscn" id="1_inhgi"]
+[ext_resource type="Texture2D" uid="uid://biktkbg7nnsp5" path="res://assets/Card Sprites/Minion/Alternate (3).png" id="2_knrnv"]
+[ext_resource type="Texture2D" uid="uid://dbx3gw7x3xrra" path="res://assets/Card Sprites/images/axeDouble3.png" id="3_dv4oh"]
+[ext_resource type="Texture2D" uid="uid://cnb511x6opq0" path="res://assets/Card Sprites/_Rarity/rarity (1).png" id="4_dm483"]
+
+[node name="CorteTornado" instance=ExtResource("1_inhgi")]
+card_name = "Corte Tornado"
+card_id = "corte_tornado"
+card_value = 3
+times_used = 1
+card_type = "attack"
+attack_type = "multiple"
+damage_type = "physical"
+status_type = "null"
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_knrnv")
+
+[node name="Sprite" parent="Background" index="2"]
+offset_left = -73.6667
+offset_top = -103.111
+offset_right = 71.3333
+offset_bottom = 21.8889
+texture = ExtResource("3_dv4oh")
+
+[node name="Name" parent="Background/BoxName" index="0"]
+text = "Corte Tornado"
+
+[node name="Type" parent="Background/Type" index="0"]
+text = "Ataque"
+
+[node name="Rarity" parent="Background/BoxDescription" index="0"]
+texture = ExtResource("4_dm483")
+
+[node name="Description" parent="Background/BoxDescription" index="1"]
+text = "Cause 3 em todos os inimigos"

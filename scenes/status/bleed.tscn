@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpnuffhqs3q1p"]
+
+[ext_resource type="PackedScene" uid="uid://dnaoyo4xpa2we" path="res://scenes/base_scenes/base_status.tscn" id="1_kqeu6"]
+
+
+[node name="Bleed" instance=ExtResource("1_kqeu6")]
+status_name = 3
+status_description = "Dano se sangramento"

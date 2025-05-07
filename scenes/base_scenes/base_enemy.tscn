@@ -27,7 +27,7 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vg212"]
 font = ExtResource("7_6rlwq")
-font_size = 26
+font_size = 22
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
@@ -38,12 +38,13 @@ font_size = 12
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
-[node name="BaseEnemy" type="Control" node_paths=PackedStringArray("health_bar", "health_bar_label", "animation", "status_container", "action_ballon", "action_ballon_icon", "action_ballon_label", "shield_container", "shield_container_label", "enemy_name_label")]
+[node name="BaseEnemy" type="Control" node_paths=PackedStringArray("health_bar", "health_bar_label", "health_bar_cursor", "animation", "status_container", "action_ballon", "action_ballon_icon", "action_ballon_label", "shield_container", "shield_container_label", "enemy_name_label") groups=["enemy"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_yprrd")
 health_bar = NodePath("CharacterBody2D/HealthBar")
 health_bar_label = NodePath("CharacterBody2D/HealthBar/Label")
+health_bar_cursor = NodePath("CharacterBody2D/HealthBar/Cursor")
 animation = NodePath("CharacterBody2D/Animation")
 status_container = NodePath("CharacterBody2D/StatusContainer")
 action_ballon = NodePath("CharacterBody2D/ActionBallon")
@@ -111,9 +112,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -20.0
-offset_top = -72.5714
+offset_top = -205.905
 offset_right = 20.0
-offset_bottom = -32.5714
+offset_bottom = -165.905
 grow_horizontal = 2
 texture = ExtResource("3_y5s4n")
 
@@ -125,10 +126,10 @@ flip_h = true
 
 [node name="StatusContainer" type="HBoxContainer" parent="CharacterBody2D"]
 custom_minimum_size = Vector2(163, 20)
-offset_left = -77.1429
-offset_top = -102.857
-offset_right = 85.8571
-offset_bottom = -82.8568
+offset_left = -83.0
+offset_top = 73.3333
+offset_right = 80.0
+offset_bottom = 93.3335
 alignment = 1
 
 [node name="ActionBallon" type="TextureRect" parent="CharacterBody2D"]
@@ -165,11 +166,11 @@ vertical_alignment = 1
 
 [node name="ShieldContainer" type="TextureRect" parent="CharacterBody2D"]
 visible = false
-custom_minimum_size = Vector2(45, 45)
-offset_left = -20.0
-offset_top = -24.0
-offset_right = 25.0
-offset_bottom = 21.0
+custom_minimum_size = Vector2(40, 40)
+offset_left = -93.3334
+offset_top = 36.0
+offset_right = -53.3334
+offset_bottom = 76.0
 texture = ExtResource("8_qrc2q")
 expand_mode = 1
 
@@ -180,16 +181,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -10.0
-offset_top = -13.5
-offset_right = 10.0
-offset_bottom = 13.5
+offset_left = -8.5
+offset_top = -11.5
+offset_right = 8.5
+offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "15"
 label_settings = SubResource("LabelSettings_vg212")
 
 [node name="EnemyName" type="Label" parent="CharacterBody2D"]
+visible = false
 offset_left = -63.0
 offset_top = 70.0
 offset_right = 60.0
@@ -197,3 +199,6 @@ offset_bottom = 89.0
 label_settings = SubResource("LabelSettings_nfoec")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="mouse_entered" from="CharacterBody2D/DetectionArea" to="." method="_on_detection_area_mouse_entered"]
+[connection signal="mouse_exited" from="CharacterBody2D/DetectionArea" to="." method="_on_detection_area_mouse_exited"]

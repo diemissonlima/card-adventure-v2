@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://ybtkpxeq10qb"]
+
+[ext_resource type="PackedScene" uid="uid://dnaoyo4xpa2we" path="res://scenes/base_scenes/base_status.tscn" id="1_8br8i"]
+[ext_resource type="Texture2D" uid="uid://cv0qmtyeuvd3o" path="res://assets/Environment/StatusIcon/debuff.png" id="2_3a4ff"]
+
+[node name="Weaken" instance=ExtResource("1_8br8i")]
+texture = ExtResource("2_3a4ff")
+status_name = "weaken"
+status_modifier = 50
+status_description = "Diminui o ataque em 50%"

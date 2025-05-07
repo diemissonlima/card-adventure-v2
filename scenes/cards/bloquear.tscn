@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtatnbdnkts1e"]
+
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_vq25s"]
+[ext_resource type="Texture2D" uid="uid://7srifpev2ue2" path="res://assets/CardSprites/Minion/Alternate (2).png" id="2_ltwit"]
+[ext_resource type="Texture2D" uid="uid://b01ndeeun3a61" path="res://assets/CardSprites/Sprites/shield1.png" id="3_raxxf"]
+[ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="4_sjo25"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pct71"]
+font = ExtResource("4_sjo25")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gri3d"]
+line_spacing = 0.0
+font = ExtResource("4_sjo25")
+font_size = 14
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Bloquear" instance=ExtResource("1_vq25s")]
+card_name = "Bloquear"
+card_id = "bloquear"
+card_value = 5
+times_used = 1
+card_type = "defense"
+attack_type = "single"
+damage_type = "null"
+status_type = "block"
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_ltwit")
+
+[node name="Cost" parent="Background/Cost" index="0"]
+text = "1"
+
+[node name="CardBg" parent="Background" index="1"]
+offset_left = -74.0
+offset_right = 76.0
+
+[node name="Sprite" parent="Background" index="2"]
+texture = ExtResource("3_raxxf")
+
+[node name="Name" parent="Background/BoxName" index="0"]
+text = "Shield"
+label_settings = SubResource("LabelSettings_pct71")
+
+[node name="Type" parent="Background/Type" index="0"]
+text = "Defesa"
+label_settings = SubResource("LabelSettings_gri3d")
+
+[node name="Description" parent="Background/BoxDescription" index="1"]
+text = "Ganhe 5 de defesa"

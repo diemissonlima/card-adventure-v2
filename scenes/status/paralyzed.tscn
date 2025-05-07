@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb0wvmp73w3ta"]
+
+[ext_resource type="PackedScene" uid="uid://dnaoyo4xpa2we" path="res://scenes/base_scenes/base_status.tscn" id="1_frx4h"]
+
+
+[node name="Paralyzed" instance=ExtResource("1_frx4h")]
+status_name = 2
+status_description = "Paralizado, não pode atacar!"

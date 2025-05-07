@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://brl3a0q4vyq4"]
+
+[ext_resource type="PackedScene" uid="uid://dnaoyo4xpa2we" path="res://scenes/base_scenes/base_status.tscn" id="1_d8t77"]
+[ext_resource type="Texture2D" uid="uid://bgm28l6ts4cth" path="res://assets/Environment/StatusIcon/upar.png" id="2_4d2nm"]
+
+[node name="Strength" instance=ExtResource("1_d8t77")]
+texture = ExtResource("2_4d2nm")
+status_name = "strength"
+status_modifier = 20
+status_description = "Aumenta o ataque em 20%"
+
+[node name="Durability" parent="." index="0"]
+offset_top = -34.0
+offset_bottom = -20.0

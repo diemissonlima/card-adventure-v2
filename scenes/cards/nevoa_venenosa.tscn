@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://co01u1vc66ptm"]
+
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/cards/card_base.tscn" id="1_182um"]
+[ext_resource type="Texture2D" uid="uid://wqqma8eb720y" path="res://assets/Card Sprites/Minion/Alternate (1).png" id="2_vfvej"]
+[ext_resource type="Texture2D" uid="uid://byxalfwtbesqh" path="res://assets/Card Sprites/images/potionGreen.png" id="3_jmyul"]
+[ext_resource type="Texture2D" uid="uid://dxa4u0oim7d2v" path="res://assets/Card Sprites/_Rarity/rarity (2).png" id="4_b84fs"]
+
+[node name="NevoaVenenosa" instance=ExtResource("1_182um")]
+card_name = "Nevoa Venenosa"
+card_id = "nevoa_venenosa"
+times_used = 1
+card_type = "technique"
+attack_type = "multiple"
+damage_type = "status"
+status_type = "poison"
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_vfvej")
+
+[node name="Sprite" parent="Background" index="2"]
+texture = ExtResource("3_jmyul")
+
+[node name="Type" parent="Background/Type" index="0"]
+text = "Técnica"
+
+[node name="Rarity" parent="Background/BoxDescription" index="0"]
+texture = ExtResource("4_b84fs")
+
+[node name="Description" parent="Background/BoxDescription" index="1"]
+text = "Aplica 1 de veneno em todos os inimigos"

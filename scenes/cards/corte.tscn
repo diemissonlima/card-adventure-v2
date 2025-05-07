@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://b82hcmn5etb15"]
+
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/cards/card_base.tscn" id="1_kju07"]
+[ext_resource type="Texture2D" uid="uid://biktkbg7nnsp5" path="res://assets/Card Sprites/Minion/Alternate (3).png" id="2_teh1m"]
+[ext_resource type="Texture2D" uid="uid://br2f0nihrdnvf" path="res://assets/Card Sprites/images/sword1.png" id="3_rn7v5"]
+[ext_resource type="Texture2D" uid="uid://cnb511x6opq0" path="res://assets/Card Sprites/_Rarity/rarity (1).png" id="4_jaofw"]
+
+[node name="Corte" instance=ExtResource("1_kju07")]
+card_name = "Corte"
+card_id = "corte"
+card_value = 5
+times_used = 1
+card_type = "attack"
+attack_type = "single"
+damage_type = "physical"
+status_type = "null"
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_teh1m")
+
+[node name="Cost" parent="Background/Cost" index="0"]
+text = "1"
+
+[node name="CardBg" parent="Background" index="1"]
+offset_left = -73.0
+offset_right = 73.0
+
+[node name="Sprite" parent="Background" index="2"]
+offset_left = -79.0
+offset_top = -101.0
+offset_right = 73.0
+offset_bottom = 31.0
+texture = ExtResource("3_rn7v5")
+
+[node name="Name" parent="Background/BoxName" index="0"]
+offset_left = -26.0
+offset_top = -15.5
+offset_right = 30.0
+offset_bottom = 1.5
+text = "Sword"
+
+[node name="Type" parent="Background/Type" index="0"]
+text = "Ataque"
+
+[node name="Rarity" parent="Background/BoxDescription" index="0"]
+texture = ExtResource("4_jaofw")
+
+[node name="Description" parent="Background/BoxDescription" index="1"]
+text = "Cause 5 de dano"
