@@ -56,11 +56,10 @@ enemy_name_label = NodePath("CharacterBody2D/EnemyName")
 max_health = 150
 health = 150
 range_damage = Array[int]([5, 15])
-actions_list = Array[String](["attack", "defense", "poison"])
 actions_list_icons = {
 "attack": "res://assets/Environment/StatusIcon/ataque.png",
 "defense": "res://assets/Environment/StatusIcon/block.png",
-"poison": "res://assets/Environment/StatusIcon/poison.png"
+"poison": "res://assets/Environment/StatusIcon2/poison_1_small.png"
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
@@ -148,23 +147,24 @@ expand_mode = 1
 
 [node name="Icon" type="TextureRect" parent="CharacterBody2D/ActionBallon"]
 layout_mode = 0
-offset_left = 27.8095
-offset_top = 23.3333
-offset_right = 52.8095
-offset_bottom = 48.3333
+offset_left = 24.4762
+offset_top = 20.0
+offset_right = 49.4762
+offset_bottom = 45.0
 expand_mode = 1
 
 [node name="Label" type="Label" parent="CharacterBody2D/ActionBallon"]
 layout_mode = 0
 offset_left = 58.6666
 offset_top = 19.3333
-offset_right = 73.6666
+offset_right = 59.6666
 offset_bottom = 46.3333
 label_settings = SubResource("LabelSettings_n6yf8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ShieldContainer" type="TextureRect" parent="CharacterBody2D"]
+visible = false
 custom_minimum_size = Vector2(40, 40)
 offset_left = -93.3334
 offset_top = 36.0
@@ -180,13 +180,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -8.5
+offset_left = -0.5
 offset_top = -11.5
-offset_right = 8.5
+offset_right = 0.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "15"
 label_settings = SubResource("LabelSettings_vg212")
 
 [node name="EnemyName" type="Label" parent="CharacterBody2D"]
@@ -201,3 +200,4 @@ vertical_alignment = 1
 
 [connection signal="mouse_entered" from="CharacterBody2D/DetectionArea" to="." method="_on_detection_area_mouse_entered"]
 [connection signal="mouse_exited" from="CharacterBody2D/DetectionArea" to="." method="_on_detection_area_mouse_exited"]
+[connection signal="animation_finished" from="CharacterBody2D/Animation" to="." method="_on_animation_animation_finished"]

@@ -1,14 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxw4qw086pg3x"]
+[gd_scene load_steps=4 format=3 uid="uid://bxw4qw086pg3x"]
 
-[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/cards/card_base.tscn" id="1_a8wi0"]
-[ext_resource type="Texture2D" uid="uid://biktkbg7nnsp5" path="res://assets/Card Sprites/Minion/Alternate (3).png" id="2_vyl53"]
-[ext_resource type="Texture2D" uid="uid://dum7t1y0br321" path="res://assets/Card Sprites/images/sword2.png" id="3_mfoa7"]
-[ext_resource type="Texture2D" uid="uid://cnb511x6opq0" path="res://assets/Card Sprites/_Rarity/rarity (1).png" id="4_8qeq0"]
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_a8wi0"]
+[ext_resource type="Texture2D" uid="uid://biktkbg7nnsp5" path="res://assets/CardSprites/Minion/Alternate (3).png" id="2_vyl53"]
+[ext_resource type="Texture2D" uid="uid://dum7t1y0br321" path="res://assets/CardSprites/Sprites/sword2.png" id="3_mfoa7"]
 
 [node name="CorteDuplo" instance=ExtResource("1_a8wi0")]
 card_name = "Corte Duplo"
 card_id = "corte_duplo"
-card_value = 5
+card_value = 6
 times_used = 2
 card_type = "attack"
 attack_type = "single"
@@ -38,9 +37,6 @@ text = "Corte Duplo"
 [node name="Type" parent="Background/Type" index="0"]
 text = "Ataque"
 
-[node name="Rarity" parent="Background/BoxDescription" index="0"]
-texture = ExtResource("4_8qeq0")
-
 [node name="Description" parent="Background/BoxDescription" index="1"]
-text = "Cause 5 de dano 2x
+text = "Cause 6 de dano 2x
 Fúria +1"

@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 CardFactory="*res://scripts/card_factory.gd"
+DeckManagement="*res://scripts/deck_management.gd"
 
 [display]
 

@@ -26,8 +26,7 @@ var is_strengthened: bool = false
 
 func _ready() -> void:
 	init_bar()
-	send_deck_to_battlefield()
-	animation.play("idle")
+	play_animation("idle")
 
 
 func init_bar() -> void:
@@ -57,28 +56,25 @@ func update_bar(type: String) -> void:
 				shield_container.visible = false
 
 
-# envia o deck para o battlefield
-func send_deck_to_battlefield() -> void:
-	var deck: Array = deck_list.duplicate()
-	get_tree().call_group("player_hand", "get_player_deck", deck)
-
-
 # função que recebe o dano
 func take_damage(value: int, type: String) -> void:
 	if shield > 0 and type == "physical":
 		if value <= shield:
 			shield -= value
-			update_bar("health")
+			update_bar("shield")
 			return
 		else:
 			var leftover = value - shield
 			shield = 0
 			health -= leftover
+			update_bar("shield")
 			update_bar("health")
+			play_animation("hit")
 			return
 	
 	health -= value
 	update_bar("health")
+	play_animation("hit")
 
 
 # aplica o efeito da carta
@@ -93,6 +89,7 @@ func apply_card_effect(card: Control) -> void:
 			health += 20 # na verdade é pra calcular com base na vida maxima, corrigir depois
 			if health > max_health:
 				health = max_health
+			update_bar("health")
 		
 		if card.card_id == "fortalecer":
 			calculate_bonus_damage(card.card_value)
@@ -107,13 +104,13 @@ func apply_status(type: String) -> void:
 	if status_container.get_child_count() <= 5:
 		match type:
 			"poison":
-				status_instance = ""#preload("res://scenes/status/poison.tscn")
+				status_instance = preload("res://scenes/status/poison.tscn")
 			
 			"paralyzed":
 				pass
 			
 			"strength":
-				status_instance = ""#preload("res://scenes/status/strength.tscn")
+				status_instance = preload("res://scenes/status/strength.tscn")
 		
 		# verificar se status aplicado ja existe no player
 		for status in status_container.get_children():
@@ -176,3 +173,16 @@ func manage_action_points(quantity: int, type: String) -> void:
 			actions -= quantity
 	
 	update_bar("action")
+
+
+func play_animation(anim_name: String) -> void:
+	animation.play(anim_name)
+
+
+func _on_animation_animation_finished(anim_name: StringName) -> void:
+	match anim_name:
+		"hit":
+			play_animation("idle")
+		
+		"attack":
+			play_animation("idle")

@@ -21,6 +21,7 @@ class_name BaseEnemy
 @export var damage: int
 @export var range_damage: Array[int]
 @export var shield: int
+@export var attack_animation_time: float
 # essas duas variaveis sao usadas somente no action ballon
 @export var actions_list: Array[String]
 @export var actions_list_icons: Dictionary
@@ -44,13 +45,16 @@ func init_bar() -> void:
 	health_bar_label.text = str(health) + " / " + str(max_health)
 
 
-func update_bar() -> void:
-	health_bar.value = health
-	health_bar_label.text = str(health) + " / " + str(max_health)
-	
-	shield_container_label.text = str(shield)
-	if shield <= 0:
-		shield_container.visible = false
+func update_bar(type: String) -> void:
+	match type:
+		"health":
+			health_bar.value = health
+			health_bar_label.text = str(health) + " / " + str(max_health)
+		
+		"shield":
+			shield_container_label.text = str(shield)
+			if shield <= 0:
+				shield_container.visible = false
 
 
 func get_action() -> void:
@@ -67,8 +71,8 @@ func get_action() -> void:
 			action_ballon_label.text = str(damage)
 			
 		"defense":
-			shield = randi_range(5, 10)
-			action_ballon_label.text = str(shield)
+			shield_value = randi_range(5, 10)
+			action_ballon_label.text = str(shield_value)
 			
 		"poison":
 			action_ballon_label.text = "1"
@@ -80,21 +84,22 @@ func take_damage(value: int, times_used: int, damage_type: String) -> void:
 	if shield > 0 and damage_type == "physical": # se tiver escudo e o ataque for fisico
 		if new_damage <= shield: # dano menor ou igual ao escudo
 			shield -= new_damage
-			update_bar()
+			update_bar("shield")
 			return
 			
 		else: # dano maior que o escudo
 			var leftover = new_damage - shield
 			shield = 0
 			health -= leftover
-			update_bar()
+			update_bar("shield")
+			update_bar("health")
 			play_animation("hit")
 			
 			if health <= 0:
 				health = 0
 				kill()
 			
-			update_bar()
+			update_bar("health")
 			return
 	
 	# dano aplicado normal, sem a influencia do escudo
@@ -106,18 +111,21 @@ func take_damage(value: int, times_used: int, damage_type: String) -> void:
 		damage = 0
 		kill()
 	
-	update_bar()
+	update_bar("health")
 
 
-func apply_card_effect(card: Control, player_damage: int) -> void:
-	var damage_caused: int = player_damage + card.card_value
-	
+func apply_card_effect(card: Control, is_strengthened: bool = false) -> void:
 	if card.card_type == "attack" and card.attack_type == "single":
-		take_damage(damage_caused, card.times_used, card.damage_type)
+		if is_strengthened:
+			var damage: int = card.card_value + (card.card_value * 25 / 100)
+			take_damage(damage, card.times_used, card.damage_type)
+			return
+		
+		take_damage(card.card_value, card.times_used, card.damage_type)
 	
 	elif card.card_type == "attack" and card.attack_type == "multiple":
 		for enemy in get_tree().get_nodes_in_group("enemy"):
-			enemy.take_damage(damage_caused, card.times_used, card.damage_type)
+			enemy.take_damage(card.card_value, card.times_used, card.damage_type)
 			
 	elif card.card_type == "technique": # carta de tecnica
 		if card.attack_type == "multiple":
@@ -242,3 +250,18 @@ func _on_detection_area_mouse_entered() -> void:
 func _on_detection_area_mouse_exited() -> void:
 	enemy_name_label.visible = false
 	status_container.visible = true
+
+
+func _on_animation_animation_finished(anim_name: StringName) -> void:
+	match anim_name:
+		"hit":
+			play_animation("idle")
+		
+		"death":
+			queue_free()
+		
+		"attack":
+			play_animation("idle")
+		
+		"armor":
+			play_animation("idle")

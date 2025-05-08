@@ -82,9 +82,9 @@ vertical_alignment = 1
 [node name="ActionBar" type="TextureProgressBar" parent="CharacterBody2D"]
 custom_minimum_size = Vector2(127, 17)
 offset_left = -86.6666
-offset_top = 76.6667
+offset_top = 80.0001
 offset_right = 40.3334
-offset_bottom = 93.6667
+offset_bottom = 97.0001
 value = 50.0
 nine_patch_stretch = true
 texture_under = ExtResource("2_iag2b")
@@ -157,3 +157,5 @@ hframes = 6
 vframes = 7
 
 [node name="Animation" type="AnimationPlayer" parent="CharacterBody2D"]
+
+[connection signal="animation_finished" from="CharacterBody2D/Animation" to="." method="_on_animation_animation_finished"]

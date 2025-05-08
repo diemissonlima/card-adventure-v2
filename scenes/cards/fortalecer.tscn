@@ -1,13 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxax4ly22xg42"]
+[gd_scene load_steps=3 format=3 uid="uid://bxax4ly22xg42"]
 
-[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/cards/card_base.tscn" id="1_hr7cu"]
-[ext_resource type="Texture2D" uid="uid://bgm28l6ts4cth" path="res://assets/Environment/status_icon/upar.png" id="2_123wf"]
-[ext_resource type="Texture2D" uid="uid://cnb511x6opq0" path="res://assets/Card Sprites/_Rarity/rarity (1).png" id="3_sqqtf"]
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_hr7cu"]
+[ext_resource type="Texture2D" uid="uid://bgm28l6ts4cth" path="res://assets/Environment/StatusIcon/upar.png" id="2_123wf"]
 
 [node name="Fortalecer" instance=ExtResource("1_hr7cu")]
 card_name = "Fortalecer"
 card_id = "fortalecer"
-card_value = 20
+card_value = 25
 times_used = 1
 card_type = "effect"
 attack_type = "single"
@@ -26,9 +25,6 @@ text = "Fortalecer"
 
 [node name="Type" parent="Background/Type" index="0"]
 text = "Efeito"
-
-[node name="Rarity" parent="Background/BoxDescription" index="0"]
-texture = ExtResource("3_sqqtf")
 
 [node name="Description" parent="Background/BoxDescription" index="1"]
 text = "Recebe 1 Fortalecer

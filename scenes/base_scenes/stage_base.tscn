@@ -1,14 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cljny4fmsa6p0"]
+[gd_scene load_steps=8 format=3 uid="uid://cljny4fmsa6p0"]
 
 [ext_resource type="Texture2D" uid="uid://dsyf56oya5asg" path="res://assets/RpgBattleSystem/backgrounds/1-night.png" id="1_5vcpi"]
 [ext_resource type="Script" path="res://scripts/base_stage.gd" id="1_kfegb"]
-[ext_resource type="PackedScene" uid="uid://33yfhmffyu87" path="res://scenes/enemies/blue_bat.tscn" id="2_ihe33"]
-[ext_resource type="PackedScene" uid="uid://d1g4pcfy7ymqq" path="res://scenes/enemies/green_boar.tscn" id="4_4m87y"]
 [ext_resource type="Script" path="res://scripts/player_hand.gd" id="5_1pqeo"]
-[ext_resource type="PackedScene" uid="uid://ctky86khn3c1u" path="res://scenes/cards/enfraquecer.tscn" id="6_gsnjg"]
-[ext_resource type="PackedScene" uid="uid://crv7tvlexkjfp" path="res://scenes/cards/corte_rapido.tscn" id="7_58bn1"]
-[ext_resource type="PackedScene" uid="uid://dtooybw46lmvc" path="res://scenes/cards/pocao_vida.tscn" id="7_c7kad"]
-[ext_resource type="PackedScene" uid="uid://d0kx5nbit6m0k" path="res://scenes/cards/envenenar.tscn" id="7_uo0b4"]
 [ext_resource type="PackedScene" uid="uid://cg2uhy05x8km4" path="res://scenes/actors/paladin.tscn" id="11_fcmlu"]
 [ext_resource type="Texture2D" uid="uid://bojbgjlb0ypih" path="res://assets/CardSprites/Card Back/_experimental (1).png" id="12_0usm0"]
 [ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="13_fp2ub"]
@@ -20,7 +14,7 @@ font_size = 10
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[node name="StageBase" type="Control" node_paths=PackedStringArray("end_turn_button", "deck_size", "discard_pile_size", "player") groups=["stage"]]
+[node name="StageBase" type="Control" node_paths=PackedStringArray("end_turn_button", "player_hand", "deck_size", "discard_pile_size", "player") groups=["stage"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,6 +24,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_kfegb")
 end_turn_button = NodePath("EndTurn")
+player_hand = NodePath("Background/PlayerHand")
 deck_size = NodePath("Background/Deck/Label")
 discard_pile_size = NodePath("Background/Discard/Label")
 player = NodePath("Background/Paladin")
@@ -60,12 +55,6 @@ grow_vertical = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="BlueBat" parent="Background/Enemies" instance=ExtResource("2_ihe33")]
-layout_mode = 2
-
-[node name="GreenBoar" parent="Background/Enemies" instance=ExtResource("4_4m87y")]
-layout_mode = 2
-
 [node name="PlayerHand" type="HBoxContainer" parent="Background" groups=["player_hand"]]
 layout_mode = 0
 offset_left = 63.0
@@ -77,18 +66,6 @@ theme_override_constants/separation = 10
 alignment = 1
 script = ExtResource("5_1pqeo")
 hand_size = 4
-
-[node name="Enfraquecer" parent="Background/PlayerHand" instance=ExtResource("6_gsnjg")]
-layout_mode = 2
-
-[node name="Envenenar" parent="Background/PlayerHand" instance=ExtResource("7_uo0b4")]
-layout_mode = 2
-
-[node name="PocaoVida" parent="Background/PlayerHand" instance=ExtResource("7_c7kad")]
-layout_mode = 2
-
-[node name="CorteRapido" parent="Background/PlayerHand" instance=ExtResource("7_58bn1")]
-layout_mode = 2
 
 [node name="Paladin" parent="Background" instance=ExtResource("11_fcmlu")]
 layout_mode = 1
@@ -176,3 +153,5 @@ theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("13_fp2ub")
 theme_override_font_sizes/font_size = 6
 text = "End Turn"
+
+[connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]

@@ -8,17 +8,17 @@ var aux_deck: Array = []
 var discard_pile: Array = []
 
 
-func get_player_deck(deck: Array) -> void:
-	player_deck = deck.duplicate()
+func get_player_deck() -> void:
+	player_deck = DeckManagement.decks["paladin"].duplicate()
 	aux_deck = player_deck.duplicate()
 	
 	player_deck.shuffle()
 	
-	#for j in range(hand_size):
-		#var index: int = randi() % player_deck.size()
-		#var card = player_deck[index]
-		#add_card_to_hand(card)
-		#player_deck.remove_at(index)
+	for j in range(hand_size):
+		var index: int = randi() % player_deck.size()
+		var card = player_deck[index]
+		add_card_to_hand(card)
+		player_deck.remove_at(index)
 
 
 func add_card_to_hand(card: String) -> void:
