@@ -1,5 +1,5 @@
-res://scenes/base_scenes
 res://scripts
+res://scenes/base_scenes
 res://scenes/actors
 res://scenes/shaders
 res://scenes/enemies

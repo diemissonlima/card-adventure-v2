@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cljny4fmsa6p0"]
+[gd_scene load_steps=14 format=3 uid="uid://cljny4fmsa6p0"]
 
 [ext_resource type="Texture2D" uid="uid://dsyf56oya5asg" path="res://assets/RpgBattleSystem/backgrounds/1-night.png" id="1_5vcpi"]
 [ext_resource type="Script" path="res://scripts/base_stage.gd" id="1_kfegb"]
 [ext_resource type="PackedScene" uid="uid://33yfhmffyu87" path="res://scenes/enemies/blue_bat.tscn" id="2_ihe33"]
+[ext_resource type="PackedScene" uid="uid://d1g4pcfy7ymqq" path="res://scenes/enemies/green_boar.tscn" id="4_4m87y"]
+[ext_resource type="Script" path="res://scripts/player_hand.gd" id="5_1pqeo"]
 [ext_resource type="PackedScene" uid="uid://ctky86khn3c1u" path="res://scenes/cards/enfraquecer.tscn" id="6_gsnjg"]
 [ext_resource type="PackedScene" uid="uid://crv7tvlexkjfp" path="res://scenes/cards/corte_rapido.tscn" id="7_58bn1"]
 [ext_resource type="PackedScene" uid="uid://dtooybw46lmvc" path="res://scenes/cards/pocao_vida.tscn" id="7_c7kad"]
@@ -42,7 +44,7 @@ grow_vertical = 2
 texture = ExtResource("1_5vcpi")
 expand_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Background"]
+[node name="Enemies" type="HBoxContainer" parent="Background"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -58,10 +60,13 @@ grow_vertical = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="BlueBat" parent="Background/HBoxContainer" instance=ExtResource("2_ihe33")]
+[node name="BlueBat" parent="Background/Enemies" instance=ExtResource("2_ihe33")]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Background"]
+[node name="GreenBoar" parent="Background/Enemies" instance=ExtResource("4_4m87y")]
+layout_mode = 2
+
+[node name="PlayerHand" type="HBoxContainer" parent="Background" groups=["player_hand"]]
 layout_mode = 0
 offset_left = 63.0
 offset_top = 142.0
@@ -70,17 +75,19 @@ offset_bottom = 372.0
 scale = Vector2(0.25, 0.25)
 theme_override_constants/separation = 10
 alignment = 1
+script = ExtResource("5_1pqeo")
+hand_size = 4
 
-[node name="Enfraquecer" parent="Background/HBoxContainer2" instance=ExtResource("6_gsnjg")]
+[node name="Enfraquecer" parent="Background/PlayerHand" instance=ExtResource("6_gsnjg")]
 layout_mode = 2
 
-[node name="Envenenar" parent="Background/HBoxContainer2" instance=ExtResource("7_uo0b4")]
+[node name="Envenenar" parent="Background/PlayerHand" instance=ExtResource("7_uo0b4")]
 layout_mode = 2
 
-[node name="PocaoVida" parent="Background/HBoxContainer2" instance=ExtResource("7_c7kad")]
+[node name="PocaoVida" parent="Background/PlayerHand" instance=ExtResource("7_c7kad")]
 layout_mode = 2
 
-[node name="CorteRapido" parent="Background/HBoxContainer2" instance=ExtResource("7_58bn1")]
+[node name="CorteRapido" parent="Background/PlayerHand" instance=ExtResource("7_58bn1")]
 layout_mode = 2
 
 [node name="Paladin" parent="Background" instance=ExtResource("11_fcmlu")]
@@ -89,6 +96,7 @@ offset_left = 67.0
 offset_top = 81.0
 offset_right = -273.0
 offset_bottom = -111.0
+deck_list = Array[String]([])
 
 [node name="Deck" type="TextureRect" parent="Background"]
 custom_minimum_size = Vector2(25, 33)

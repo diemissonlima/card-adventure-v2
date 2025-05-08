@@ -165,7 +165,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ShieldContainer" type="TextureRect" parent="CharacterBody2D"]
-visible = false
 custom_minimum_size = Vector2(40, 40)
 offset_left = -93.3334
 offset_top = 36.0

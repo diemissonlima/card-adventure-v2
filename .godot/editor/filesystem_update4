@@ -3,13 +3,6 @@ res://scenes/base_scenes/stage_base.tscn
 res://scenes/base_scenes/base_player.tscn
 res://scenes/base_scenes/card_base.tscn
 res://scenes/base_scenes/base_status.tscn
-res://scripts/base_stage.gd
-res://scripts/base_player.gd
-res://scripts/card_base.gd
-res://scripts/base_enemy.gd
 res://scenes/status/poison.tscn
-res://scenes/status/bleed.tscn
-res://scenes/status/block.tscn
-res://scenes/status/paralyzed.tscn
-res://scenes/status/strength.tscn
 res://scenes/status/weaken.tscn
+res://scripts/player_hand.gd

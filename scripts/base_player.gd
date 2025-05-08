@@ -26,6 +26,7 @@ var is_strengthened: bool = false
 
 func _ready() -> void:
 	init_bar()
+	send_deck_to_battlefield()
 	animation.play("idle")
 
 
