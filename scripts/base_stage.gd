@@ -2,6 +2,7 @@ extends Control
 class_name BaseStage
 
 @export_category("Objetos")
+@export var enemy_container: HBoxContainer
 @export var end_turn_button: Button
 @export var player_hand: HBoxContainer
 
@@ -50,6 +51,20 @@ func on_mouse_area_entered(enemy) -> void:
 func on_mouse_exited() -> void:
 	can_click = false
 	previous_enemy = target_enemy
+
+
+func spawn_enemy(scene_path: String, passive_skill: String) -> void:
+	var enemy_instance = load(scene_path)
+	var enemy_scene = enemy_instance.instantiate()
+	
+	enemy_container.add_child(enemy_scene)
+	var area = enemy_scene.get_node("CharacterBody2D/DetectionArea")
+	area.mouse_entered.connect(on_mouse_area_entered.bind(enemy_scene))
+	area.mouse_exited.connect(on_mouse_exited)
+	enemy_scene.health = enemy_scene.max_health / 2
+	enemy_scene.passive_skill = passive_skill
+	enemy_scene.update_bar("health")
+	enemy_scene.was_reborn = true
 
 
 # pega a carta utilizada pelo player
@@ -128,7 +143,7 @@ func _on_end_turn_pressed() -> void:
 	player_hand.draw_card(4) # compra novas cartas
 	player.actions = 4 # restaura as ações do player
 	player.update_bar("health") # atualizar a barra de vida
-	player.update_bar("actions") # atualiza a barra de acoes
+	player.update_bar("action") # atualiza a barra de acoes
 	player.update_status() # atualiza o status
 	
 	get_new_enemy_action()
@@ -136,6 +151,12 @@ func _on_end_turn_pressed() -> void:
 	await get_tree().create_timer(2.0).timeout
 	end_turn_button.disabled = false
 	end_turn_button.text = "End Turn"
+
+
+func verify_battle_result() -> void:
+	if enemy_container.get_child_count() == 0:
+		print("resultado verificado")
+		get_tree().change_scene_to_file("res://scenes/environments/winner.tscn")
 
 
 func perform_enemy_action(enemy: Control) -> void:

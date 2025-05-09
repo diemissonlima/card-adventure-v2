@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cuxuyrow07n2y"]
+[gd_scene load_steps=15 format=3 uid="uid://cuxuyrow07n2y"]
 
 [ext_resource type="Texture2D" uid="uid://7013h4tej6cb" path="res://assets/RpgBattleSystem/HUD/bar/background.png" id="1_xtwsi"]
 [ext_resource type="Script" path="res://scripts/base_enemy.gd" id="1_yprrd"]
@@ -38,7 +38,13 @@ font_size = 12
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
-[node name="BaseEnemy" type="Control" node_paths=PackedStringArray("health_bar", "health_bar_label", "health_bar_cursor", "animation", "status_container", "action_ballon", "action_ballon_icon", "action_ballon_label", "shield_container", "shield_container_label", "enemy_name_label") groups=["enemy"]]
+[sub_resource type="LabelSettings" id="LabelSettings_i003x"]
+line_spacing = 0.0
+font = ExtResource("7_6rlwq")
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="BaseEnemy" type="Control" node_paths=PackedStringArray("health_bar", "health_bar_label", "health_bar_cursor", "animation", "status_container", "action_ballon", "action_ballon_icon", "action_ballon_label", "shield_container", "shield_container_label", "enemy_name_label", "passive_skill_info") groups=["enemy"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_yprrd")
@@ -53,9 +59,9 @@ action_ballon_label = NodePath("CharacterBody2D/ActionBallon/Label")
 shield_container = NodePath("CharacterBody2D/ShieldContainer")
 shield_container_label = NodePath("CharacterBody2D/ShieldContainer/Label")
 enemy_name_label = NodePath("CharacterBody2D/EnemyName")
+passive_skill_info = NodePath("CharacterBody2D/PassiveSkillInfo")
 max_health = 150
 health = 150
-range_damage = Array[int]([5, 15])
 actions_list_icons = {
 "attack": "res://assets/Environment/StatusIcon/ataque.png",
 "defense": "res://assets/Environment/StatusIcon/block.png",
@@ -197,6 +203,24 @@ offset_bottom = 89.0
 label_settings = SubResource("LabelSettings_nfoec")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PassiveSkillInfo" type="Label" parent="CharacterBody2D"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_top = 100.0
+offset_right = 60.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_i003x")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [connection signal="mouse_entered" from="CharacterBody2D/DetectionArea" to="." method="_on_detection_area_mouse_entered"]
 [connection signal="mouse_exited" from="CharacterBody2D/DetectionArea" to="." method="_on_detection_area_mouse_exited"]

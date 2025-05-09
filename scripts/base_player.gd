@@ -75,6 +75,13 @@ func take_damage(value: int, type: String) -> void:
 	health -= value
 	update_bar("health")
 	play_animation("hit")
+	
+	if health <= 0:
+		kill()
+
+
+func kill() -> void:
+	get_tree().change_scene_to_file("res://scenes/environments/game_over.tscn")
 
 
 # aplica o efeito da carta

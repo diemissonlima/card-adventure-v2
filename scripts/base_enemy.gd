@@ -13,21 +13,26 @@ class_name BaseEnemy
 @export var shield_container: TextureRect
 @export var shield_container_label: Label
 @export var enemy_name_label: Label
+@export var passive_skill_info: Label
 
 @export_category("Variaveis")
 @export var enemy_name: String
+@export var passive_skill: String
 @export var max_health: int
 @export var health: int
 @export var damage: int
-@export var range_damage: Array[int]
 @export var shield: int
 @export var attack_animation_time: float
+@export var scene_path: String
 # essas duas variaveis sao usadas somente no action ballon
 @export var actions_list: Array[String]
 @export var actions_list_icons: Dictionary
 
 var previous_damage: int = 0
 var is_weakened: bool = false
+var tenacity_active: bool = false
+var was_reborn: bool = false
+var battle_thist_count: int = 0
 var action: String = ""
 var shield_value: int = 0
 
@@ -35,6 +40,7 @@ var shield_value: int = 0
 func _ready() -> void:
 	init_bar()
 	get_action()
+	get_passive_skill()
 	play_animation("idle")
 	enemy_name_label.text = enemy_name
 
@@ -57,13 +63,35 @@ func update_bar(type: String) -> void:
 				shield_container.visible = false
 
 
+func get_passive_skill() -> void:
+	var passive_skill_list: Array = [
+		"burning fury", "rock hull", "protective shadows", "tenacity",
+		"final fury", "vital roots", "retaliatory toxin", "battle thirst",
+		"last breath", "rebirthing"
+	]
+	
+	var rng: int = randi() % passive_skill_list.size()
+	passive_skill = passive_skill_list[rng]
+
+
 func get_action() -> void:
 	action = actions_list[randi() % actions_list.size()]
 	action_ballon_icon.texture = load(actions_list_icons[action])
 	
+	if passive_skill == "vital roots":
+		health += 3
+		if health > max_health:
+			health = max_health
+		update_bar("health")
+	
 	match action:
 		"attack":
-			damage = randi_range(range_damage[0], range_damage[1])
+			if passive_skill == "burning fury":
+				damage += 2
+			
+			if passive_skill == "final fury":
+				if health < max_health / 2:
+					damage += 4
 			
 			if is_weakened:
 				damage -= damage / 2
@@ -79,6 +107,14 @@ func get_action() -> void:
 
 
 func take_damage(value: int, times_used: int, damage_type: String) -> void:
+	if passive_skill == "rock hull":
+		value -= 1
+	
+	if passive_skill == "protective shadows":
+		var dodge_chance: int = randi_range(0, 100)
+		if dodge_chance <= 50:
+			return
+	
 	var new_damage: int = value * times_used
 	
 	if shield > 0 and damage_type == "physical": # se tiver escudo e o ataque for fisico
@@ -95,6 +131,9 @@ func take_damage(value: int, times_used: int, damage_type: String) -> void:
 			update_bar("health")
 			play_animation("hit")
 			
+			if passive_skill == "retaliatory toxin":
+				get_tree().call_group("player", "apply_status", "poison")
+			
 			if health <= 0:
 				health = 0
 				kill()
@@ -105,8 +144,17 @@ func take_damage(value: int, times_used: int, damage_type: String) -> void:
 	# dano aplicado normal, sem a influencia do escudo
 	health -= new_damage
 	play_animation("hit")
+	if passive_skill == "retaliatory toxin":
+		get_tree().call_group("player", "apply_status", "poison")
 	
 	if health <= 0:
+		if passive_skill == "tenacity":
+			if not tenacity_active:
+				health = 1
+				tenacity_active = true
+				update_bar("health")
+				return
+			
 		health = 0
 		damage = 0
 		kill()
@@ -243,13 +291,16 @@ func play_animation(anim_name: String) -> void:
 
 
 func _on_detection_area_mouse_entered() -> void:
+	passive_skill_info.text = DeckManagement.passives_description[passive_skill]
 	enemy_name_label.visible = true
 	status_container.visible = false
+	passive_skill_info.visible = true
 
 
 func _on_detection_area_mouse_exited() -> void:
 	enemy_name_label.visible = false
 	status_container.visible = true
+	passive_skill_info.visible = false
 
 
 func _on_animation_animation_finished(anim_name: StringName) -> void:
@@ -258,10 +309,28 @@ func _on_animation_animation_finished(anim_name: StringName) -> void:
 			play_animation("idle")
 		
 		"death":
+			if passive_skill == "last breath":
+				for enemy in get_tree().get_nodes_in_group("enemy"):
+					enemy.take_damage(10, 1, "physical")
+				
+				get_tree().call_group("player", "take_damage", 10, "physical")
+			
+			if passive_skill == "rebirthing":
+				if not was_reborn:
+					get_tree().call_group("stage", "spawn_enemy", scene_path, passive_skill)
+			
 			queue_free()
 		
 		"attack":
 			play_animation("idle")
+			if passive_skill == "battle thirst":
+				battle_thist_count += 1
+				if battle_thist_count == 2:
+					health += 5
+					update_bar("health")
+					battle_thist_count = 0
+					if health > max_health:
+						health = max_health
 		
 		"armor":
 			play_animation("idle")
