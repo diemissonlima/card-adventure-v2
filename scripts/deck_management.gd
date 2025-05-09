@@ -8,7 +8,3 @@ var decks: Dictionary = {
 		"bloquear", "corte_duplo", "fortalecer"
 	]
 }
-
-
-# animacoes do green boar, brow boar, blue bat, yellow bat e player (paladin) criadas
-# armor, ataque, death, hit

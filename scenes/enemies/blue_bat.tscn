@@ -416,8 +416,10 @@ _data = {
 
 [node name="BlueBat" instance=ExtResource("1_ytjd8")]
 enemy_name = "Blue Bat"
+max_health = 50
+health = 50
 attack_animation_time = 0.3
-actions_list = Array[String](["attack"])
+actions_list = Array[String](["attack", "poison"])
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]
 texture = ExtResource("2_hbay3")

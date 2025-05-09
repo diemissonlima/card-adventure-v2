@@ -417,7 +417,7 @@ _data = {
 [node name="RedDragon" instance=ExtResource("1_w7nka")]
 enemy_name = "Red Dragon"
 attack_animation_time = 0.4
-actions_list = Array[String](["attack"])
+actions_list = Array[String](["attack", "defense"])
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]
 position = Vector2(-3.66667, -3.33333)

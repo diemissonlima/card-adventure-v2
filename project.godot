@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="CardAdventureV2"
+run/main_scene="res://scenes/base_scenes/stage_base.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 

@@ -418,7 +418,7 @@ _data = {
 max_health = 100
 health = 100
 attack_animation_time = 1.0
-actions_list = Array[String](["attack", "defense", "poison"])
+actions_list = Array[String](["attack", "defense"])
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]
 position = Vector2(-0.333333, -16.6667)

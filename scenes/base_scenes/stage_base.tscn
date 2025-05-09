@@ -1,8 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cljny4fmsa6p0"]
+[gd_scene load_steps=12 format=3 uid="uid://cljny4fmsa6p0"]
 
 [ext_resource type="Texture2D" uid="uid://dsyf56oya5asg" path="res://assets/RpgBattleSystem/backgrounds/1-night.png" id="1_5vcpi"]
 [ext_resource type="Script" path="res://scripts/base_stage.gd" id="1_kfegb"]
+[ext_resource type="PackedScene" uid="uid://bop258dqw5sis" path="res://scenes/enemies/yellow_dino.tscn" id="3_okcl0"]
+[ext_resource type="PackedScene" uid="uid://bh7k4ouiogbtf" path="res://scenes/enemies/brown_boar.tscn" id="4_aaa73"]
 [ext_resource type="Script" path="res://scripts/player_hand.gd" id="5_1pqeo"]
+[ext_resource type="PackedScene" uid="uid://33yfhmffyu87" path="res://scenes/enemies/blue_bat.tscn" id="5_lu1sf"]
+[ext_resource type="PackedScene" uid="uid://bqu0l8l0tkwx5" path="res://scenes/enemies/red_dragon.tscn" id="6_2rwm1"]
 [ext_resource type="PackedScene" uid="uid://cg2uhy05x8km4" path="res://scenes/actors/paladin.tscn" id="11_fcmlu"]
 [ext_resource type="Texture2D" uid="uid://bojbgjlb0ypih" path="res://assets/CardSprites/Card Back/_experimental (1).png" id="12_0usm0"]
 [ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="13_fp2ub"]
@@ -40,20 +44,33 @@ texture = ExtResource("1_5vcpi")
 expand_mode = 1
 
 [node name="Enemies" type="HBoxContainer" parent="Background"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -14.0
+offset_left = -40.0
 offset_top = -12.0
-offset_right = 136.0
+offset_right = 160.0
 offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 alignment = 1
+
+[node name="BlueBat" parent="Background/Enemies" instance=ExtResource("5_lu1sf")]
+layout_mode = 2
+
+[node name="BrownBoar" parent="Background/Enemies" instance=ExtResource("4_aaa73")]
+layout_mode = 2
+
+[node name="RedDragon" parent="Background/Enemies" instance=ExtResource("6_2rwm1")]
+layout_mode = 2
+
+[node name="YellowDino" parent="Background/Enemies" instance=ExtResource("3_okcl0")]
+layout_mode = 2
 
 [node name="PlayerHand" type="HBoxContainer" parent="Background" groups=["player_hand"]]
 layout_mode = 0

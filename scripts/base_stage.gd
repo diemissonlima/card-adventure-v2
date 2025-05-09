@@ -41,6 +41,9 @@ func on_mouse_area_entered(enemy) -> void:
 	
 	if previous_enemy != null:
 		previous_enemy.hide_cursor()
+	
+	if enemy == previous_enemy:
+		enemy.show_cursor()
 
 
 # função executada quando o mouse sair da area do inimigo
