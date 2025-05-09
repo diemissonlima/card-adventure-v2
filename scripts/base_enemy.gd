@@ -16,6 +16,8 @@ class_name BaseEnemy
 
 @export_category("Variaveis")
 @export var enemy_name: String
+@export_enum("burning fury", "rock hull", "protective shadows", 
+"final fury", "vital roots", "retaliatory toxin") var passivel_skill: String
 @export var max_health: int
 @export var health: int
 @export var damage: int
@@ -61,9 +63,21 @@ func get_action() -> void:
 	action = actions_list[randi() % actions_list.size()]
 	action_ballon_icon.texture = load(actions_list_icons[action])
 	
+	if passivel_skill == "vital roots":
+		health += 3
+		if health > max_health:
+			health = max_health
+		update_bar("health")
+	
 	match action:
 		"attack":
 			damage = randi_range(range_damage[0], range_damage[1])
+			if passivel_skill == "burning fury":
+				damage += 2
+			
+			if passivel_skill == "final fury":
+				if health < max_health / 2:
+					damage += 4
 			
 			if is_weakened:
 				damage -= damage / 2
@@ -79,6 +93,14 @@ func get_action() -> void:
 
 
 func take_damage(value: int, times_used: int, damage_type: String) -> void:
+	if passivel_skill == "rock hull":
+		value -= 1
+	
+	if passivel_skill == "protective shadows":
+		var dodge_chance: int = randi_range(0, 100)
+		if dodge_chance <= 50:
+			return
+	
 	var new_damage: int = value * times_used
 	
 	if shield > 0 and damage_type == "physical": # se tiver escudo e o ataque for fisico
@@ -95,6 +117,9 @@ func take_damage(value: int, times_used: int, damage_type: String) -> void:
 			update_bar("health")
 			play_animation("hit")
 			
+			if passivel_skill == "retaliatory toxin":
+				get_tree().call_group("player", "apply_status", "poison")
+			
 			if health <= 0:
 				health = 0
 				kill()
@@ -105,6 +130,8 @@ func take_damage(value: int, times_used: int, damage_type: String) -> void:
 	# dano aplicado normal, sem a influencia do escudo
 	health -= new_damage
 	play_animation("hit")
+	if passivel_skill == "retaliatory toxin":
+		get_tree().call_group("player", "apply_status", "poison")
 	
 	if health <= 0:
 		health = 0

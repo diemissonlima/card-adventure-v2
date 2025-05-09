@@ -13,3 +13,5 @@ res://scenes/status/strength.tscn
 res://scripts/base_stage.gd
 res://scenes/enemies/green_boar.tscn
 res://scenes/enemies/yellow_bat.tscn
+res://scripts/base_player.gd
+res://scripts/base_enemy.gd

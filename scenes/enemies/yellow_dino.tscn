@@ -415,11 +415,13 @@ _data = {
 }
 
 [node name="YellowDino" instance=ExtResource("1_nt47r")]
-enemy_name = "Yellow Dino"
-max_health = 75
-health = 75
+enemy_name = "Zagni"
+passivel_skill = "burning fury"
+max_health = 30
+health = 30
+range_damage = Array[int]([6, 6])
 attack_animation_time = 0.2
-actions_list = Array[String](["attack", "defense", "poison"])
+actions_list = Array[String](["defense"])
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]
 position = Vector2(-3.33333, -23.3333)
