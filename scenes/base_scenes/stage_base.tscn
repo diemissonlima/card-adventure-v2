@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dsyf56oya5asg" path="res://assets/RpgBattleSystem/backgrounds/1-night.png" id="1_5vcpi"]
 [ext_resource type="Script" path="res://scripts/base_stage.gd" id="1_kfegb"]
-[ext_resource type="PackedScene" uid="uid://bop258dqw5sis" path="res://scenes/enemies/yellow_dino.tscn" id="3_okcl0"]
+[ext_resource type="PackedScene" uid="uid://bqu0l8l0tkwx5" path="res://scenes/enemies/drakroft.tscn" id="3_0b2ql"]
 [ext_resource type="Script" path="res://scripts/player_hand.gd" id="5_1pqeo"]
 [ext_resource type="PackedScene" uid="uid://cg2uhy05x8km4" path="res://scenes/actors/paladin.tscn" id="11_fcmlu"]
 [ext_resource type="Texture2D" uid="uid://bojbgjlb0ypih" path="res://assets/CardSprites/Card Back/_experimental (1).png" id="12_0usm0"]
@@ -15,7 +15,7 @@ font_size = 10
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[node name="StageBase" type="Control" node_paths=PackedStringArray("end_turn_button", "player_hand", "deck_size", "discard_pile_size", "player") groups=["stage"]]
+[node name="StageBase" type="Control" node_paths=PackedStringArray("enemy_container", "end_turn_button", "player_hand", "deck_size", "discard_pile_size", "player") groups=["stage"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,6 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_kfegb")
+enemy_container = NodePath("Background/Enemies")
 end_turn_button = NodePath("EndTurn")
 player_hand = NodePath("Background/PlayerHand")
 deck_size = NodePath("Background/Deck/Label")
@@ -57,7 +58,7 @@ grow_vertical = 2
 theme_override_constants/separation = 50
 alignment = 1
 
-[node name="YellowDino" parent="Background/Enemies" instance=ExtResource("3_okcl0")]
+[node name="Drakroft" parent="Background/Enemies" instance=ExtResource("3_0b2ql")]
 layout_mode = 2
 
 [node name="PlayerHand" type="HBoxContainer" parent="Background" groups=["player_hand"]]

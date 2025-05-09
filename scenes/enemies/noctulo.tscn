@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bogqdteubhb33"]
+[gd_scene load_steps=10 format=3 uid="uid://33yfhmffyu87"]
 
-[ext_resource type="PackedScene" uid="uid://cuxuyrow07n2y" path="res://scenes/base_scenes/base_enemy.tscn" id="1_xpruy"]
-[ext_resource type="Texture2D" uid="uid://deyqircc4ltyy" path="res://assets/RpgBattleSystem/monster/bat/sprite-sheet-2-121x89.png" id="2_4ato8"]
+[ext_resource type="PackedScene" uid="uid://cuxuyrow07n2y" path="res://scenes/base_scenes/base_enemy.tscn" id="1_vev3v"]
+[ext_resource type="Texture2D" uid="uid://dgjs6xfu81ufd" path="res://assets/RpgBattleSystem/monster/bat/sprite-sheet-121x89.png" id="2_2heg2"]
 
-[sub_resource type="Animation" id="Animation_bcxf0"]
+[sub_resource type="Animation" id="Animation_r5owi"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -15,43 +15,43 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_4ato8")]
+"values": [ExtResource("2_2heg2")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/path = NodePath("Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [5]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:hframes")
+tracks/2/path = NodePath("Sprite:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [5]
+"values": [4]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:vframes")
+tracks/3/path = NodePath("Sprite:flip_h")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -78,7 +78,7 @@ tracks/5/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_ekhsy"]
+[sub_resource type="Animation" id="Animation_pkqen"]
 resource_name = "armor"
 length = 0.9
 step = 0.1
@@ -92,7 +92,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_4ato8")]
+"values": [ExtResource("2_2heg2")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -143,7 +143,7 @@ tracks/4/keys = {
 "values": [5, 10, 11, 12, 13, 14, 15, 16, 5]
 }
 
-[sub_resource type="Animation" id="Animation_rqxnn"]
+[sub_resource type="Animation" id="Animation_bn5b0"]
 resource_name = "attack"
 length = 0.5
 step = 0.1
@@ -157,7 +157,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_4ato8")]
+"values": [ExtResource("2_2heg2")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -208,7 +208,7 @@ tracks/4/keys = {
 "values": [5, 6, 7, 8, 9]
 }
 
-[sub_resource type="Animation" id="Animation_j5vxe"]
+[sub_resource type="Animation" id="Animation_kt0ja"]
 resource_name = "death"
 length = 0.6
 step = 0.1
@@ -222,7 +222,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_4ato8")]
+"values": [ExtResource("2_2heg2")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -270,10 +270,10 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.607843), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.588235), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_md6m8"]
+[sub_resource type="Animation" id="Animation_mgr1n"]
 resource_name = "hit"
 length = 0.4
 step = 0.1
@@ -287,7 +287,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_4ato8")]
+"values": [ExtResource("2_2heg2")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -338,7 +338,7 @@ tracks/4/keys = {
 "values": [5, 17, 18, 5]
 }
 
-[sub_resource type="Animation" id="Animation_qeh5y"]
+[sub_resource type="Animation" id="Animation_x75wr"]
 resource_name = "idle"
 length = 0.6
 loop_mode = 1
@@ -353,43 +353,43 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_4ato8")]
+"values": [ExtResource("2_2heg2")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:flip_h")
+tracks/1/path = NodePath("Sprite:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [5]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:hframes")
+tracks/2/path = NodePath("Sprite:vframes")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [5]
+"values": [4]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite:vframes")
+tracks/3/path = NodePath("Sprite:flip_h")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [4]
+"values": [true]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -404,27 +404,31 @@ tracks/4/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wmnf3"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m7wp3"]
 _data = {
-"RESET": SubResource("Animation_bcxf0"),
-"armor": SubResource("Animation_ekhsy"),
-"attack": SubResource("Animation_rqxnn"),
-"death": SubResource("Animation_j5vxe"),
-"hit": SubResource("Animation_md6m8"),
-"idle": SubResource("Animation_qeh5y")
+"RESET": SubResource("Animation_r5owi"),
+"armor": SubResource("Animation_pkqen"),
+"attack": SubResource("Animation_bn5b0"),
+"death": SubResource("Animation_kt0ja"),
+"hit": SubResource("Animation_mgr1n"),
+"idle": SubResource("Animation_x75wr")
 }
 
-[node name="YellowBat" instance=ExtResource("1_xpruy")]
-enemy_name = "Yellow Bat"
+[node name="Noctulo" instance=ExtResource("1_vev3v")]
+enemy_name = "Noctulo"
+max_health = 28
+health = 28
+damage = 5
 attack_animation_time = 0.3
-actions_list = Array[String](["attack"])
+scene_path = "res://scenes/enemies/noctulo.tscn"
+actions_list = Array[String](["attack", "poison"])
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]
-texture = ExtResource("2_4ato8")
+texture = ExtResource("2_2heg2")
 hframes = 5
 vframes = 4
 
 [node name="Animation" parent="CharacterBody2D" index="4"]
 libraries = {
-"": SubResource("AnimationLibrary_wmnf3")
+"": SubResource("AnimationLibrary_m7wp3")
 }
