@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpnuffhqs3q1p"]
+[gd_scene load_steps=3 format=3 uid="uid://dpnuffhqs3q1p"]
 
 [ext_resource type="PackedScene" uid="uid://dnaoyo4xpa2we" path="res://scenes/base_scenes/base_status.tscn" id="1_kqeu6"]
-
+[ext_resource type="Texture2D" uid="uid://w8fs5lltkaf2" path="res://assets/Environment/StatusIcon/bleed.png" id="2_npqew"]
 
 [node name="Bleed" instance=ExtResource("1_kqeu6")]
-status_name = 3
+texture = ExtResource("2_npqew")
+status_name = "bleed"
+status_modifier = 25
 status_description = "Dano se sangramento"
+
+[node name="Durability" parent="." index="0"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -6.0
+offset_top = 2.0
+offset_right = 0.0
+offset_bottom = 16.0
+grow_horizontal = 0

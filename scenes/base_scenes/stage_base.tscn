@@ -61,6 +61,15 @@ alignment = 1
 [node name="Drakroft" parent="Background/Enemies" instance=ExtResource("3_0b2ql")]
 layout_mode = 2
 
+[node name="Drakroft2" parent="Background/Enemies" instance=ExtResource("3_0b2ql")]
+layout_mode = 2
+
+[node name="Drakroft3" parent="Background/Enemies" instance=ExtResource("3_0b2ql")]
+layout_mode = 2
+
+[node name="Drakroft4" parent="Background/Enemies" instance=ExtResource("3_0b2ql")]
+layout_mode = 2
+
 [node name="PlayerHand" type="HBoxContainer" parent="Background" groups=["player_hand"]]
 layout_mode = 0
 offset_left = 63.0

@@ -99,12 +99,10 @@ func get_card_in_use(card: Control) -> void:
 				if target_enemy == null:
 					return
 				else:
-					if target_enemy.action != "attack":
+					if target_enemy.action == "attack" or target_enemy.action == "bleed":
+						target_enemy.apply_card_effect(card_used)
+						player_hand_manager(card)
 						return
-					
-					target_enemy.apply_card_effect(card_used)
-					player_hand_manager(card)
-					return
 				
 			player.apply_card_effect(card_used)
 		
@@ -134,19 +132,23 @@ func _on_end_turn_pressed() -> void:
 	end_turn_button.text = "Turno do Inimigo"
 	
 	for enemy in get_tree().get_nodes_in_group("enemy"): # verifica cada inimigo
-		enemy.apply_status_effect() # aplica status, caso tenha algum
 		perform_enemy_action(enemy) # recebe a ação e passa pra funcao de executar a ação
 		await get_tree().create_timer(1.5).timeout
 	
 	player.apply_status_effect()
+	
+	for enemy in get_tree().get_nodes_in_group("enemy"): # verifica cada inimigo
+		if enemy.status_container.get_child_count() > 0:
+			enemy.apply_status_effect() # aplica status, caso tenha algum
+			await get_tree().create_timer(1.0).timeout
+	
+	get_new_enemy_action()
 	
 	player_hand.draw_card(4) # compra novas cartas
 	player.actions = 4 # restaura as ações do player
 	player.update_bar("health") # atualizar a barra de vida
 	player.update_bar("action") # atualiza a barra de acoes
 	player.update_status() # atualiza o status
-	
-	get_new_enemy_action()
 	
 	await get_tree().create_timer(2.0).timeout
 	end_turn_button.disabled = false
@@ -155,7 +157,6 @@ func _on_end_turn_pressed() -> void:
 
 func verify_battle_result() -> void:
 	if enemy_container.get_child_count() == 0:
-		print("resultado verificado")
 		get_tree().change_scene_to_file("res://scenes/environments/winner.tscn")
 
 
@@ -175,8 +176,15 @@ func perform_enemy_action(enemy: Control) -> void:
 		
 		"poison":
 			player.apply_status("poison")
+		
+		"bleed":
+			enemy.play_animation("attack")
+			await get_tree().create_timer(enemy.attack_animation_time).timeout
+			player.take_damage(enemy.damage, "physical")
+			player.apply_status("bleed")
 
 
 func get_new_enemy_action() -> void:
 	for enemy in get_tree().get_nodes_in_group("enemy"):
-		enemy.get_action()
+		if is_instance_valid(enemy):
+			enemy.get_action()

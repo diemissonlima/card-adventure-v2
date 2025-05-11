@@ -422,7 +422,7 @@ health = 30
 damage = 6
 attack_animation_time = 0.2
 scene_path = "res://scenes/enemies/zagni.tscn"
-actions_list = Array[String](["attack", "defense"])
+actions_list = Array[String](["attack"])
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]
 position = Vector2(-3.33333, -23.3333)

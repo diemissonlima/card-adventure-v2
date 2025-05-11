@@ -421,7 +421,7 @@ health = 45
 damage = 8
 attack_animation_time = 0.4
 scene_path = "res://scenes/enemies/drakroft.tscn"
-actions_list = Array[String](["attack", "defense"])
+actions_list = Array[String](["attack", "attack", "attack", "attack", "defense", "defense", "defense", "defense", "poison", "bleed"])
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]
 position = Vector2(-3.66667, -3.33333)

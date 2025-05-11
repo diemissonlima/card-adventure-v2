@@ -81,7 +81,7 @@ func take_damage(value: int, type: String) -> void:
 
 
 func kill() -> void:
-	get_tree().change_scene_to_file("res://scenes/environments/game_over.tscn")
+	play_animation("death")
 
 
 # aplica o efeito da carta
@@ -113,8 +113,8 @@ func apply_status(type: String) -> void:
 			"poison":
 				status_instance = preload("res://scenes/status/poison.tscn")
 			
-			"paralyzed":
-				pass
+			"bleed":
+				status_instance = preload("res://scenes/status/bleed.tscn")
 			
 			"strength":
 				status_instance = preload("res://scenes/status/strength.tscn")
@@ -137,6 +137,9 @@ func apply_status_effect() -> void:
 	for status in status_container.get_children():
 		if status.status_name == "poison":
 			take_damage(calculate_status_damage("poison", status.status_modifier), "status")
+		
+		if status.status_name == "bleed":
+			take_damage(calculate_status_damage("bleed", status.status_modifier), "status")
 
 
 # calcula o dano conforme o tipo de status
@@ -144,6 +147,9 @@ func calculate_status_damage(status: String, modifier: int) -> int:
 	var status_damage
 	
 	if status == "poison":
+		status_damage = round(max_health * modifier / 100)
+	
+	if status == "bleed":
 		status_damage = round(max_health * modifier / 100)
 	
 	return status_damage

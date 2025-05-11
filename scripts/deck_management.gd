@@ -4,8 +4,9 @@ class_name DeckManager
 
 var decks: Dictionary = {
 	"paladin": [
-		"corte", "corte", "corte", "bloquear",
-		"bloquear", "corte_duplo", "fortalecer", 
+		"corte", "corte", "corte",
+		"bloquear", "corte_duplo", "fortalecer",
+		
 		"corte_rapido", "corte_tornado", "enfraquecer", "envenenar",
 		"nevoa_venenosa", "pocao_vida"
 	]
@@ -25,4 +26,4 @@ var passives_description: Dictionary = {
 }
 
 
-# corrigir bug que o inimigo nao ta morrendo por dano de veneno
+# status de bleed adicionado, so o player recebe esse tipo de status

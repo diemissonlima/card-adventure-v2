@@ -75,6 +75,7 @@ func get_passive_skill() -> void:
 
 
 func get_action() -> void:
+	actions_list.shuffle()
 	action = actions_list[randi() % actions_list.size()]
 	action_ballon_icon.texture = load(actions_list_icons[action])
 	
@@ -87,14 +88,14 @@ func get_action() -> void:
 	match action:
 		"attack":
 			if passive_skill == "burning fury":
-				damage += 2
+				damage = damage + 2
 			
 			if passive_skill == "final fury":
 				if health < max_health / 2:
-					damage += 4
+					damage = damage + 4
 			
 			if is_weakened:
-				damage -= damage / 2
+				damage = previous_damage / 2
 				
 			action_ballon_label.text = str(damage)
 			
@@ -104,13 +105,16 @@ func get_action() -> void:
 			
 		"poison":
 			action_ballon_label.text = "1"
+			
+		"bleed":
+			action_ballon_label.text = str(damage)
 
 
 func take_damage(value: int, times_used: int, damage_type: String) -> void:
 	if passive_skill == "rock hull":
 		value -= 1
 	
-	if passive_skill == "protective shadows":
+	if passive_skill == "protective shadows" and damage_type == "physical":
 		var dodge_chance: int = randi_range(0, 100)
 		if dodge_chance <= 50:
 			return
@@ -144,6 +148,7 @@ func take_damage(value: int, times_used: int, damage_type: String) -> void:
 	# dano aplicado normal, sem a influencia do escudo
 	health -= new_damage
 	play_animation("hit")
+	
 	if passive_skill == "retaliatory toxin":
 		get_tree().call_group("player", "apply_status", "poison")
 	
@@ -158,7 +163,7 @@ func take_damage(value: int, times_used: int, damage_type: String) -> void:
 		health = 0
 		damage = 0
 		kill()
-	
+		
 	update_bar("health")
 
 
@@ -206,7 +211,8 @@ func apply_status(type: String) -> void:
 						status_instance = preload("res://scenes/status/weaken.tscn")
 						if not is_weakened:
 							is_weakened = true
-							damage -= damage / 2
+							previous_damage = damage
+							damage = damage / 2
 							update_action_ballon()
 						
 					"paralyzed":
@@ -225,6 +231,7 @@ func apply_status(type: String) -> void:
 				status_instance = preload("res://scenes/status/weaken.tscn")
 				if not is_weakened:
 					is_weakened = true
+					previous_damage = damage
 					damage -= damage / 2
 					update_action_ballon()
 				
@@ -249,7 +256,9 @@ func apply_status_effect() -> void:
 func clear_negative_effects(effect: String) -> void:
 	match effect:
 		"weaken":
-			is_weakened = false
+			if is_weakened:
+				is_weakened = false
+				damage = previous_damage
 
 
 func calculate_status_damage(type: String, modifier: int) -> int:
