@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctky86khn3c1u"]
+[gd_scene load_steps=5 format=3 uid="uid://ctky86khn3c1u"]
 
-[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/cards/card_base.tscn" id="1_scmpl"]
-[ext_resource type="Texture2D" uid="uid://cv0qmtyeuvd3o" path="res://assets/Environment/status_icon/debuff.png" id="2_lpeev"]
-[ext_resource type="Texture2D" uid="uid://dxa4u0oim7d2v" path="res://assets/Card Sprites/_Rarity/rarity (2).png" id="3_33okl"]
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_scmpl"]
+[ext_resource type="Texture2D" uid="uid://wqqma8eb720y" path="res://assets/CardSprites/Minion/Alternate (1).png" id="2_52o3d"]
+[ext_resource type="Texture2D" uid="uid://cv0qmtyeuvd3o" path="res://assets/Environment/StatusIcon/debuff.png" id="2_lpeev"]
+[ext_resource type="Texture2D" uid="uid://dxa4u0oim7d2v" path="res://assets/CardSprites/_Rarity/rarity (2).png" id="3_33okl"]
 
 [node name="Enfraquecer" instance=ExtResource("1_scmpl")]
 card_name = "Enfraquecer"
@@ -13,11 +14,14 @@ attack_type = "single"
 damage_type = "null"
 status_type = "weaken"
 
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_52o3d")
+
 [node name="Sprite" parent="Background" index="2"]
 texture = ExtResource("2_lpeev")
 
-[node name="Type" parent="Background/Type" index="0"]
-text = "Efeito"
+[node name="Name" parent="Background/BoxName" index="0"]
+text = "Enfraquecer"
 
 [node name="Rarity" parent="Background/BoxDescription" index="0"]
 texture = ExtResource("3_33okl")

@@ -414,14 +414,13 @@ _data = {
 "idle": SubResource("Animation_lfe6a")
 }
 
-[node name="grunmor" instance=ExtResource("1_4t2q3")]
+[node name="Grunmor" instance=ExtResource("1_4t2q3")]
 enemy_name = "Grunmor"
 max_health = 50
 health = 50
 damage = 4
 attack_animation_time = 1.0
 scene_path = "res://scenes/enemies/grunmor.tscn"
-actions_list = Array[String](["attack", "defense"])
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]
 position = Vector2(-0.333333, -16.6667)

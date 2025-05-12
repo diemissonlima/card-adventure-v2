@@ -57,7 +57,7 @@ func update_bar(type: String) -> void:
 
 
 # função que recebe o dano
-func take_damage(value: int, type: String) -> void:
+func take_damage(value: int, type: String, is_bleed = false) -> void:
 	if shield > 0 and type == "physical":
 		if value <= shield:
 			shield -= value
@@ -70,11 +70,18 @@ func take_damage(value: int, type: String) -> void:
 			update_bar("shield")
 			update_bar("health")
 			play_animation("hit")
+			
+			if is_bleed:
+				apply_status("bleed")
+				
 			return
 	
 	health -= value
 	update_bar("health")
 	play_animation("hit")
+	
+	if is_bleed:
+		apply_status("bleed")
 	
 	if health <= 0:
 		kill()
@@ -131,9 +138,6 @@ func apply_status(type: String) -> void:
 
 # aplica o efeito do status
 func apply_status_effect() -> void:
-	if status_container.get_child_count() <= 0:
-		return
-		
 	for status in status_container.get_children():
 		if status.status_name == "poison":
 			take_damage(calculate_status_damage("poison", status.status_modifier), "status")

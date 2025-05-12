@@ -25,7 +25,6 @@ class_name BaseEnemy
 @export var attack_animation_time: float
 @export var scene_path: String
 # essas duas variaveis sao usadas somente no action ballon
-@export var actions_list: Array[String]
 @export var actions_list_icons: Dictionary
 
 var previous_damage: int = 0
@@ -75,8 +74,16 @@ func get_passive_skill() -> void:
 
 
 func get_action() -> void:
-	actions_list.shuffle()
-	action = actions_list[randi() % actions_list.size()]
+	var rng: float = randf()
+	if rng <= 0.5:
+		action = "attack"
+	elif rng > 0.5 and rng <= 0.70:
+		action = "defense"
+	elif rng > 0.70 and rng <= 0.85:
+		action = "poison"
+	else:
+		action = "bleed"
+	
 	action_ballon_icon.texture = load(actions_list_icons[action])
 	
 	if passive_skill == "vital roots":
@@ -170,8 +177,8 @@ func take_damage(value: int, times_used: int, damage_type: String) -> void:
 func apply_card_effect(card: Control, is_strengthened: bool = false) -> void:
 	if card.card_type == "attack" and card.attack_type == "single":
 		if is_strengthened:
-			var damage: int = card.card_value + (card.card_value * 25 / 100)
-			take_damage(damage, card.times_used, card.damage_type)
+			var new_damage: int = card.card_value + (card.card_value * 25 / 100)
+			take_damage(new_damage, card.times_used, card.damage_type)
 			return
 		
 		take_damage(card.card_value, card.times_used, card.damage_type)
