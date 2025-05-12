@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxax4ly22xg42"]
+[gd_scene load_steps=4 format=3 uid="uid://bxax4ly22xg42"]
 
 [ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_hr7cu"]
 [ext_resource type="Texture2D" uid="uid://bgm28l6ts4cth" path="res://assets/Environment/StatusIcon/upar.png" id="2_123wf"]
+[ext_resource type="Texture2D" uid="uid://wqqma8eb720y" path="res://assets/CardSprites/Minion/Alternate (1).png" id="2_mi1ev"]
 
 [node name="Fortalecer" instance=ExtResource("1_hr7cu")]
 card_name = "Fortalecer"
@@ -13,6 +14,9 @@ attack_type = "single"
 damage_type = "null"
 status_type = "strength"
 
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_mi1ev")
+
 [node name="Sprite" parent="Background" index="2"]
 offset_left = -46.7778
 offset_top = -82.5556
@@ -22,9 +26,6 @@ texture = ExtResource("2_123wf")
 
 [node name="Name" parent="Background/BoxName" index="0"]
 text = "Fortalecer"
-
-[node name="Type" parent="Background/Type" index="0"]
-text = "Efeito"
 
 [node name="Description" parent="Background/BoxDescription" index="1"]
 text = "Recebe 1 Fortalecer

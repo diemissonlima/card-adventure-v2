@@ -5,10 +5,10 @@ class_name DeckManager
 var decks: Dictionary = {
 	"paladin": [
 		"corte", "corte", "corte",
-		"bloquear", "corte_duplo", "fortalecer",
+		"bloquear", "bloquear", "corte_duplo", "fortalecer",
 		
-		"corte_rapido", "corte_tornado", "enfraquecer", "envenenar",
-		"nevoa_venenosa", "pocao_vida"
+		#"corte_rapido", "corte_tornado", "enfraquecer", "envenenar",
+		#"nevoa_venenosa", "pocao_vida", "pocao_vida"
 	]
 }
 
@@ -24,6 +24,3 @@ var passives_description: Dictionary = {
 	"last breath": "Ao morrer, causa 10 de dano em todos",
 	"rebirthing": "Ao morrer a primeira vez, revive com 50% de vida"
 }
-
-
-# status de bleed adicionado, so o player recebe esse tipo de status

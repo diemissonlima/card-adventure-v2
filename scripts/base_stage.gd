@@ -10,14 +10,18 @@ class_name BaseStage
 @export var deck_size: Label
 @export var discard_pile_size: Label
 @export var player: Control
+@export var enemies_list: Array[PackedScene]
 
 var can_click: bool = false
 var target_enemy = null
 var previous_enemy = null
+var cursor_texture = preload("res://assets/Environment/StatusIcon/mouse.png")
 
 
 func _ready() -> void:
 	connect_enemy_signal()
+	spawn_enemy2()
+	Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, Vector2(0.1, 0.1))
 	get_tree().call_group("player_hand", "get_player_deck")
 
 
@@ -65,6 +69,14 @@ func spawn_enemy(scene_path: String, passive_skill: String) -> void:
 	enemy_scene.passive_skill = passive_skill
 	enemy_scene.update_bar("health")
 	enemy_scene.was_reborn = true
+
+
+func spawn_enemy2() -> void:
+	for j in range(4):
+		var index: int = randi() % enemies_list.size()
+		var enemy_scene = enemies_list[index].instantiate()
+		
+		enemy_container.add_child(enemy_scene)
 
 
 # pega a carta utilizada pelo player
@@ -135,7 +147,9 @@ func _on_end_turn_pressed() -> void:
 		perform_enemy_action(enemy) # recebe a ação e passa pra funcao de executar a ação
 		await get_tree().create_timer(1.5).timeout
 	
-	player.apply_status_effect()
+	if player.status_container.get_child_count() > 0:
+		player.apply_status_effect()
+		await get_tree().create_timer(1.0).timeout
 	
 	for enemy in get_tree().get_nodes_in_group("enemy"): # verifica cada inimigo
 		if enemy.status_container.get_child_count() > 0:
@@ -180,8 +194,7 @@ func perform_enemy_action(enemy: Control) -> void:
 		"bleed":
 			enemy.play_animation("attack")
 			await get_tree().create_timer(enemy.attack_animation_time).timeout
-			player.take_damage(enemy.damage, "physical")
-			player.apply_status("bleed")
+			player.take_damage(enemy.damage, "physical", true)
 
 
 func get_new_enemy_action() -> void:
