@@ -28,6 +28,8 @@ func update_durability(type: String) -> void:
 			get_tree().call_group("player", "clear_bonus_damage")
 		elif status_name == "weaken":
 			get_tree().call_group("enemy", "clear_negative_effects", status_name)
+		elif status_name == "blind":
+			get_tree().call_group("player", "clear_negative_effects", status_name)
 		
 		await get_tree().create_timer(0.5).timeout
 		queue_free()

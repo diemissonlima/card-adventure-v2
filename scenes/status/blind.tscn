@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b65xo6x6bal6"]
+
+[ext_resource type="PackedScene" uid="uid://dnaoyo4xpa2we" path="res://scenes/base_scenes/base_status.tscn" id="1_2j2cd"]
+[ext_resource type="Texture2D" uid="uid://doo1u1yxd41mm" path="res://assets/Environment/StatusIcon2/abstract_4_small.png" id="2_u3nvg"]
+
+[node name="Blind" instance=ExtResource("1_2j2cd")]
+texture = ExtResource("2_u3nvg")
+status_name = "blind"
+status_durability = 2
+status_description = "50% de chance de errar o ataque"
+
+[node name="Durability" parent="." index="0"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -6.0
+offset_top = 2.0
+offset_right = 0.0
+offset_bottom = 16.0
+grow_horizontal = 0

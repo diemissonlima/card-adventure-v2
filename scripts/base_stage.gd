@@ -10,6 +10,7 @@ class_name BaseStage
 @export var deck_size: Label
 @export var discard_pile_size: Label
 @export var player: Control
+@export var enemies_amount: int
 @export var enemies_list: Array[PackedScene]
 
 var can_click: bool = false
@@ -63,6 +64,7 @@ func spawn_enemy(scene_path: String, passive_skill: String) -> void:
 	
 	enemy_container.add_child(enemy_scene)
 	var area = enemy_scene.get_node("CharacterBody2D/DetectionArea")
+	
 	area.mouse_entered.connect(on_mouse_area_entered.bind(enemy_scene))
 	area.mouse_exited.connect(on_mouse_exited)
 	enemy_scene.health = enemy_scene.max_health / 2
@@ -72,9 +74,13 @@ func spawn_enemy(scene_path: String, passive_skill: String) -> void:
 
 
 func spawn_enemy2() -> void:
-	for j in range(4):
+	for j in range(enemies_amount):
 		var index: int = randi() % enemies_list.size()
 		var enemy_scene = enemies_list[index].instantiate()
+		var area = enemy_scene.get_node("CharacterBody2D/DetectionArea")
+		
+		area.mouse_entered.connect(on_mouse_area_entered.bind(enemy_scene))
+		area.mouse_exited.connect(on_mouse_exited)
 		
 		enemy_container.add_child(enemy_scene)
 
@@ -87,6 +93,14 @@ func get_card_in_use(card: Control) -> void:
 	var card_used = card
 	match card_used.card_type: # verifica o tipo da carta
 		"attack":
+			if player.is_blind:
+				var rng: float = randf()
+				if rng <= 0.5:
+					player.play_animation("attack")
+					await get_tree().create_timer(0.5).timeout
+					player_hand_manager(card)
+					return
+				
 			var damage: int = card.card_value
 			if target_enemy != null:
 				player.play_animation("attack")
@@ -189,12 +203,19 @@ func perform_enemy_action(enemy: Control) -> void:
 			player.take_damage(enemy.damage, "physical")
 		
 		"poison":
+			enemy.play_animation("attack")
+			await get_tree().create_timer(enemy.attack_animation_time).timeout
 			player.apply_status("poison")
 		
 		"bleed":
 			enemy.play_animation("attack")
 			await get_tree().create_timer(enemy.attack_animation_time).timeout
 			player.take_damage(enemy.damage, "physical", true)
+		
+		"blind":
+			enemy.play_animation("attack")
+			await get_tree().create_timer(enemy.attack_animation_time).timeout
+			player.apply_status("blind")
 
 
 func get_new_enemy_action() -> void:

@@ -10,7 +10,11 @@ status_modifier = 20
 status_description = "Aumenta o ataque em 20%"
 
 [node name="Durability" parent="." index="0"]
-offset_left = -3.0
-offset_top = 3.0
-offset_right = 3.0
-offset_bottom = 17.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -6.0
+offset_top = 2.0
+offset_right = 0.0
+offset_bottom = 16.0
+grow_horizontal = 0

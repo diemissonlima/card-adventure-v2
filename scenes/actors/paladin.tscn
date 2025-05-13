@@ -282,6 +282,7 @@ offset_top = 103.333
 offset_right = 61.4999
 offset_bottom = 123.333
 grow_vertical = 0
+theme_override_constants/separation = 10
 
 [node name="Sprite" parent="CharacterBody2D" index="5"]
 position = Vector2(3.33333, 0)

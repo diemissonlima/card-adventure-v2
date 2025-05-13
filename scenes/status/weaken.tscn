@@ -8,3 +8,13 @@ texture = ExtResource("2_3a4ff")
 status_name = "weaken"
 status_modifier = 50
 status_description = "Diminui o ataque em 50%"
+
+[node name="Durability" parent="." index="0"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -6.0
+offset_top = 2.0
+offset_right = 0.0
+offset_bottom = 16.0
+grow_horizontal = 0

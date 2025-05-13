@@ -35,7 +35,7 @@ outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_e2in4"]
-line_spacing = 0.0
+line_spacing = 2.0
 font = ExtResource("3_sev07")
 font_size = 14
 outline_size = 5

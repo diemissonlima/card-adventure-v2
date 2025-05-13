@@ -65,6 +65,7 @@ health = 150
 actions_list_icons = {
 "attack": "res://assets/Environment/StatusIcon/ataque.png",
 "bleed": "res://assets/Environment/StatusIcon/bleed.png",
+"blind": "res://assets/Environment/StatusIcon2/abstract_4_small.png",
 "defense": "res://assets/Environment/StatusIcon/block.png",
 "poison": "res://assets/Environment/StatusIcon2/poison_1_small.png"
 }

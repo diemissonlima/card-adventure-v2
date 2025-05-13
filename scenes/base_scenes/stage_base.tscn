@@ -35,6 +35,7 @@ player_hand = NodePath("Background/PlayerHand")
 deck_size = NodePath("Background/Deck/Label")
 discard_pile_size = NodePath("Background/Discard/Label")
 player = NodePath("Background/Paladin")
+enemies_amount = 4
 enemies_list = Array[PackedScene]([ExtResource("3_0b2ql"), ExtResource("4_ucgid"), ExtResource("5_d678t"), ExtResource("5_vwu31"), ExtResource("6_racjn"), ExtResource("6_o3jlq")])
 
 [node name="Background" type="TextureRect" parent="."]

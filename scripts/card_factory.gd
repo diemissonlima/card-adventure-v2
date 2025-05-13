@@ -13,3 +13,5 @@ var card_list: Dictionary = {
 	"nevoa_venenosa": "res://scenes/cards/nevoa_venenosa.tscn",
 	"enfraquecer": "res://scenes/cards/enfraquecer.tscn"
 }
+
+# status de blind criado (player e inimigo podem receber)

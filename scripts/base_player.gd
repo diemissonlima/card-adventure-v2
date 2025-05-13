@@ -22,6 +22,7 @@ class_name BasePlayer
 
 var bonus_damage: float = 0.0
 var is_strengthened: bool = false
+var is_blind: bool = false
 
 
 func _ready() -> void:
@@ -125,6 +126,10 @@ func apply_status(type: String) -> void:
 			
 			"strength":
 				status_instance = preload("res://scenes/status/strength.tscn")
+			
+			"blind":
+				status_instance = preload("res://scenes/status/blind.tscn")
+				is_blind = true
 		
 		# verificar se status aplicado ja existe no player
 		for status in status_container.get_children():
@@ -172,6 +177,13 @@ func calculate_bonus_damage(damage_modifier: float) -> void:
 	if not is_strengthened:
 		bonus_damage = damage * damage_modifier / 100
 		damage += round(bonus_damage)
+
+
+func clear_negative_effects(effect: String) -> void:
+	match effect:
+		"blind":
+			if is_blind:
+				is_blind = false
 
 
 func clear_bonus_damage() -> void: # funcao chamada pelo base_status

@@ -12,8 +12,12 @@ status_modifier = 15
 status_description = "Causa dano de veneno de 15% da vida máxima"
 
 [node name="Durability" parent="." index="0"]
-offset_left = -2.5
-offset_top = -1.0
-offset_right = 2.5
-offset_bottom = 13.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -5.0
+offset_top = 2.0
+offset_right = 0.0
+offset_bottom = 16.0
+grow_horizontal = 0
 text = "1"
