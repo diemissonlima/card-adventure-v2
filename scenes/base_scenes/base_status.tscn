@@ -1,19 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnaoyo4xpa2we"]
+[gd_scene load_steps=4 format=3 uid="uid://dnaoyo4xpa2we"]
 
 [ext_resource type="Script" path="res://scripts/base_status.gd" id="1_3s6t2"]
-[ext_resource type="Texture2D" uid="uid://s8l2nd8xm300" path="res://assets/Environment/StatusIcon/poison.png" id="1_lxikp"]
 [ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="3_6ybpk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ou2gy"]
 line_spacing = 0.0
 font = ExtResource("3_6ybpk")
-font_size = 14
+font_size = 18
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [node name="BaseStatus" type="TextureRect" node_paths=PackedStringArray("durability_label")]
 custom_minimum_size = Vector2(20, 20)
-texture = ExtResource("1_lxikp")
 expand_mode = 1
 script = ExtResource("1_3s6t2")
 status_durability = 1
@@ -21,16 +19,15 @@ durability_label = NodePath("Durability")
 
 [node name="Durability" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 4.0
-offset_bottom = 12.0
-grow_horizontal = 2
+offset_left = -6.0
+offset_top = 2.0
+offset_bottom = 16.0
+grow_horizontal = 0
 grow_vertical = 0
 text = "2"
 label_settings = SubResource("LabelSettings_ou2gy")

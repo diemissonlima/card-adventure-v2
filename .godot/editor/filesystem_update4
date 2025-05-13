@@ -1,13 +1,7 @@
+res://scenes/base_scenes/base_status.tscn
 res://scenes/base_scenes/base_enemy.tscn
-res://scripts/base_player.gd
-res://scripts/base_stage.gd
 res://scenes/base_scenes/stage_base.tscn
 res://scenes/base_scenes/base_player.tscn
 res://scenes/base_scenes/card_base.tscn
 res://scenes/enemies/drakroft.tscn
 res://scenes/actors/paladin.tscn
-res://scenes/base_scenes/base_status.tscn
-res://scenes/enemies/grunmor.tscn
-res://scripts/deck_management.gd
-res://scripts/base_enemy.gd
-res://scenes/status/strength.tscn

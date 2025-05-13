@@ -77,12 +77,19 @@ func get_action() -> void:
 	var rng: float = randf()
 	if rng <= 0.5:
 		action = "attack"
-	elif rng > 0.5 and rng <= 0.70:
+	elif rng > 0.5 and rng <= 0.75:
 		action = "defense"
-	elif rng > 0.70 and rng <= 0.85:
+	elif rng > 0.75 and rng <= 0.90:
 		action = "poison"
-	else:
+	elif rng > 0.90 and rng <= 0.95:
 		action = "bleed"
+	else:
+		action = "blind"
+	
+	#if rng <= 0.5:
+		#action = "defense"
+	#elif rng > 0.5 and rng <= 1.0:
+		#action = "blind"
 	
 	action_ballon_icon.texture = load(actions_list_icons[action])
 	
@@ -115,6 +122,9 @@ func get_action() -> void:
 			
 		"bleed":
 			action_ballon_label.text = str(damage)
+			
+		"blind":
+			action_ballon_label.text = "1"
 
 
 func take_damage(value: int, times_used: int, damage_type: String) -> void:
