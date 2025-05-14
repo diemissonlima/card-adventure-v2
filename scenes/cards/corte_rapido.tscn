@@ -1,14 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://crv7tvlexkjfp"]
+[gd_scene load_steps=4 format=3 uid="uid://crv7tvlexkjfp"]
 
-[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/cards/card_base.tscn" id="1_uj3gn"]
-[ext_resource type="Texture2D" uid="uid://biktkbg7nnsp5" path="res://assets/Card Sprites/Minion/Alternate (3).png" id="2_6k3pq"]
-[ext_resource type="Texture2D" uid="uid://dctgmq6a7r02h" path="res://assets/Card Sprites/images/dagger1.png" id="3_jr4gl"]
-[ext_resource type="Texture2D" uid="uid://cnb511x6opq0" path="res://assets/Card Sprites/_Rarity/rarity (1).png" id="4_6rjqx"]
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_uj3gn"]
+[ext_resource type="Texture2D" uid="uid://biktkbg7nnsp5" path="res://assets/CardSprites/Minion/Alternate (3).png" id="2_6k3pq"]
+[ext_resource type="Texture2D" uid="uid://dctgmq6a7r02h" path="res://assets/CardSprites/Sprites/dagger1.png" id="3_jr4gl"]
 
 [node name="CorteRapido" instance=ExtResource("1_uj3gn")]
 card_name = "Corte Rápido"
 card_id = "corte_rapido"
-card_value = 3
+card_value = 4
 times_used = 1
 card_type = "attack"
 attack_type = "single"
@@ -37,9 +36,6 @@ text = "Corte Rápido"
 [node name="Type" parent="Background/Type" index="0"]
 text = "Ataque"
 
-[node name="Rarity" parent="Background/BoxDescription" index="0"]
-texture = ExtResource("4_6rjqx")
-
 [node name="Description" parent="Background/BoxDescription" index="1"]
-text = "Cause 3 de dano
+text = "Cause 4 de dano
 +1 Ação"

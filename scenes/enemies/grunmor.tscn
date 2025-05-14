@@ -421,6 +421,12 @@ health = 50
 damage = 4
 attack_animation_time = 1.0
 scene_path = "res://scenes/enemies/grunmor.tscn"
+actions_list = Array[String](["attack", "defense", "poison"])
+actions_probability = {
+"attack": 0.4,
+"defense": 0.8,
+"poison": 1.0
+}
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]
 position = Vector2(-0.333333, -16.6667)

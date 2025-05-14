@@ -416,13 +416,18 @@ _data = {
 
 [node name="Zagni" instance=ExtResource("1_dtw8n")]
 enemy_name = "Zagni"
-passive_skill = "rebirthing"
+passive_skill = "final fury"
 max_health = 30
 health = 30
 damage = 6
 attack_animation_time = 0.2
 scene_path = "res://scenes/enemies/zagni.tscn"
-actions_list = Array[String](["attack"])
+actions_list = Array[String](["attack", "defense", "blind"])
+actions_probability = {
+"attack": 0.5,
+"blind": 1.0,
+"defense": 0.8
+}
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]
 position = Vector2(-3.33333, -23.3333)

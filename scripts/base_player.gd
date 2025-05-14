@@ -149,6 +149,8 @@ func apply_status_effect() -> void:
 		
 		if status.status_name == "bleed":
 			take_damage(calculate_status_damage("bleed", status.status_modifier), "status")
+		
+		await get_tree().create_timer(1.0).timeout
 
 
 # calcula o dano conforme o tipo de status

@@ -421,7 +421,12 @@ health = 28
 damage = 5
 attack_animation_time = 0.3
 scene_path = "res://scenes/enemies/noctulo.tscn"
-actions_list = Array[String](["attack", "poison"])
+actions_list = Array[String](["attack", "bleed", "blind"])
+actions_probability = {
+"attack": 0.5,
+"bleed": 0.75,
+"blind": 1.0
+}
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]
 texture = ExtResource("2_2heg2")

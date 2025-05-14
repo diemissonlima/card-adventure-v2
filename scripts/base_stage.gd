@@ -20,9 +20,9 @@ var cursor_texture = preload("res://assets/Environment/StatusIcon/mouse.png")
 
 
 func _ready() -> void:
+	Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, Vector2(0.1, 0.1))
 	connect_enemy_signal()
 	spawn_enemy2()
-	Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, Vector2(0.1, 0.1))
 	get_tree().call_group("player_hand", "get_player_deck")
 
 
@@ -173,7 +173,7 @@ func _on_end_turn_pressed() -> void:
 	get_new_enemy_action()
 	
 	player_hand.draw_card(4) # compra novas cartas
-	player.actions = 4 # restaura as ações do player
+	player.actions = 3 # restaura as ações do player
 	player.update_bar("health") # atualizar a barra de vida
 	player.update_bar("action") # atualiza a barra de acoes
 	player.update_status() # atualiza o status
@@ -189,6 +189,11 @@ func verify_battle_result() -> void:
 
 
 func perform_enemy_action(enemy: Control) -> void:
+	if enemy.status_container.get_child_count() > 0:
+		for status in enemy.status_container.get_children():
+			if status.status_name == "paralyzed":
+				return
+	
 	match enemy.action:
 		"defense": # se for defesa ele ganha escudo
 			enemy.play_animation("armor")
@@ -216,6 +221,9 @@ func perform_enemy_action(enemy: Control) -> void:
 			enemy.play_animation("attack")
 			await get_tree().create_timer(enemy.attack_animation_time).timeout
 			player.apply_status("blind")
+		
+		"paralyzed":
+			pass
 
 
 func get_new_enemy_action() -> void:

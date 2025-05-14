@@ -67,6 +67,7 @@ actions_list_icons = {
 "bleed": "res://assets/Environment/StatusIcon/bleed.png",
 "blind": "res://assets/Environment/StatusIcon2/abstract_4_small.png",
 "defense": "res://assets/Environment/StatusIcon/block.png",
+"paralyzed": "res://assets/Environment/StatusIcon/paralyzed.png",
 "poison": "res://assets/Environment/StatusIcon2/poison_1_small.png"
 }
 

@@ -4,8 +4,8 @@ class_name DeckManager
 
 var decks: Dictionary = {
 	"paladin": [
-		"corte", "corte", "corte",
-		"bloquear", "bloquear", "corte_duplo", "fortalecer",
+		"corte", "corte", "envenenar",
+		"bloquear", "bloquear", "corte_duplo", "fortalecer", "toque_estatico"
 		
 		#"corte_rapido", "corte_tornado", "enfraquecer", "envenenar",
 		#"nevoa_venenosa", "pocao_vida", "pocao_vida"

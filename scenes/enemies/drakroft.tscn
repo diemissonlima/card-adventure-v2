@@ -421,6 +421,12 @@ health = 45
 damage = 8
 attack_animation_time = 0.4
 scene_path = "res://scenes/enemies/drakroft.tscn"
+actions_list = Array[String](["attack", "defense", "bleed"])
+actions_probability = {
+"attack": 0.5,
+"bleed": 1.0,
+"defense": 0.85
+}
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]
 position = Vector2(-3.66667, -3.33333)

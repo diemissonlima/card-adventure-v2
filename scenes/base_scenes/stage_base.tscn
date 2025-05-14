@@ -83,7 +83,6 @@ offset_left = 67.0
 offset_top = 81.0
 offset_right = -273.0
 offset_bottom = -111.0
-deck_list = Array[String]([])
 
 [node name="Deck" type="TextureRect" parent="Background"]
 custom_minimum_size = Vector2(25, 33)

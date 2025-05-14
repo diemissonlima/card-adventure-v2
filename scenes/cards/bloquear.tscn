@@ -20,7 +20,7 @@ outline_color = Color(0, 0, 0, 1)
 [node name="Bloquear" instance=ExtResource("1_vq25s")]
 card_name = "Bloquear"
 card_id = "bloquear"
-card_value = 7
+card_value = 5
 times_used = 1
 card_type = "defense"
 attack_type = "single"
@@ -49,4 +49,4 @@ text = "Defesa"
 label_settings = SubResource("LabelSettings_gri3d")
 
 [node name="Description" parent="Background/BoxDescription" index="1"]
-text = "Ganhe 7 de Escudo"
+text = "Ganhe 5 de Escudo"

@@ -25,12 +25,16 @@ class_name BaseEnemy
 @export var attack_animation_time: float
 @export var scene_path: String
 # essas duas variaveis sao usadas somente no action ballon
+@export var actions_list: Array[String]
+@export var actions_probability: Dictionary
 @export var actions_list_icons: Dictionary
 
 var previous_damage: int = 0
 var is_weakened: bool = false
 var tenacity_active: bool = false
 var was_reborn: bool = false
+var is_burning_fury: bool = false
+var is_final_fury: bool = false
 var battle_thist_count: int = 0
 var action: String = ""
 var shield_value: int = 0
@@ -74,23 +78,12 @@ func get_passive_skill() -> void:
 
 
 func get_action() -> void:
-	var rng: float = randf()
-	if rng <= 0.5:
-		action = "attack"
-	elif rng > 0.5 and rng <= 0.75:
-		action = "defense"
-	elif rng > 0.75 and rng <= 0.90:
-		action = "poison"
-	elif rng > 0.90 and rng <= 0.95:
-		action = "bleed"
-	else:
-		action = "blind"
-	
-	#if rng <= 0.5:
-		#action = "defense"
-	#elif rng > 0.5 and rng <= 1.0:
-		#action = "blind"
-	
+	for key in actions_list:
+		var rng: float = randf()
+		if rng <= actions_probability[key]:
+			action = key
+			break
+		
 	action_ballon_icon.texture = load(actions_list_icons[action])
 	
 	if passive_skill == "vital roots":
@@ -102,11 +95,15 @@ func get_action() -> void:
 	match action:
 		"attack":
 			if passive_skill == "burning fury":
-				damage = damage + 2
-			
+				if not is_burning_fury:
+					damage += 2
+					is_burning_fury = true
+				
 			if passive_skill == "final fury":
-				if health < max_health / 2:
-					damage = damage + 4
+				if not is_final_fury:
+					if health <= max_health / 2:
+						damage = damage + 4
+						is_final_fury = true
 			
 			if is_weakened:
 				damage = previous_damage / 2
@@ -233,7 +230,7 @@ func apply_status(type: String) -> void:
 							update_action_ballon()
 						
 					"paralyzed":
-						pass
+						status_instance = preload("res://scenes/status/paralyzed.tscn")
 					
 				var status_scene = status_instance.instantiate()
 				status_container.add_child(status_scene)
@@ -253,7 +250,7 @@ func apply_status(type: String) -> void:
 					update_action_ballon()
 				
 			"paralyzed":
-				pass
+				status_instance = preload("res://scenes/status/paralyzed.tscn")
 			
 		var status_scene = status_instance.instantiate()
 		status_container.add_child(status_scene)
@@ -353,10 +350,10 @@ func _on_animation_animation_finished(anim_name: StringName) -> void:
 				battle_thist_count += 1
 				if battle_thist_count == 2:
 					health += 5
-					update_bar("health")
 					battle_thist_count = 0
 					if health > max_health:
 						health = max_health
+					update_bar("health")
 		
 		"armor":
 			play_animation("idle")

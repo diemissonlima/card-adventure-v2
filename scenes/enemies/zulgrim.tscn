@@ -421,7 +421,13 @@ health = 35
 damage = 5
 attack_animation_time = 0.3
 scene_path = "res://scenes/enemies/zulgrim.tscn"
-actions_list = Array[String](["defense", "poison"])
+actions_list = Array[String](["attack", "poison", "bleed", "blind"])
+actions_probability = {
+"attack": 0.4,
+"bleed": 0.8,
+"blind": 1.0,
+"poison": 0.6
+}
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]
 texture = ExtResource("2_seomt")

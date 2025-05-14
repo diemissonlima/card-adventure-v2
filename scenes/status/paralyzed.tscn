@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://bb0wvmp73w3ta"]
+[gd_scene load_steps=3 format=3 uid="uid://bb0wvmp73w3ta"]
 
 [ext_resource type="PackedScene" uid="uid://dnaoyo4xpa2we" path="res://scenes/base_scenes/base_status.tscn" id="1_frx4h"]
-
+[ext_resource type="Texture2D" uid="uid://dgsbe12ho7klo" path="res://assets/Environment/StatusIcon/paralyzed.png" id="2_6rj6n"]
 
 [node name="Paralyzed" instance=ExtResource("1_frx4h")]
-status_name = 2
-status_description = "Paralizado, não pode atacar!"
+texture = ExtResource("2_6rj6n")
+status_name = "paralyzed"
+status_description = "Paralizado, perde o turno!"
+
+[node name="Durability" parent="." index="0"]
+offset_left = -8.0
+offset_top = -3.0

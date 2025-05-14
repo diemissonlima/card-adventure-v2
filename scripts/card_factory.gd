@@ -11,7 +11,6 @@ var card_list: Dictionary = {
 	"pocao_vida": "res://scenes/cards/pocao_vida.tscn",
 	"fortalecer": "res://scenes/cards/fortalecer.tscn",
 	"nevoa_venenosa": "res://scenes/cards/nevoa_venenosa.tscn",
-	"enfraquecer": "res://scenes/cards/enfraquecer.tscn"
+	"enfraquecer": "res://scenes/cards/enfraquecer.tscn",
+	"toque_estatico": "res://scenes/cards/toque_estatico.tscn"
 }
-
-# status de blind criado (player e inimigo podem receber)
