@@ -22,7 +22,7 @@ var cursor_texture = preload("res://assets/Environment/StatusIcon/mouse.png")
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, Vector2(0.1, 0.1))
 	connect_enemy_signal()
-	#spawn_enemy2()
+	spawn_enemy2()
 	get_tree().call_group("player_hand", "get_player_deck")
 
 
@@ -206,6 +206,7 @@ func perform_enemy_action(enemy: Control) -> void:
 			enemy.play_animation("attack")
 			await get_tree().create_timer(enemy.attack_animation_time).timeout
 			player.take_damage(enemy.damage, "physical")
+			enemy.take_damage(enemy.damage / 2, 1, "physical")
 		
 		"poison":
 			enemy.play_animation("attack")
@@ -224,6 +225,9 @@ func perform_enemy_action(enemy: Control) -> void:
 		
 		"paralyzed":
 			pass
+		
+		"reflect":
+			enemy.apply_status("reflect")
 
 
 func get_new_enemy_action() -> void:

@@ -14,3 +14,5 @@ var card_list: Dictionary = {
 	"enfraquecer": "res://scenes/cards/enfraquecer.tscn",
 	"toque_estatico": "res://scenes/cards/toque_estatico.tscn"
 }
+
+# status de reflect adicionado, por enquanto so o inimigo recebe

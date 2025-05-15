@@ -68,7 +68,8 @@ actions_list_icons = {
 "blind": "res://assets/Environment/StatusIcon2/abstract_4_small.png",
 "defense": "res://assets/Environment/StatusIcon/block.png",
 "paralyzed": "res://assets/Environment/StatusIcon/paralyzed.png",
-"poison": "res://assets/Environment/StatusIcon2/poison_1_small.png"
+"poison": "res://assets/Environment/StatusIcon2/poison_1_small.png",
+"reflect": "res://assets/Environment/StatusIcon/defense.png"
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]

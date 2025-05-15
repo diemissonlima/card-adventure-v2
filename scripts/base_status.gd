@@ -10,6 +10,8 @@ class_name BaseStatus
 @export_category("Objetos")
 @export var durability_label: Label
 
+var is_next_turn: bool = false
+
 
 func _ready() -> void:
 	durability_label.text = str(status_durability)
@@ -21,7 +23,11 @@ func update_durability(type: String) -> void:
 			status_durability += 1
 			
 		"decrease":
-			status_durability -= 1
+				if not is_next_turn:
+					status_durability -= 1
+				
+				if status_name in ["blind", "reflect"]:
+					is_next_turn = false
 	
 	if status_durability <= 0:
 		if status_name == "strength":
@@ -30,6 +36,8 @@ func update_durability(type: String) -> void:
 			get_tree().call_group("enemy", "clear_negative_effects", status_name)
 		elif status_name == "blind":
 			get_tree().call_group("player", "clear_negative_effects", status_name)
+		elif status_name == "reflect":
+			get_tree().call_group("enemy", "clear_negative_effects", status_name)
 		
 		await get_tree().create_timer(0.5).timeout
 		queue_free()

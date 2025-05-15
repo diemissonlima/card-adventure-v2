@@ -35,6 +35,7 @@ var was_reborn: bool = false
 var is_burning_fury: bool = false
 var is_final_fury: bool = false
 var is_enrage: bool = false
+var is_reflected: bool = false
 
 var previous_damage: int = 0
 var battle_thist_count: int = 0
@@ -130,6 +131,9 @@ func get_action() -> void:
 			
 		"blind":
 			action_ballon_label.text = "1"
+		
+		"reflect":
+			action_ballon_label.text = "1"
 
 
 func take_damage(value: int, times_used: int, damage_type: String) -> void:
@@ -143,6 +147,9 @@ func take_damage(value: int, times_used: int, damage_type: String) -> void:
 	
 	var new_damage: int = value * times_used
 	
+	if is_reflected:
+		get_tree().call_group("player", "take_damage", new_damage / 2, "physical")
+
 	if shield > 0 and damage_type == "physical": # se tiver escudo e o ataque for fisico
 		if new_damage <= shield: # dano menor ou igual ao escudo
 			shield -= new_damage
@@ -240,7 +247,15 @@ func apply_status(type: String) -> void:
 					"paralyzed":
 						status_instance = preload("res://scenes/status/paralyzed.tscn")
 					
+					"reflect":
+						status_instance = preload("res://scenes/status/reflect.tscn")
+						is_reflected = true
+					
 				var status_scene = status_instance.instantiate()
+				
+				if status_scene.status_name == "reflect":
+					status_scene.is_next_turn = true
+				
 				status_container.add_child(status_scene)
 				
 	else:
@@ -260,7 +275,15 @@ func apply_status(type: String) -> void:
 			"paralyzed":
 				status_instance = preload("res://scenes/status/paralyzed.tscn")
 			
+			"reflect":
+				status_instance = preload("res://scenes/status/reflect.tscn")
+				is_reflected = true
+			
 		var status_scene = status_instance.instantiate()
+		
+		if status_scene.status_name == "reflect":
+			status_scene.is_next_turn = true
+		
 		status_container.add_child(status_scene)
 
 
@@ -281,6 +304,9 @@ func clear_negative_effects(effect: String) -> void:
 			if is_weakened:
 				is_weakened = false
 				damage = previous_damage
+		
+		"reflect":
+			is_reflected = false
 
 
 func calculate_status_damage(type: String, modifier: int) -> int:

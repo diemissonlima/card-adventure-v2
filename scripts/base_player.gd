@@ -23,6 +23,7 @@ class_name BasePlayer
 var bonus_damage: float = 0.0
 var is_strengthened: bool = false
 var is_blind: bool = false
+var is_reflected: bool = false
 
 
 func _ready() -> void:
@@ -130,6 +131,10 @@ func apply_status(type: String) -> void:
 			"blind":
 				status_instance = preload("res://scenes/status/blind.tscn")
 				is_blind = true
+			
+			"reflect":
+				status_instance = preload("res://scenes/status/reflect.tscn")
+				is_reflected = true
 		
 		# verificar se status aplicado ja existe no player
 		for status in status_container.get_children():
@@ -138,6 +143,10 @@ func apply_status(type: String) -> void:
 				return
 		
 		var status_scene = status_instance.instantiate()
+		
+		if status_scene.status_name in ["blind", "reflect"]:
+			status_scene.is_next_turn = true
+		
 		status_container.add_child(status_scene)
 
 

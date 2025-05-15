@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dixas217c428k"]
+
+[ext_resource type="PackedScene" uid="uid://dnaoyo4xpa2we" path="res://scenes/base_scenes/base_status.tscn" id="1_jow3y"]
+[ext_resource type="Texture2D" uid="uid://chjwcd54a8g33" path="res://assets/Environment/StatusIcon/defense.png" id="2_rvaf0"]
+
+[node name="Reflect" instance=ExtResource("1_jow3y")]
+texture = ExtResource("2_rvaf0")
+status_name = "reflect"
+status_modifier = 50
+status_description = "Devolve metade do dano recebido"
