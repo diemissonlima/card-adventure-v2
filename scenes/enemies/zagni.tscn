@@ -416,7 +416,6 @@ _data = {
 
 [node name="Zagni" instance=ExtResource("1_dtw8n")]
 enemy_name = "Zagni"
-passive_skill = "final fury"
 max_health = 30
 health = 30
 damage = 6

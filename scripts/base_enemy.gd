@@ -29,12 +29,14 @@ class_name BaseEnemy
 @export var actions_probability: Dictionary
 @export var actions_list_icons: Dictionary
 
-var previous_damage: int = 0
 var is_weakened: bool = false
 var tenacity_active: bool = false
 var was_reborn: bool = false
 var is_burning_fury: bool = false
 var is_final_fury: bool = false
+var is_enrage: bool = false
+
+var previous_damage: int = 0
 var battle_thist_count: int = 0
 var action: String = ""
 var shield_value: int = 0
@@ -70,7 +72,7 @@ func get_passive_skill() -> void:
 	var passive_skill_list: Array = [
 		"burning fury", "rock hull", "protective shadows", "tenacity",
 		"final fury", "vital roots", "retaliatory toxin", "battle thirst",
-		"last breath", "rebirthing"
+		"last breath", "rebirthing", "enrage"
 	]
 	
 	var rng: int = randi() % passive_skill_list.size()
@@ -104,6 +106,12 @@ func get_action() -> void:
 					if health <= max_health / 2:
 						damage = damage + 4
 						is_final_fury = true
+			
+			if passive_skill == "enrage":
+				if not is_enrage:
+					if get_parent().get_child_count() == 1:
+						damage += 10
+						is_enrage = true
 			
 			if is_weakened:
 				damage = previous_damage / 2

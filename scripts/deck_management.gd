@@ -5,10 +5,10 @@ class_name DeckManager
 var decks: Dictionary = {
 	"paladin": [
 		"corte", "corte", "envenenar",
-		"bloquear", "bloquear", "corte_duplo", "fortalecer", "toque_estatico"
+		"bloquear", "bloquear", "corte_duplo", "fortalecer"
 		
 		#"corte_rapido", "corte_tornado", "enfraquecer", "envenenar",
-		#"nevoa_venenosa", "pocao_vida", "pocao_vida"
+		#"nevoa_venenosa", "pocao_vida", "pocao_vida", "toque_estatico"
 	]
 }
 
@@ -22,5 +22,6 @@ var passives_description: Dictionary = {
 	"retaliatory toxin": "Se receber dano direto, causa 1 de veneno",
 	"battle thirst": "A cada 2 ataques, recupera 5 de vida",
 	"last breath": "Ao morrer, causa 10 de dano em todos",
-	"rebirthing": "Ao morrer a primeira vez, revive com 50% de vida"
+	"rebirthing": "Ao morrer a primeira vez, revive com 50% de vida",
+	"enrage": "Se for o último vivo, aumenta o dano em +10"
 }
