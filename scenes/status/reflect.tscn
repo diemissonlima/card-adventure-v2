@@ -7,4 +7,4 @@
 texture = ExtResource("2_rvaf0")
 status_name = "reflect"
 status_modifier = 50
-status_description = "Devolve metade do dano recebido"
+status_description = "Devolve o dano recebido"

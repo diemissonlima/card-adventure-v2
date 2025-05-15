@@ -270,8 +270,8 @@ _data = {
 }
 
 [node name="Paladin" instance=ExtResource("1_7qyf8")]
-max_health = 75
-health = 75
+max_health = 100
+health = 100
 
 [node name="StatusContainer" parent="CharacterBody2D" index="3"]
 anchors_preset = 7

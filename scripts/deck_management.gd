@@ -4,7 +4,7 @@ class_name DeckManager
 
 var decks: Dictionary = {
 	"paladin": [
-		"corte", "corte", "envenenar",
+		"corte", "corte", "envenenar", "refletir",
 		"bloquear", "bloquear", "corte_duplo", "fortalecer"
 		
 		#"corte_rapido", "corte_tornado", "enfraquecer", "envenenar",
@@ -15,7 +15,7 @@ var decks: Dictionary = {
 var passives_description: Dictionary = {
 	"burning fury": "Dano aumentado em +2",
 	"rock hull": "Reduz o dano recebido em 1",
-	"protective shadows": "50% de chance de esquivar o ataque recebido",
+	"protective shadows": "30% de chance de esquivar o ataque recebido",
 	"tenacity": "Se for receber dano fatal, não morre e fica com 1 de vida",
 	"final fury": "Se a vida estiver abaixo de 50%, o dano aumenta em +4",
 	"vital roots": "Recupera 3 de vida a cada turno",

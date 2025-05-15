@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqnvtmsjhur12"]
+
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_sj0ad"]
+[ext_resource type="Texture2D" uid="uid://wqqma8eb720y" path="res://assets/CardSprites/Minion/Alternate (1).png" id="2_7iok4"]
+[ext_resource type="Texture2D" uid="uid://yj44s57lq26p" path="res://assets/CardSprites/Sprites/armor2.png" id="3_fjwvi"]
+
+[node name="Refletir" instance=ExtResource("1_sj0ad")]
+card_name = "Refletir"
+card_id = "refletir"
+times_used = 1
+card_type = "technique"
+attack_type = "single"
+damage_type = "null"
+status_type = "reflect"
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_7iok4")
+
+[node name="Sprite" parent="Background" index="2"]
+texture = ExtResource("3_fjwvi")
+
+[node name="Description" parent="Background/BoxDescription" index="1"]
+offset_top = -28.6667
+offset_bottom = 27.3333
+text = "Por 1 turno, devolve metade do dano recebido"

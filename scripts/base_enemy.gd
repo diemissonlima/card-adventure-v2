@@ -18,6 +18,7 @@ class_name BaseEnemy
 @export_category("Variaveis")
 @export var enemy_name: String
 @export var passive_skill: String
+@export var action: String = ""
 @export var max_health: int
 @export var health: int
 @export var damage: int
@@ -39,7 +40,6 @@ var is_reflected: bool = false
 
 var previous_damage: int = 0
 var battle_thist_count: int = 0
-var action: String = ""
 var shield_value: int = 0
 
 
@@ -142,13 +142,13 @@ func take_damage(value: int, times_used: int, damage_type: String) -> void:
 	
 	if passive_skill == "protective shadows" and damage_type == "physical":
 		var dodge_chance: int = randi_range(0, 100)
-		if dodge_chance <= 50:
+		if dodge_chance <= 30:
 			return
 	
 	var new_damage: int = value * times_used
 	
 	if is_reflected:
-		get_tree().call_group("player", "take_damage", new_damage / 2, "physical")
+		get_tree().call_group("player", "take_damage", new_damage, "physical")
 
 	if shield > 0 and damage_type == "physical": # se tiver escudo e o ataque for fisico
 		if new_damage <= shield: # dano menor ou igual ao escudo
@@ -222,44 +222,9 @@ func apply_card_effect(card: Control, is_strengthened: bool = false) -> void:
 			apply_status(card.status_type)
 
 
-# mostra o status no modifiers_container
 func apply_status(type: String) -> void:
-	var status_quantity: int = status_container.get_child_count()
-	
-	if status_quantity > 0:
-		for status in status_container.get_children():
-			if status.status_name == type:
-				status.update_durability("increase")
-			else:
-				var status_instance
-				match type:
-					"poison":
-						status_instance = preload("res://scenes/status/poison.tscn")
-					
-					"weaken":
-						status_instance = preload("res://scenes/status/weaken.tscn")
-						if not is_weakened:
-							is_weakened = true
-							previous_damage = damage
-							damage = damage / 2
-							update_action_ballon()
-						
-					"paralyzed":
-						status_instance = preload("res://scenes/status/paralyzed.tscn")
-					
-					"reflect":
-						status_instance = preload("res://scenes/status/reflect.tscn")
-						is_reflected = true
-					
-				var status_scene = status_instance.instantiate()
-				
-				if status_scene.status_name == "reflect":
-					status_scene.is_next_turn = true
-				
-				status_container.add_child(status_scene)
-				
-	else:
-		var status_instance
+	var status_instance
+	if status_container.get_child_count() <= 5:
 		match type:
 			"poison":
 				status_instance = preload("res://scenes/status/poison.tscn")
@@ -269,19 +234,25 @@ func apply_status(type: String) -> void:
 				if not is_weakened:
 					is_weakened = true
 					previous_damage = damage
-					damage -= damage / 2
+					damage = damage / 2
 					update_action_ballon()
-				
+					
 			"paralyzed":
 				status_instance = preload("res://scenes/status/paralyzed.tscn")
 			
 			"reflect":
 				status_instance = preload("res://scenes/status/reflect.tscn")
 				is_reflected = true
-			
+		
+		# verificar se status aplicado ja existe
+		for status in status_container.get_children():
+			if status.status_name == type:
+				status.update_durability("increase", "enemy")
+				return
+		
 		var status_scene = status_instance.instantiate()
 		
-		if status_scene.status_name == "reflect":
+		if status_scene.status_name in ["blind", "reflect"]:
 			status_scene.is_next_turn = true
 		
 		status_container.add_child(status_scene)
@@ -324,7 +295,7 @@ func update_status() -> void:
 		return
 	
 	for status in status_container.get_children():
-		status.update_durability("decrease")
+		status.update_durability("decrease", "enemy")
 
 
 func update_action_ballon() -> void:

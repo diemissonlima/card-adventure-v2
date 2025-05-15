@@ -115,6 +115,11 @@ func get_card_in_use(card: Control) -> void:
 			player.apply_card_effect(card_used)
 		
 		"technique":
+			if card_used.card_id in ["refletir"]:
+				player.apply_card_effect(card_used)
+				player_hand_manager(card)
+				return
+			
 			if target_enemy != null:
 				target_enemy.apply_card_effect(card_used)
 			else:
@@ -172,13 +177,13 @@ func _on_end_turn_pressed() -> void:
 	
 	get_new_enemy_action()
 	
-	player_hand.draw_card(4) # compra novas cartas
-	player.actions = 3 # restaura as ações do player
 	player.update_bar("health") # atualizar a barra de vida
 	player.update_bar("action") # atualiza a barra de acoes
 	player.update_status() # atualiza o status
 	
 	await get_tree().create_timer(2.0).timeout
+	player_hand.draw_card(4) # compra novas cartas
+	player.actions = 3 # restaura as ações do player
 	end_turn_button.disabled = false
 	end_turn_button.text = "End Turn"
 
@@ -206,7 +211,9 @@ func perform_enemy_action(enemy: Control) -> void:
 			enemy.play_animation("attack")
 			await get_tree().create_timer(enemy.attack_animation_time).timeout
 			player.take_damage(enemy.damage, "physical")
-			enemy.take_damage(enemy.damage / 2, 1, "physical")
+			
+			if player.is_reflected:
+				enemy.take_damage(enemy.damage, 1, "physical")
 		
 		"poison":
 			enemy.play_animation("attack")

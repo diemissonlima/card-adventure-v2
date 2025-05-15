@@ -421,19 +421,11 @@ health = 30
 damage = 6
 attack_animation_time = 0.2
 scene_path = "res://scenes/enemies/zagni.tscn"
-actions_list = Array[String](["attack", "reflect"])
+actions_list = Array[String](["bleed", "blind", "poison"])
 actions_probability = {
-"attack": 0.5,
-"reflect": 1.0
-}
-actions_list_icons = {
-"attack": "res://assets/Environment/StatusIcon/ataque.png",
-"bleed": "res://assets/Environment/StatusIcon/bleed.png",
-"blind": "res://assets/Environment/StatusIcon2/abstract_4_small.png",
-"defense": "res://assets/Environment/StatusIcon/block.png",
-"paralyzed": "res://assets/Environment/StatusIcon/paralyzed.png",
-"poison": "res://assets/Environment/StatusIcon2/poison_1_small.png",
-"reflect": "res://assets/Environment/StatusIcon/defense.png"
+"bleed": 0.66,
+"blind": 0.33,
+"poison": 1.0
 }
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]

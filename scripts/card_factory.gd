@@ -12,7 +12,6 @@ var card_list: Dictionary = {
 	"fortalecer": "res://scenes/cards/fortalecer.tscn",
 	"nevoa_venenosa": "res://scenes/cards/nevoa_venenosa.tscn",
 	"enfraquecer": "res://scenes/cards/enfraquecer.tscn",
-	"toque_estatico": "res://scenes/cards/toque_estatico.tscn"
+	"toque_estatico": "res://scenes/cards/toque_estatico.tscn",
+	"refletir": "res://scenes/cards/refletir.tscn"
 }
-
-# status de reflect adicionado, por enquanto so o inimigo recebe

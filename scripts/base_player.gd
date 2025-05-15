@@ -112,6 +112,10 @@ func apply_card_effect(card: Control) -> void:
 			apply_status(card.status_type)
 			manage_action_points(card.card_cost, "increase")
 			is_strengthened = true
+	
+	if card.card_type == "technique":
+		if card.card_id == "refletir":
+			apply_status("reflect")
 
 
 # aplica o status
@@ -139,12 +143,12 @@ func apply_status(type: String) -> void:
 		# verificar se status aplicado ja existe no player
 		for status in status_container.get_children():
 			if status.status_name == type:
-				status.update_durability("increase")
+				status.update_durability("increase", "player")
 				return
 		
 		var status_scene = status_instance.instantiate()
 		
-		if status_scene.status_name in ["blind", "reflect"]:
+		if status_scene.status_name in ["blind"]:
 			status_scene.is_next_turn = true
 		
 		status_container.add_child(status_scene)
@@ -152,7 +156,12 @@ func apply_status(type: String) -> void:
 
 # aplica o efeito do status
 func apply_status_effect() -> void:
-	for status in status_container.get_children():
+	var children = status_container.get_children()
+
+	for status in children:
+		if not is_instance_valid(status):
+			continue
+			
 		if status.status_name == "poison":
 			take_damage(calculate_status_damage("poison", status.status_modifier), "status")
 		
@@ -181,7 +190,8 @@ func update_status() -> void:
 		return
 	
 	for status in status_container.get_children():
-		status.update_durability("decrease")
+		status.update_durability("decrease", "player")
+		await get_tree().create_timer(0.5).timeout
 
 
 func calculate_bonus_damage(damage_modifier: float) -> void:
@@ -195,6 +205,10 @@ func clear_negative_effects(effect: String) -> void:
 		"blind":
 			if is_blind:
 				is_blind = false
+		
+		"reflect":
+			if is_reflected:
+				is_reflected = false
 
 
 func clear_bonus_damage() -> void: # funcao chamada pelo base_status
