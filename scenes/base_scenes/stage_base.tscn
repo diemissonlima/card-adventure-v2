@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://33yfhmffyu87" path="res://scenes/enemies/noctulo.tscn" id="5_vwu31"]
 [ext_resource type="PackedScene" uid="uid://bogqdteubhb33" path="res://scenes/enemies/zulgrim.tscn" id="6_o3jlq"]
 [ext_resource type="PackedScene" uid="uid://bop258dqw5sis" path="res://scenes/enemies/zagni.tscn" id="6_racjn"]
-[ext_resource type="PackedScene" uid="uid://cwsjvh13oapse" path="res://scenes/enemies/zagni_teste.tscn" id="9_e4dr5"]
+[ext_resource type="PackedScene" uid="uid://b1hhetti5t8sw" path="res://scenes/enemies/ghost.tscn" id="8_tua0m"]
 [ext_resource type="PackedScene" uid="uid://cg2uhy05x8km4" path="res://scenes/actors/paladin.tscn" id="11_fcmlu"]
 [ext_resource type="Texture2D" uid="uid://bojbgjlb0ypih" path="res://assets/CardSprites/Card Back/_experimental (1).png" id="12_0usm0"]
 [ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="13_fp2ub"]
@@ -36,8 +36,8 @@ player_hand = NodePath("Background/PlayerHand")
 deck_size = NodePath("Background/Deck/Label")
 discard_pile_size = NodePath("Background/Discard/Label")
 player = NodePath("Background/Paladin")
-enemies_amount = 3
-enemies_list = Array[PackedScene]([ExtResource("3_0b2ql"), ExtResource("4_ucgid"), ExtResource("5_d678t"), ExtResource("5_vwu31"), ExtResource("6_racjn"), ExtResource("6_o3jlq")])
+enemies_amount = 4
+enemies_list = Array[PackedScene]([ExtResource("3_0b2ql"), ExtResource("4_ucgid"), ExtResource("5_d678t"), ExtResource("5_vwu31"), ExtResource("6_racjn"), ExtResource("6_o3jlq"), ExtResource("8_tua0m")])
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -65,9 +65,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 alignment = 1
-
-[node name="Zagni" parent="Background/Enemies" instance=ExtResource("9_e4dr5")]
-layout_mode = 2
 
 [node name="PlayerHand" type="HBoxContainer" parent="Background" groups=["player_hand"]]
 layout_mode = 0

@@ -14,7 +14,6 @@ class_name BaseEnemy
 @export var shield_container_label: Label
 @export var enemy_name_label: Label
 @export var passive_skill_info: Label
-@export var attack_effect: PackedScene
 
 @export_category("Variaveis")
 @export var enemy_name: String
@@ -319,10 +318,10 @@ func play_animation(anim_name: String) -> void:
 	animation.play(anim_name)
 
 
-func spawn_effect() -> void:
-	var effect_scene = attack_effect.instantiate()
+func spawn_effect(effect_name: String) -> void:
+	var effect_instance = load("res://scenes/fx/" + effect_name + ".tscn")
+	var effect_scene = effect_instance.instantiate()
 	add_child(effect_scene)
-
 
 
 func _on_detection_area_mouse_entered() -> void:

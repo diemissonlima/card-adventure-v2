@@ -142,6 +142,20 @@ tracks/4/keys = {
 "update": 1,
 "values": [4, 5, 6, 7, 8, 9, 4]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["armor_1"],
+"method": &"spawn_effect"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_k1afb"]
 resource_name = "attack"
@@ -347,7 +361,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
+"args": ["attack_2"],
 "method": &"spawn_effect"
 }]
 }
@@ -435,11 +449,13 @@ health = 30
 damage = 6
 attack_animation_time = 0.2
 scene_path = "res://scenes/enemies/zagni.tscn"
-actions_list = Array[String](["bleed", "blind", "poison"])
+actions_list = Array[String](["bleed", "blind", "poison", "defense", "attack"])
 actions_probability = {
-"bleed": 0.66,
-"blind": 0.33,
-"poison": 1.0
+"attack": 1.0,
+"bleed": 0.0,
+"blind": 0.0,
+"defense": 0.0,
+"poison": 0.0
 }
 
 [node name="Sprite" parent="CharacterBody2D" index="3"]

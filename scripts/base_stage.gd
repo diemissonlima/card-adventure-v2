@@ -22,7 +22,7 @@ var cursor_texture = preload("res://assets/Environment/StatusIcon/mouse.png")
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, Vector2(0.1, 0.1))
 	connect_enemy_signal()
-	#spawn_enemy2()
+	spawn_enemy2()
 	get_tree().call_group("player_hand", "get_player_deck")
 
 
@@ -163,17 +163,16 @@ func _on_end_turn_pressed() -> void:
 	end_turn_button.text = "Turno do Inimigo"
 	
 	for enemy in get_tree().get_nodes_in_group("enemy"): # verifica cada inimigo
+		if enemy.status_container.get_child_count() > 0:
+			enemy.apply_status_effect() # aplica status, caso tenha algum
+			await get_tree().create_timer(1.0).timeout
+		
+	for enemy in get_tree().get_nodes_in_group("enemy"): # verifica cada inimigo
 		perform_enemy_action(enemy) # recebe a ação e passa pra funcao de executar a ação
 		await get_tree().create_timer(1.5).timeout
 	
 	if player.status_container.get_child_count() > 0:
 		player.apply_status_effect()
-		await get_tree().create_timer(1.0).timeout
-	
-	for enemy in get_tree().get_nodes_in_group("enemy"): # verifica cada inimigo
-		if enemy.status_container.get_child_count() > 0:
-			enemy.apply_status_effect() # aplica status, caso tenha algum
-			await get_tree().create_timer(1.0).timeout
 	
 	get_new_enemy_action()
 	
@@ -181,7 +180,8 @@ func _on_end_turn_pressed() -> void:
 	player.update_bar("action") # atualiza a barra de acoes
 	player.update_status() # atualiza o status
 	
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.5).timeout
+	
 	player_hand.draw_card(4) # compra novas cartas
 	player.actions = 3 # restaura as ações do player
 	end_turn_button.disabled = false

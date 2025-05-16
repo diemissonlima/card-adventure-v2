@@ -99,6 +99,7 @@ func apply_card_effect(card: Control) -> void:
 		shield += card.card_value
 		shield_container.visible = true
 		shield_container.get_node("Label").text = str(shield)
+		spawn_effect("armor_1", Vector2(-7, 0))
 	
 	if card.card_type == "effect":
 		if card.card_id == "pocao_vida":
@@ -191,7 +192,7 @@ func update_status() -> void:
 	
 	for status in status_container.get_children():
 		status.update_durability("decrease", "player")
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(1.0).timeout
 
 
 func calculate_bonus_damage(damage_modifier: float) -> void:
@@ -231,6 +232,13 @@ func manage_action_points(quantity: int, type: String) -> void:
 
 func play_animation(anim_name: String) -> void:
 	animation.play(anim_name)
+
+
+func spawn_effect(effect_name: String, offset: Vector2) -> void:
+	var effect_instance = load("res://scenes/fx/" + effect_name + ".tscn")
+	var effect_scene = effect_instance.instantiate()
+	effect_scene.global_position = offset
+	add_child(effect_scene)
 
 
 func _on_animation_animation_finished(anim_name: StringName) -> void:
