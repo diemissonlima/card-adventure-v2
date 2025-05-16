@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmehwoj8r0uqr"]
+
+[ext_resource type="Script" path="res://scripts/base_effect.gd" id="1_tc7tp"]
+
+[node name="BaseEffect" type="Sprite2D" node_paths=PackedStringArray("animation")]
+script = ExtResource("1_tc7tp")
+animation = NodePath("Animation")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+
+[connection signal="animation_finished" from="Animation" to="." method="_on_animation_animation_finished"]

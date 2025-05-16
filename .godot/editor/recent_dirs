@@ -1,9 +1,10 @@
-res://scenes/cards
+res://scripts
+res://scenes/fx
 res://scenes/base_scenes
+res://scenes/cards
 res://scenes/status
 res://scenes/environments
 C:/Users/SERVIDOR/Documents/James/Projects/CardAdventureV2/build
-res://scripts
 res://scenes/actors
 res://scenes/shaders
 res://scenes/enemies

@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://cuxuyrow07n2y"]
+[gd_scene load_steps=16 format=3 uid="uid://cuxuyrow07n2y"]
 
 [ext_resource type="Texture2D" uid="uid://7013h4tej6cb" path="res://assets/RpgBattleSystem/HUD/bar/background.png" id="1_xtwsi"]
 [ext_resource type="Script" path="res://scripts/base_enemy.gd" id="1_yprrd"]
 [ext_resource type="Texture2D" uid="uid://iq5ww53oaivr" path="res://assets/RpgBattleSystem/HUD/bar/red.png" id="2_458x1"]
+[ext_resource type="PackedScene" uid="uid://pvg0gaf6f8" path="res://scenes/fx/attack_1.tscn" id="2_a46uj"]
 [ext_resource type="Texture2D" uid="uid://d0jd3p4nq6cd6" path="res://assets/Environment/Player/cursor.png" id="3_y5s4n"]
 [ext_resource type="Texture2D" uid="uid://cm0o3sonrajcv" path="res://assets/Environment/StatusIcon/5814838.png" id="5_ddb4d"]
 [ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="7_6rlwq"]
@@ -60,6 +61,7 @@ shield_container = NodePath("CharacterBody2D/ShieldContainer")
 shield_container_label = NodePath("CharacterBody2D/ShieldContainer/Label")
 enemy_name_label = NodePath("CharacterBody2D/EnemyName")
 passive_skill_info = NodePath("CharacterBody2D/PassiveSkillInfo")
+attack_effect = ExtResource("2_a46uj")
 max_health = 150
 health = 150
 actions_list_icons = {
