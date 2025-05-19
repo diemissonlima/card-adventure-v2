@@ -81,8 +81,8 @@ func get_passive_skill() -> void:
 
 
 func get_action() -> void:
+	var rng: float = randf()
 	for key in actions_list:
-		var rng: float = randf()
 		if rng <= actions_probability[key]:
 			action = key
 			break

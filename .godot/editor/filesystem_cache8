@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1747419107
+::res://::1747664547
 export_presets.cfg::TextFile::-1::1747311012::0::1::::<><>::
 icon.svg::CompressedTexture2D::703373654550407292::1747311012::1747311046::1::::<><>::
 ::res://assets/::1747311011
@@ -226,7 +226,7 @@ paralysis.png::CompressedTexture2D::5489261344528897911::1747311011::1747311065:
 paralyzed.png::CompressedTexture2D::7617623180303808812::1747311011::1747311065::1::::<><>::
 poison.png::CompressedTexture2D::1332240443692993547::1747311011::1747311065::1::::<><>::
 upar.png::CompressedTexture2D::2834025195107827133::1747311011::1747311065::1::::<><>::
-::res://assets/Environment/StatusIcon2/::1747426838
+::res://assets/Environment/StatusIcon2/::1747426840
 abstract_1_small.png::CompressedTexture2D::4449952136540246242::1747311011::1747311065::1::::<><>::
 abstract_2_small.png::CompressedTexture2D::8367201452613319315::1747311011::1747311065::1::::<><>::
 abstract_3_small.png::CompressedTexture2D::5674181773250509590::1747311011::1747311065::1::::<><>::
@@ -584,15 +584,15 @@ theme-16.ogg::AudioStreamOggVorbis::2135198955435027469::1747311012::1747311043:
 39.ogg::AudioStreamOggVorbis::8646577127302850524::1747311012::1747311044::1::::<><>::
 40.ogg::AudioStreamOggVorbis::1412455066522673354::1747311012::1747311044::1::::<><>::
 ::res://scenes/::1747400446
-::res://scenes/actors/::1747425331
-paladin.tscn::PackedScene::5250940769562295253::1747425331::0::1::::<><>::uid://kocvxnp1iysl::::res://scenes/base_scenes/base_player.tscn<>uid://c7886sytemuui::::res://assets/RpgBattleSystem/char/paladin/sprite-sheet-b-249x100.png
-::res://scenes/base_scenes/::1747425331
+::res://scenes/actors/::1747664216
+paladin.tscn::PackedScene::5250940769562295253::1747664216::0::1::::<><>::uid://kocvxnp1iysl::::res://scenes/base_scenes/base_player.tscn<>uid://c7886sytemuui::::res://assets/RpgBattleSystem/char/paladin/sprite-sheet-b-249x100.png
+::res://scenes/base_scenes/::1747664547
 base_effect.tscn::PackedScene::8010250742920438585::1747420603::0::1::::<><>::res://scripts/base_effect.gd
-base_enemy.tscn::PackedScene::6225357042957747122::1747425331::0::1::::<><>::uid://7013h4tej6cb::::res://assets/RpgBattleSystem/HUD/bar/background.png<>res://scripts/base_enemy.gd<>uid://iq5ww53oaivr::::res://assets/RpgBattleSystem/HUD/bar/red.png<>uid://d0jd3p4nq6cd6::::res://assets/Environment/Player/cursor.png<>uid://cm0o3sonrajcv::::res://assets/Environment/StatusIcon/5814838.png<>uid://ilvbydbxo4qs::::res://assets/Font/njo_14.ttf<>uid://bgwcfyp3kr1u8::::res://assets/Environment/StatusIcon/block.png
-base_player.tscn::PackedScene::730949889430826063::1747425331::0::1::::<><>::uid://c7886sytemuui::::res://assets/RpgBattleSystem/char/paladin/sprite-sheet-b-249x100.png<>res://scripts/base_player.gd<>uid://7013h4tej6cb::::res://assets/RpgBattleSystem/HUD/bar/background.png<>uid://iq5ww53oaivr::::res://assets/RpgBattleSystem/HUD/bar/red.png<>uid://ilvbydbxo4qs::::res://assets/Font/njo_14.ttf<>uid://c4ivufdqq72ll::::res://assets/RpgBattleSystem/HUD/bar/purple.png<>uid://bgwcfyp3kr1u8::::res://assets/Environment/StatusIcon/block.png
-base_status.tscn::PackedScene::8072610696517493996::1747425331::0::1::::<><>::res://scripts/base_status.gd<>uid://ilvbydbxo4qs::::res://assets/Font/njo_14.ttf
-card_base.tscn::PackedScene::3027023643341309975::1747425331::0::1::::<><>::uid://r6w31d608bf3::::res://assets/CardSprites/Minion/minion (1).png<>res://scripts/card_base.gd<>uid://bt5eyb6ngcxic::::res://assets/CardSprites/Minion/minion (5).png<>uid://crj4co0h4s6wb::::res://assets/CardSprites/Minion/minion (7).png<>uid://ilvbydbxo4qs::::res://assets/Font/njo_14.ttf<>res://scenes/shaders/card_base.gdshader<>uid://cj57vys2hswus::::res://assets/CardSprites/Minion/minion (6).png<>uid://csde01y82clmp::::res://assets/CardSprites/Minion/minion (2).png<>uid://boj36dh0anhjr::::res://assets/CardSprites/Minion/minion (3).png<>uid://byxalfwtbesqh::::res://assets/CardSprites/Sprites/potionGreen.png<>uid://cnb511x6opq0::::res://assets/CardSprites/_Rarity/rarity (1).png
-stage_base.tscn::PackedScene::5564331758621269619::1747425331::0::1::::<><>::uid://dsyf56oya5asg::::res://assets/RpgBattleSystem/backgrounds/1-night.png<>res://scripts/base_stage.gd<>uid://bqu0l8l0tkwx5::::res://scenes/enemies/drakroft.tscn<>uid://d1g4pcfy7ymqq::::res://scenes/enemies/grorthan.tscn<>res://scripts/player_hand.gd<>uid://bh7k4ouiogbtf::::res://scenes/enemies/grunmor.tscn<>uid://33yfhmffyu87::::res://scenes/enemies/noctulo.tscn<>uid://bogqdteubhb33::::res://scenes/enemies/zulgrim.tscn<>uid://bop258dqw5sis::::res://scenes/enemies/zagni.tscn<>uid://cg2uhy05x8km4::::res://scenes/actors/paladin.tscn<>uid://bojbgjlb0ypih::::res://assets/CardSprites/Card Back/_experimental (1).png<>uid://ilvbydbxo4qs::::res://assets/Font/njo_14.ttf
+base_enemy.tscn::PackedScene::6225357042957747122::1747664216::0::1::::<><>::uid://7013h4tej6cb::::res://assets/RpgBattleSystem/HUD/bar/background.png<>res://scripts/base_enemy.gd<>uid://iq5ww53oaivr::::res://assets/RpgBattleSystem/HUD/bar/red.png<>uid://d0jd3p4nq6cd6::::res://assets/Environment/Player/cursor.png<>uid://cm0o3sonrajcv::::res://assets/Environment/StatusIcon/5814838.png<>uid://ilvbydbxo4qs::::res://assets/Font/njo_14.ttf<>uid://bgwcfyp3kr1u8::::res://assets/Environment/StatusIcon/block.png
+base_player.tscn::PackedScene::730949889430826063::1747664216::0::1::::<><>::uid://c7886sytemuui::::res://assets/RpgBattleSystem/char/paladin/sprite-sheet-b-249x100.png<>res://scripts/base_player.gd<>uid://7013h4tej6cb::::res://assets/RpgBattleSystem/HUD/bar/background.png<>uid://iq5ww53oaivr::::res://assets/RpgBattleSystem/HUD/bar/red.png<>uid://ilvbydbxo4qs::::res://assets/Font/njo_14.ttf<>uid://c4ivufdqq72ll::::res://assets/RpgBattleSystem/HUD/bar/purple.png<>uid://bgwcfyp3kr1u8::::res://assets/Environment/StatusIcon/block.png
+base_status.tscn::PackedScene::8072610696517493996::1747664216::0::1::::<><>::res://scripts/base_status.gd<>uid://ilvbydbxo4qs::::res://assets/Font/njo_14.ttf
+card_base.tscn::PackedScene::3027023643341309975::1747664216::0::1::::<><>::uid://r6w31d608bf3::::res://assets/CardSprites/Minion/minion (1).png<>res://scripts/card_base.gd<>uid://bt5eyb6ngcxic::::res://assets/CardSprites/Minion/minion (5).png<>uid://crj4co0h4s6wb::::res://assets/CardSprites/Minion/minion (7).png<>uid://ilvbydbxo4qs::::res://assets/Font/njo_14.ttf<>res://scenes/shaders/card_base.gdshader<>uid://cj57vys2hswus::::res://assets/CardSprites/Minion/minion (6).png<>uid://csde01y82clmp::::res://assets/CardSprites/Minion/minion (2).png<>uid://boj36dh0anhjr::::res://assets/CardSprites/Minion/minion (3).png<>uid://byxalfwtbesqh::::res://assets/CardSprites/Sprites/potionGreen.png<>uid://cnb511x6opq0::::res://assets/CardSprites/_Rarity/rarity (1).png
+stage_base.tscn::PackedScene::5564331758621269619::1747664571::0::1::::<><>::uid://dsyf56oya5asg::::res://assets/RpgBattleSystem/backgrounds/1-night.png<>res://scripts/base_stage.gd<>uid://bqu0l8l0tkwx5::::res://scenes/enemies/drakroft.tscn<>uid://d1g4pcfy7ymqq::::res://scenes/enemies/verdogma.tscn<>res://scripts/player_hand.gd<>uid://bh7k4ouiogbtf::::res://scenes/enemies/terrofarra.tscn<>uid://33yfhmffyu87::::res://scenes/enemies/nebulurk.tscn<>uid://bogqdteubhb33::::res://scenes/enemies/zulgrim.tscn<>uid://bop258dqw5sis::::res://scenes/enemies/salamignite.tscn<>uid://b1hhetti5t8sw::::res://scenes/enemies/ghost.tscn<>uid://dd8xgsnpbt4oo::::res://scenes/enemies/mushroom.tscn<>uid://cg2uhy05x8km4::::res://scenes/actors/paladin.tscn<>uid://bojbgjlb0ypih::::res://assets/CardSprites/Card Back/_experimental (1).png<>uid://ilvbydbxo4qs::::res://assets/Font/njo_14.ttf
 ::res://scenes/cards/::1747333953
 bloquear.tscn::PackedScene::8494026976147800664::1747311012::0::1::::<><>::uid://bjekvwsvl0b1h::::res://scenes/base_scenes/card_base.tscn<>uid://7srifpev2ue2::::res://assets/CardSprites/Minion/Alternate (2).png<>uid://b01ndeeun3a61::::res://assets/CardSprites/Sprites/shield1.png<>uid://ilvbydbxo4qs::::res://assets/Font/njo_14.ttf
 corte.tscn::PackedScene::4758819965376774766::1747311012::0::1::::<><>::uid://bjekvwsvl0b1h::::res://scenes/base_scenes/card_base.tscn<>uid://biktkbg7nnsp5::::res://assets/CardSprites/Minion/Alternate (3).png<>uid://br2f0nihrdnvf::::res://assets/CardSprites/Sprites/sword1.png
@@ -606,21 +606,29 @@ nevoa_venenosa.tscn::PackedScene::5808710378041706038::1747311012::0::1::::<><>:
 pocao_vida.tscn::PackedScene::8522644353579751268::1747311012::0::1::::<><>::uid://bjekvwsvl0b1h::::res://scenes/cards/card_base.tscn<>uid://b6nbn37yq4wte::::res://assets/Card Sprites/images/potionRed.png<>uid://dxa4u0oim7d2v::::res://assets/Card Sprites/_Rarity/rarity (2).png
 refletir.tscn::PackedScene::3537588738142446083::1747333953::0::1::::<><>::uid://bjekvwsvl0b1h::::res://scenes/base_scenes/card_base.tscn<>uid://wqqma8eb720y::::res://assets/CardSprites/Minion/Alternate (1).png<>uid://yj44s57lq26p::::res://assets/CardSprites/Sprites/armor2.png
 toque_estatico.tscn::PackedScene::6668718983558642254::1747311012::0::1::::<><>::uid://bjekvwsvl0b1h::::res://scenes/base_scenes/card_base.tscn<>uid://wqqma8eb720y::::res://assets/CardSprites/Minion/Alternate (1).png<>uid://b5dh2xl12dobg::::res://assets/CardSprites/Sprites/tome.png
-::res://scenes/enemies/::1747425332
-drakroft.tscn::PackedScene::3552269056960028772::1747425331::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://cynfk85m4efxx::::res://assets/RpgBattleSystem/monster/dragon/sprite-sheet-2-258x209.png
-grorthan.tscn::PackedScene::8998345945796197728::1747425331::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://c3ca5fexivvwj::::res://assets/RpgBattleSystem/monster/boar/sprite-sheet-239x178.png
-grunmor.tscn::PackedScene::2944462401845567263::1747425332::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://jmd4g5hn4rtb::::res://assets/RpgBattleSystem/monster/boar/sprite-sheet-2-239x178.png
-noctulo.tscn::PackedScene::2024556722210430466::1747425332::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://dgjs6xfu81ufd::::res://assets/RpgBattleSystem/monster/bat/sprite-sheet-121x89.png
-zagni.tscn::PackedScene::3401724832220826874::1747425332::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://b08k8up0hemoi::::res://assets/RpgBattleSystem/monster/dino/sprite-sheet-2-154x118.png
+::res://scenes/enemies/::1747664550
+drakroft.tscn::PackedScene::3552269056960028772::1747432347::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://cynfk85m4efxx::::res://assets/RpgBattleSystem/monster/dragon/sprite-sheet-2-258x209.png
+ghost.tscn::PackedScene::4226214452384641974::1747658821::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://7oksq8kb8pie::::res://assets/RpgBattleSystem/monster/ghost/sprite-sheet-2-112x93.png
+ghost_2.tscn::PackedScene::6037541612516182688::1747658821::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://damf5xdnmfmht::::res://assets/RpgBattleSystem/monster/ghost/sprite-sheet-112x93.png
+giant.tscn::PackedScene::3823375149258843475::1747661506::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://s4y2l5wo2a37::::res://assets/RpgBattleSystem/monster/giant/sprite-sheet-2-385x318.png
+giant_2.tscn::PackedScene::5773254410296898976::1747661506::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://48wrttqge632::::res://assets/RpgBattleSystem/monster/giant/sprite-sheet-385x318.png
+mimic.tscn::PackedScene::6826269477422913018::1747662529::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://by8dtf3l64ec7::::res://assets/RpgBattleSystem/monster/mimic/sprite-sheet-2-231x172.png
+mimic_2.tscn::PackedScene::1771586223233346878::1747662529::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://dvvg08bn8m054::::res://assets/RpgBattleSystem/monster/mimic/sprite-sheet-231x172.png
+mushroom.tscn::PackedScene::7439361219660839462::1747664217::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://cvaaqc0anmg8r::::res://assets/RpgBattleSystem/monster/mushroom/sprite-sheet-2-192x163.png
+mushroom_2.tscn::PackedScene::2402794382438669513::1747664341::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://bnurpebfkfxp4::::res://assets/RpgBattleSystem/monster/mushroom/sprite-sheet-192x163.png
+nebulurk.tscn::PackedScene::2024556722210430466::1747664504::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://dgjs6xfu81ufd::::res://assets/RpgBattleSystem/monster/bat/sprite-sheet-121x89.png
+salamignite.tscn::PackedScene::3401724832220826874::1747664440::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://b08k8up0hemoi::::res://assets/RpgBattleSystem/monster/dino/sprite-sheet-2-154x118.png
+terrofarra.tscn::PackedScene::2944462401845567263::1747664480::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://jmd4g5hn4rtb::::res://assets/RpgBattleSystem/monster/boar/sprite-sheet-2-239x178.png
+verdogma.tscn::PackedScene::8998345945796197728::1747664550::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://c3ca5fexivvwj::::res://assets/RpgBattleSystem/monster/boar/sprite-sheet-239x178.png
 zagni_teste.tscn::PackedScene::6354739090722175876::1747424081::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://b08k8up0hemoi::::res://assets/RpgBattleSystem/monster/dino/sprite-sheet-2-154x118.png
-zulgrim.tscn::PackedScene::3382428595449083680::1747425332::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://deyqircc4ltyy::::res://assets/RpgBattleSystem/monster/bat/sprite-sheet-2-121x89.png
+zulgrim.tscn::PackedScene::3382428595449083680::1747428292::0::1::::<><>::uid://cuxuyrow07n2y::::res://scenes/base_scenes/base_enemy.tscn<>uid://deyqircc4ltyy::::res://assets/RpgBattleSystem/monster/bat/sprite-sheet-2-121x89.png
 ::res://scenes/environments/::1747311012
 game_over.tscn::PackedScene::3370834294643732756::1747311012::0::1::::<><>::uid://ilvbydbxo4qs::::res://assets/Font/njo_14.ttf
 winner.tscn::PackedScene::390072585419867143::1747311012::0::1::::<><>::uid://ilvbydbxo4qs::::res://assets/Font/njo_14.ttf
 ::res://scenes/fx/::1747421787
+armor_1.tscn::PackedScene::1844085334480796308::1747421787::0::1::::<><>::uid://dmehwoj8r0uqr::::res://scenes/base_scenes/base_effect.tscn<>uid://b6283bhuwk5al::::res://assets/RpgBattleSystem/fx/shield_blue.png
 attack_1.tscn::PackedScene::948610596556143::1747400897::0::1::::<><>::uid://dmehwoj8r0uqr::::res://scenes/base_scenes/base_effect.tscn<>uid://cva4wlfbmk2tx::::res://assets/RpgBattleSystem/fx/6.png
 attack_2.tscn::PackedScene::7478138203805997393::1747420603::0::1::::<><>::uid://dmehwoj8r0uqr::::res://scenes/base_scenes/base_effect.tscn<>uid://bx8fb82adk4ys::::res://assets/RpgBattleSystem/fx/6-b.png
-armor_1.tscn::PackedScene::1844085334480796308::1747421787::0::1::::<><>::uid://dmehwoj8r0uqr::::res://scenes/base_scenes/base_effect.tscn<>uid://b6283bhuwk5al::::res://assets/RpgBattleSystem/fx/shield_blue.png
 ::res://scenes/shaders/::1747311012
 card_base.gdshader::Shader::-1::1747311012::0::1::::<><>::
 ::res://scenes/status/::1747346089
@@ -631,11 +639,11 @@ poison.tscn::PackedScene::8671969979722627433::1747311012::0::1::::<><>::uid://d
 reflect.tscn::PackedScene::7768287092570372320::1747346075::0::1::::<><>::uid://dnaoyo4xpa2we::::res://scenes/base_scenes/base_status.tscn<>uid://chjwcd54a8g33::::res://assets/Environment/StatusIcon/defense.png
 strength.tscn::PackedScene::106001193993501397::1747311012::0::1::::<><>::uid://dnaoyo4xpa2we::::res://scenes/base_scenes/base_status.tscn<>uid://bgm28l6ts4cth::::res://assets/Environment/StatusIcon/upar.png
 weaken.tscn::PackedScene::1687768929453376917::1747311012::0::1::::<><>::uid://dnaoyo4xpa2we::::res://scenes/base_scenes/base_status.tscn<>uid://cv0qmtyeuvd3o::::res://assets/Environment/StatusIcon/debuff.png
-::res://scripts/::1747424847
+::res://scripts/::1747658286
 base_effect.gd::GDScript::-1::1747400612::0::1::::BaseEffect<>Sprite2D<>::
 base_enemy.gd::GDScript::-1::1747424847::0::1::::BaseEnemy<>Control<>::
-base_player.gd::GDScript::-1::1747424717::0::1::::BasePlayer<>Control<>::
-base_stage.gd::GDScript::-1::1747424216::0::1::::BaseStage<>Control<>::
+base_player.gd::GDScript::-1::1747428242::0::1::::BasePlayer<>Control<>::
+base_stage.gd::GDScript::-1::1747658286::0::1::::BaseStage<>Control<>::
 base_status.gd::GDScript::-1::1747345611::0::1::::BaseStatus<>TextureRect<>::
 card_base.gd::GDScript::-1::1747333779::0::1::::CardBase<>Control<>::
 card_factory.gd::GDScript::-1::1747346089::0::1::::CardList<>Node<>::
