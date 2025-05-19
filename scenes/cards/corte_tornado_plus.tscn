@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdrdip4y0pngf"]
+
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_qabdm"]
+[ext_resource type="Texture2D" uid="uid://biktkbg7nnsp5" path="res://assets/CardSprites/Minion/Alternate (3).png" id="2_62bls"]
+[ext_resource type="Texture2D" uid="uid://dbx3gw7x3xrra" path="res://assets/CardSprites/Sprites/axeDouble3.png" id="3_w6uus"]
+[ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="4_ea6jo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0vj0x"]
+font = ExtResource("4_ea6jo")
+font_size = 18
+font_color = Color(0, 1, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CorteTornadoPlus" instance=ExtResource("1_qabdm")]
+card_name = "Corte Tornado +"
+card_id = "corte_tornado_plus"
+card_value = 7
+times_used = 1
+card_type = "attack"
+attack_type = "multiple"
+damage_type = "physical"
+status_type = "null"
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_62bls")
+
+[node name="Sprite" parent="Background" index="2"]
+texture = ExtResource("3_w6uus")
+
+[node name="Name" parent="Background/BoxName" index="0"]
+text = "Corte Tornado +"
+label_settings = SubResource("LabelSettings_0vj0x")
+
+[node name="Type" parent="Background/Type" index="0"]
+text = "Ataque"
+
+[node name="Description" parent="Background/BoxDescription" index="1"]
+text = "Causa 6 de dano em todos o inimigos"

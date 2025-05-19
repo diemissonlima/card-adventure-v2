@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3gev5ftdweae"]
+
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_n7jqn"]
+[ext_resource type="Texture2D" uid="uid://biktkbg7nnsp5" path="res://assets/CardSprites/Minion/Alternate (3).png" id="2_h6f0u"]
+[ext_resource type="Texture2D" uid="uid://d1a7jnlipltye" path="res://assets/CardSprites/Sprites/axe3.png" id="3_7i08p"]
+[ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="4_tw1db"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h1ptr"]
+font = ExtResource("4_tw1db")
+font_size = 18
+font_color = Color(0, 1, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CorteDuploPlus" instance=ExtResource("1_n7jqn")]
+card_name = "Corte Duplo +"
+card_id = "corte_duplo_plus"
+card_value = 8
+times_used = 2
+card_type = "attack"
+attack_type = "single"
+damage_type = "physical"
+status_type = "null"
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_h6f0u")
+
+[node name="Sprite" parent="Background" index="2"]
+texture = ExtResource("3_7i08p")
+
+[node name="Name" parent="Background/BoxName" index="0"]
+label_settings = SubResource("LabelSettings_h1ptr")
+
+[node name="Type" parent="Background/Type" index="0"]
+text = "Ataque"
+
+[node name="Description" parent="Background/BoxDescription" index="1"]
+text = "Causa 8 de dano 2x"

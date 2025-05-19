@@ -23,10 +23,10 @@ anchor_left = 0.072
 anchor_top = 0.07
 anchor_right = 0.917
 anchor_bottom = 0.643
-offset_left = -1.07112
-offset_top = -12.1
-offset_right = 11.8289
-offset_bottom = 0.110001
+offset_left = -6.62667
+offset_top = -22.7667
+offset_right = 15.2733
+offset_bottom = 8.44333
 texture = ExtResource("3_jr4gl")
 stretch_mode = 3
 

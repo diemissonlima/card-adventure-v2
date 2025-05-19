@@ -10,6 +10,7 @@ class_name BaseStatus
 @export_category("Objetos")
 @export var durability_label: Label
 @export var description_label: Label
+@export var status_container: TextureRect
 
 var is_next_turn: bool = false
 
@@ -19,14 +20,14 @@ func _ready() -> void:
 	description_label.text = status_description
 
 
-func update_durability(type: String, origin: String) -> void:
+func update_durability(type: String, origin: String, durability: int = 1) -> void:
 	match type:
 		"increase":
-			status_durability += 1
+			status_durability += durability
 			
 		"decrease":
 				if not is_next_turn:
-					status_durability -= 1
+					status_durability -= durability
 				
 				if status_name in ["blind", "reflect"]:
 					is_next_turn = false
@@ -53,8 +54,8 @@ func update_durability(type: String, origin: String) -> void:
 
 
 func _on_mouse_entered() -> void:
-	description_label.visible = true
+	status_container.visible = true
 
 
 func _on_mouse_exited() -> void:
-	description_label.visible = false
+	status_container.visible = false

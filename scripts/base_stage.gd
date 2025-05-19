@@ -95,16 +95,16 @@ func get_card_in_use(card: Control) -> void:
 		"attack":
 			if player.is_blind:
 				var rng: float = randf()
-				if rng <= 0.5:
-					player.play_animation("attack")
-					await get_tree().create_timer(0.5).timeout
+				if rng <= 0.3:
+					#player.play_animation("attack")
+					#await get_tree().create_timer(0.5).timeout
 					player_hand_manager(card)
 					return
 				
 			var damage: int = card.card_value
 			if target_enemy != null:
-				player.play_animation("attack")
-				await get_tree().create_timer(0.5).timeout
+				#player.play_animation("attack")
+				#await get_tree().create_timer(0.5).timeout
 				target_enemy.apply_card_effect(card_used, player.is_strengthened)
 				player_hand_manager(card)
 				return
@@ -142,7 +142,7 @@ func get_card_in_use(card: Control) -> void:
 
 func player_hand_manager(card: Control) -> void:
 	player.manage_action_points(card.card_cost, "decrease")
-	if card.card_id == "corte_rapido":
+	if card.card_id in ["corte_rapido", "corte_rapido_plus"]:
 		player.manage_action_points(card.card_cost, "increase")
 	
 	player_hand.discard_pile.append(card.card_id)
@@ -163,13 +163,13 @@ func _on_end_turn_pressed() -> void:
 	end_turn_button.text = "Turno do Inimigo"
 	
 	for enemy in get_tree().get_nodes_in_group("enemy"): # verifica cada inimigo
+		perform_enemy_action(enemy) # recebe a ação e passa pra funcao de executar a ação
+		await get_tree().create_timer(1.5).timeout
+	
+	for enemy in get_tree().get_nodes_in_group("enemy"): # verifica cada inimigo
 		if enemy.status_container.get_child_count() > 0:
 			enemy.apply_status_effect() # aplica status, caso tenha algum
 			await get_tree().create_timer(1.0).timeout
-		
-	for enemy in get_tree().get_nodes_in_group("enemy"): # verifica cada inimigo
-		perform_enemy_action(enemy) # recebe a ação e passa pra funcao de executar a ação
-		await get_tree().create_timer(1.5).timeout
 	
 	if player.status_container.get_child_count() > 0:
 		player.apply_status_effect()

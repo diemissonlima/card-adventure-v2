@@ -81,11 +81,13 @@ func get_passive_skill() -> void:
 
 
 func get_action() -> void:
-	var rng: float = randf()
 	for key in actions_list:
+		var rng: float = randf()
 		if rng <= actions_probability[key]:
 			action = key
 			break
+		else:
+			action = "attack"
 		
 	action_ballon_icon.texture = load(actions_list_icons[action])
 	
@@ -214,6 +216,10 @@ func apply_card_effect(card: Control, is_strengthened: bool = false) -> void:
 			for enemy in get_tree().get_nodes_in_group("enemy"):
 				enemy.apply_status(card.status_type)
 			return
+		
+		if card.card_id in ["envenenar_plus"]:
+			apply_status(card.status_type, card.card_value)
+			return
 			
 		apply_status(card.status_type)
 	
@@ -222,7 +228,7 @@ func apply_card_effect(card: Control, is_strengthened: bool = false) -> void:
 			apply_status(card.status_type)
 
 
-func apply_status(type: String) -> void:
+func apply_status(type: String, durability: int = 1) -> void:
 	var status_instance
 	if status_container.get_child_count() <= 5:
 		match type:
@@ -247,13 +253,16 @@ func apply_status(type: String) -> void:
 		# verificar se status aplicado ja existe
 		for status in status_container.get_children():
 			if status.status_name == type:
-				status.update_durability("increase", "enemy")
+				status.update_durability("increase", "enemy", durability)
 				return
 		
 		var status_scene = status_instance.instantiate()
 		
 		if status_scene.status_name in ["blind", "reflect"]:
 			status_scene.is_next_turn = true
+		
+		if status_scene.status_name == "poison":
+			status_scene.status_durability = durability
 		
 		status_container.add_child(status_scene)
 

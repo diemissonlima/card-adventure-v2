@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://qws88gvj2fus"]
+
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_gq8uu"]
+[ext_resource type="Texture2D" uid="uid://biktkbg7nnsp5" path="res://assets/CardSprites/Minion/Alternate (3).png" id="2_wostc"]
+[ext_resource type="Texture2D" uid="uid://dum7t1y0br321" path="res://assets/CardSprites/Sprites/sword2.png" id="3_0u4ht"]
+[ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="3_bo207"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pae1b"]
+font = ExtResource("3_bo207")
+font_size = 18
+font_color = Color(0, 1, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CortePlus" instance=ExtResource("1_gq8uu")]
+card_name = "Corte +"
+card_id = "corte_plus"
+card_value = 10
+times_used = 1
+card_type = "attack"
+attack_type = "single"
+damage_type = "physical"
+status_type = "null"
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_wostc")
+
+[node name="Sprite" parent="Background" index="2"]
+texture = ExtResource("3_0u4ht")
+
+[node name="Name" parent="Background/BoxName" index="0"]
+label_settings = SubResource("LabelSettings_pae1b")
+
+[node name="Type" parent="Background/Type" index="0"]
+text = "Ataque"
+
+[node name="Description" parent="Background/BoxDescription" index="1"]
+text = "Causa 10 de dano"

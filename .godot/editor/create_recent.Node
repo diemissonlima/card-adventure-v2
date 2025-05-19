@@ -1,9 +1,9 @@
+TextureRect
 AnimationPlayer
 Sprite2D
 Label
 AudioStreamPlayer2D
 ColorRect
-TextureRect
 Button
 TextureProgressBar
 HBoxContainer

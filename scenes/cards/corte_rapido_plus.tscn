@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvikds3x2wrkk"]
+
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_2lgyw"]
+[ext_resource type="Texture2D" uid="uid://biktkbg7nnsp5" path="res://assets/CardSprites/Minion/Alternate (3).png" id="2_iaura"]
+[ext_resource type="Texture2D" uid="uid://deie5d4hsu7wo" path="res://assets/CardSprites/Sprites/dagger2.png" id="3_j8vv2"]
+[ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="4_bivp2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_idqay"]
+font = ExtResource("4_bivp2")
+font_size = 18
+font_color = Color(0, 1, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CorteRapidoPlus" instance=ExtResource("1_2lgyw")]
+card_name = "Corte Rápido +"
+card_id = "corte_rapido_plus"
+card_value = 6
+times_used = 1
+card_type = "attack"
+attack_type = "single"
+damage_type = "physical"
+status_type = "null"
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_iaura")
+
+[node name="Sprite" parent="Background" index="2"]
+offset_left = -87.0
+offset_top = -118.0
+offset_right = 87.0
+texture = ExtResource("3_j8vv2")
+
+[node name="Name" parent="Background/BoxName" index="0"]
+text = "Corte Rápido +"
+label_settings = SubResource("LabelSettings_idqay")
+
+[node name="Type" parent="Background/Type" index="0"]
+text = "Ataque"
+
+[node name="Description" parent="Background/BoxDescription" index="1"]
+text = "Causa 6 de dano
++1 Ação"

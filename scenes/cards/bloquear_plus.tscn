@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdu86bcplytm0"]
+
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_sq1o0"]
+[ext_resource type="Texture2D" uid="uid://7srifpev2ue2" path="res://assets/CardSprites/Minion/Alternate (2).png" id="2_8ci1o"]
+[ext_resource type="Texture2D" uid="uid://ccwjd0d7itk1x" path="res://assets/CardSprites/Sprites/shield2.png" id="3_en361"]
+[ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="4_lijpb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_seyi7"]
+font = ExtResource("4_lijpb")
+font_size = 18
+font_color = Color(0, 1, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="BloquearPlus" instance=ExtResource("1_sq1o0")]
+card_name = "Bloquear +"
+card_id = "bloquear_plus"
+card_value = 8
+times_used = 1
+card_type = "defense"
+attack_type = "single"
+damage_type = "null"
+status_type = "block"
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_8ci1o")
+
+[node name="Sprite" parent="Background" index="2"]
+texture = ExtResource("3_en361")
+
+[node name="Name" parent="Background/BoxName" index="0"]
+text = "Bloquear +"
+label_settings = SubResource("LabelSettings_seyi7")
+
+[node name="Type" parent="Background/Type" index="0"]
+text = "Defesa"
+
+[node name="Description" parent="Background/BoxDescription" index="1"]
+text = "Ganhe 8 de escudo"

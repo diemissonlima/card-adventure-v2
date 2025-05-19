@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnaoyo4xpa2we"]
+[gd_scene load_steps=6 format=3 uid="uid://dnaoyo4xpa2we"]
 
 [ext_resource type="Script" path="res://scripts/base_status.gd" id="1_3s6t2"]
 [ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="3_6ybpk"]
+[ext_resource type="Texture2D" uid="uid://d02sx42ky8m3a" path="res://assets/Environment/Player/HUD_default_space (18).png" id="3_rr1cc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ou2gy"]
 line_spacing = 0.0
@@ -13,17 +14,18 @@ outline_color = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_bc6h0"]
 line_spacing = 0.0
 font = ExtResource("3_6ybpk")
-font_size = 14
-outline_size = 5
+font_size = 10
+outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[node name="BaseStatus" type="TextureRect" node_paths=PackedStringArray("durability_label", "description_label")]
+[node name="BaseStatus" type="TextureRect" node_paths=PackedStringArray("durability_label", "description_label", "status_container")]
 custom_minimum_size = Vector2(20, 20)
 expand_mode = 1
 script = ExtResource("1_3s6t2")
 status_durability = 1
 durability_label = NodePath("Durability")
-description_label = NodePath("Description")
+description_label = NodePath("TextureRect/Description")
+status_container = NodePath("TextureRect")
 
 [node name="Durability" type="Label" parent="."]
 layout_mode = 1
@@ -42,7 +44,7 @@ label_settings = SubResource("LabelSettings_ou2gy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Description" type="Label" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -50,14 +52,33 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -0.5
-offset_top = 19.0
-offset_right = 0.5
-offset_bottom = 32.0
+offset_left = -76.5
+offset_top = 13.0
+offset_right = 76.5
+offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 0
+texture = ExtResource("3_rr1cc")
+expand_mode = 1
+
+[node name="Description" type="Label" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -69.5
+offset_top = -45.0
+offset_right = 69.5
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Causa dano de veneno de 15% da vida máxima"
 label_settings = SubResource("LabelSettings_bc6h0")
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

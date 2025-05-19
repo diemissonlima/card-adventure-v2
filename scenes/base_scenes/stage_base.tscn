@@ -1,18 +1,33 @@
-[gd_scene load_steps=15 format=3 uid="uid://cljny4fmsa6p0"]
+[gd_scene load_steps=30 format=3 uid="uid://cljny4fmsa6p0"]
 
 [ext_resource type="Texture2D" uid="uid://dsyf56oya5asg" path="res://assets/RpgBattleSystem/backgrounds/1-night.png" id="1_5vcpi"]
 [ext_resource type="Script" path="res://scripts/base_stage.gd" id="1_kfegb"]
+[ext_resource type="PackedScene" uid="uid://c4ixwqcqiwuwo" path="res://scenes/enemies/baulfago.tscn" id="2_fj5cw"]
 [ext_resource type="PackedScene" uid="uid://bqu0l8l0tkwx5" path="res://scenes/enemies/drakroft.tscn" id="3_0b2ql"]
+[ext_resource type="PackedScene" uid="uid://coiuwldfes385" path="res://scenes/enemies/blindurak.tscn" id="3_m252s"]
+[ext_resource type="PackedScene" uid="uid://bx3tt6ir2cjs0" path="res://scenes/enemies/bolhagel.tscn" id="4_bx4ep"]
 [ext_resource type="PackedScene" uid="uid://d1g4pcfy7ymqq" path="res://scenes/enemies/verdogma.tscn" id="4_ucgid"]
 [ext_resource type="Script" path="res://scripts/player_hand.gd" id="5_1pqeo"]
 [ext_resource type="PackedScene" uid="uid://bh7k4ouiogbtf" path="res://scenes/enemies/terrofarra.tscn" id="5_d678t"]
+[ext_resource type="PackedScene" uid="uid://diefm3srvrgmn" path="res://scenes/enemies/capitao_rubro.tscn" id="5_gww48"]
 [ext_resource type="PackedScene" uid="uid://33yfhmffyu87" path="res://scenes/enemies/nebulurk.tscn" id="5_vwu31"]
 [ext_resource type="PackedScene" uid="uid://bogqdteubhb33" path="res://scenes/enemies/scarevolt.tscn" id="6_o3jlq"]
+[ext_resource type="PackedScene" uid="uid://dmt1hldhq3yx5" path="res://scenes/enemies/chamasquico.tscn" id="6_ooulv"]
 [ext_resource type="PackedScene" uid="uid://bop258dqw5sis" path="res://scenes/enemies/salamignite.tscn" id="6_racjn"]
-[ext_resource type="PackedScene" uid="uid://b1hhetti5t8sw" path="res://scenes/enemies/ghost.tscn" id="8_tua0m"]
+[ext_resource type="PackedScene" uid="uid://bah6w4lbhrsmr" path="res://scenes/enemies/coguvermelho.tscn" id="7_0b0e3"]
+[ext_resource type="PackedScene" uid="uid://dd8xgsnpbt4oo" path="res://scenes/enemies/coguvioleta.tscn" id="8_27w27"]
+[ext_resource type="PackedScene" uid="uid://b1hhetti5t8sw" path="res://scenes/enemies/umbroide.tscn" id="8_tua0m"]
+[ext_resource type="PackedScene" uid="uid://dxr6pmj1nxv63" path="res://scenes/enemies/espreitadora.tscn" id="10_48jb3"]
 [ext_resource type="PackedScene" uid="uid://cg2uhy05x8km4" path="res://scenes/actors/paladin.tscn" id="11_fcmlu"]
+[ext_resource type="PackedScene" uid="uid://buqcovg5nig00" path="res://scenes/enemies/ferrugoide.tscn" id="11_fcvwj"]
 [ext_resource type="Texture2D" uid="uid://bojbgjlb0ypih" path="res://assets/CardSprites/Card Back/_experimental (1).png" id="12_0usm0"]
+[ext_resource type="PackedScene" uid="uid://c8lplwmfv500l" path="res://scenes/enemies/gelmin.tscn" id="12_e1h2b"]
 [ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="13_fp2ub"]
+[ext_resource type="PackedScene" uid="uid://csavotcoj61k3" path="res://scenes/enemies/luminoculo.tscn" id="13_r7mve"]
+[ext_resource type="PackedScene" uid="uid://t4ga1osaurvu" path="res://scenes/enemies/salamancor.tscn" id="15_2jj7x"]
+[ext_resource type="PackedScene" uid="uid://dko7chfvbb5sm" path="res://scenes/enemies/sangue_frio.tscn" id="17_2dgl1"]
+[ext_resource type="PackedScene" uid="uid://waslf4g8f31t" path="res://scenes/enemies/sentinela_verde.tscn" id="19_tgdrw"]
+[ext_resource type="PackedScene" uid="uid://0if1b2jca8na" path="res://scenes/enemies/tessouro.tscn" id="21_gffsu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wectu"]
 line_spacing = 0.0
@@ -36,8 +51,8 @@ player_hand = NodePath("Background/PlayerHand")
 deck_size = NodePath("Background/Deck/Label")
 discard_pile_size = NodePath("Background/Discard/Label")
 player = NodePath("Background/Paladin")
-enemies_amount = 4
-enemies_list = Array[PackedScene]([ExtResource("3_0b2ql"), ExtResource("4_ucgid"), ExtResource("5_d678t"), ExtResource("5_vwu31"), ExtResource("6_racjn"), ExtResource("6_o3jlq"), ExtResource("8_tua0m")])
+enemies_amount = 3
+enemies_list = Array[PackedScene]([ExtResource("2_fj5cw"), ExtResource("3_m252s"), ExtResource("4_bx4ep"), ExtResource("5_gww48"), ExtResource("6_ooulv"), ExtResource("7_0b0e3"), ExtResource("8_27w27"), ExtResource("3_0b2ql"), ExtResource("10_48jb3"), ExtResource("11_fcvwj"), ExtResource("12_e1h2b"), ExtResource("13_r7mve"), ExtResource("5_vwu31"), ExtResource("15_2jj7x"), ExtResource("6_racjn"), ExtResource("17_2dgl1"), ExtResource("6_o3jlq"), ExtResource("19_tgdrw"), ExtResource("5_d678t"), ExtResource("21_gffsu"), ExtResource("8_tua0m"), ExtResource("4_ucgid")])
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -57,14 +72,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -103.0
+offset_left = -33.0
 offset_top = -12.0
-offset_right = 247.0
+offset_right = 167.0
 offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 alignment = 1
+
+[node name="Baulfago" parent="Background/Enemies" instance=ExtResource("2_fj5cw")]
+layout_mode = 2
+
+[node name="CapitaoRubro" parent="Background/Enemies" instance=ExtResource("5_gww48")]
+layout_mode = 2
 
 [node name="PlayerHand" type="HBoxContainer" parent="Background" groups=["player_hand"]]
 layout_mode = 0

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_a8wi0"]
 [ext_resource type="Texture2D" uid="uid://biktkbg7nnsp5" path="res://assets/CardSprites/Minion/Alternate (3).png" id="2_vyl53"]
-[ext_resource type="Texture2D" uid="uid://dum7t1y0br321" path="res://assets/CardSprites/Sprites/sword2.png" id="3_mfoa7"]
+[ext_resource type="Texture2D" uid="uid://dtw1mo4ssing5" path="res://assets/CardSprites/Sprites/axe1.png" id="3_hkcxr"]
 
 [node name="CorteDuplo" instance=ExtResource("1_a8wi0")]
 card_name = "Corte Duplo"
@@ -25,7 +25,7 @@ offset_left = -74.0
 offset_right = 76.0
 
 [node name="Sprite" parent="Background" index="2"]
-texture = ExtResource("3_mfoa7")
+texture = ExtResource("3_hkcxr")
 
 [node name="Name" parent="Background/BoxName" index="0"]
 offset_left = -26.0

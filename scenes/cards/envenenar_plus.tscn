@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://rt20ct24h6c0"]
+
+[ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_kbhcb"]
+[ext_resource type="Texture2D" uid="uid://wqqma8eb720y" path="res://assets/CardSprites/Minion/Alternate (1).png" id="2_4y4ei"]
+[ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="3_q2vpd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k4q7u"]
+font = ExtResource("3_q2vpd")
+font_size = 18
+font_color = Color(0, 1, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="EnvenenarPlus" instance=ExtResource("1_kbhcb")]
+card_name = "Envenenar +"
+card_id = "envenenar_plus"
+card_value = 3
+times_used = 1
+card_type = "technique"
+attack_type = "single"
+damage_type = "status"
+status_type = "poison"
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_4y4ei")
+
+[node name="Name" parent="Background/BoxName" index="0"]
+text = "Envenenar +"
+label_settings = SubResource("LabelSettings_k4q7u")
+
+[node name="Description" parent="Background/BoxDescription" index="1"]
+text = "Aplica 3 de Veneno"

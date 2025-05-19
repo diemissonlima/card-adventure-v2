@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjekvwsvl0b1h" path="res://scenes/base_scenes/card_base.tscn" id="1_inhgi"]
 [ext_resource type="Texture2D" uid="uid://biktkbg7nnsp5" path="res://assets/CardSprites/Minion/Alternate (3).png" id="2_knrnv"]
-[ext_resource type="Texture2D" uid="uid://dbx3gw7x3xrra" path="res://assets/CardSprites/Sprites/axeDouble3.png" id="3_dv4oh"]
+[ext_resource type="Texture2D" uid="uid://cuo77v5mup5hb" path="res://assets/CardSprites/Sprites/axeDouble1.png" id="3_ravbn"]
 
 [node name="CorteTornado" instance=ExtResource("1_inhgi")]
 card_name = "Corte Tornado"
@@ -22,7 +22,7 @@ offset_left = -73.6667
 offset_top = -103.111
 offset_right = 71.3333
 offset_bottom = 21.8889
-texture = ExtResource("3_dv4oh")
+texture = ExtResource("3_ravbn")
 
 [node name="Name" parent="Background/BoxName" index="0"]
 text = "Corte Tornado"
@@ -31,4 +31,4 @@ text = "Corte Tornado"
 text = "Ataque"
 
 [node name="Description" parent="Background/BoxDescription" index="1"]
-text = "Cause 4 em todos os inimigos"
+text = "Cause 4 de dano em todos os inimigos"
