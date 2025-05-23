@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnaoyo4xpa2we"]
+[gd_scene load_steps=7 format=3 uid="uid://dnaoyo4xpa2we"]
 
 [ext_resource type="Script" path="res://scripts/base_status.gd" id="1_3s6t2"]
 [ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="3_6ybpk"]
-[ext_resource type="Texture2D" uid="uid://d02sx42ky8m3a" path="res://assets/Environment/Player/HUD_default_space (18).png" id="3_rr1cc"]
+[ext_resource type="Texture2D" uid="uid://bbcn0ckrie41e" path="res://assets/Environment/Player/DialogBox.png" id="3_njbnl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ou2gy"]
 line_spacing = 0.0
@@ -11,21 +11,29 @@ font_size = 18
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_t0fmx"]
+line_spacing = 0.0
+font = ExtResource("3_6ybpk")
+font_size = 10
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_bc6h0"]
 line_spacing = 0.0
 font = ExtResource("3_6ybpk")
 font_size = 10
-outline_size = 3
+outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[node name="BaseStatus" type="TextureRect" node_paths=PackedStringArray("durability_label", "description_label", "status_container")]
+[node name="BaseStatus" type="TextureRect" node_paths=PackedStringArray("durability_label", "description_label", "status_name_label", "status_info")]
 custom_minimum_size = Vector2(20, 20)
 expand_mode = 1
 script = ExtResource("1_3s6t2")
 status_durability = 1
 durability_label = NodePath("Durability")
-description_label = NodePath("TextureRect/Description")
-status_container = NodePath("TextureRect")
+description_label = NodePath("StatusInfo/Description")
+status_name_label = NodePath("StatusInfo/StatusName")
+status_info = NodePath("StatusInfo")
 
 [node name="Durability" type="Label" parent="."]
 layout_mode = 1
@@ -44,7 +52,7 @@ label_settings = SubResource("LabelSettings_ou2gy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="StatusInfo" type="TextureRect" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 7
@@ -52,26 +60,35 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -76.5
+offset_left = -76.0
 offset_top = 13.0
-offset_right = 76.5
-offset_bottom = 64.0
+offset_right = 135.0
+offset_bottom = 58.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("3_rr1cc")
+texture = ExtResource("3_njbnl")
 expand_mode = 1
 
-[node name="Description" type="Label" parent="TextureRect"]
+[node name="StatusName" type="Label" parent="StatusInfo"]
+layout_mode = 1
+offset_left = 4.0
+offset_right = 48.0
+offset_bottom = 11.0
+label_settings = SubResource("LabelSettings_t0fmx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="StatusInfo"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -69.5
-offset_top = -45.0
-offset_right = 69.5
-offset_bottom = -3.0
+offset_left = -100.5
+offset_top = -34.0
+offset_right = 101.5
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Causa dano de veneno de 15% da vida máxima"

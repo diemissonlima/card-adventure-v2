@@ -22,7 +22,7 @@ var cursor_texture = preload("res://assets/Environment/StatusIcon/mouse.png")
 func _ready() -> void:
 	Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, Vector2(0.1, 0.1))
 	connect_enemy_signal()
-	#spawn_enemy2()
+	spawn_enemy2()
 	get_tree().call_group("player_hand", "get_player_deck")
 
 

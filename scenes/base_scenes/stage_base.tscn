@@ -51,7 +51,7 @@ player_hand = NodePath("Background/PlayerHand")
 deck_size = NodePath("Background/Deck/Label")
 discard_pile_size = NodePath("Background/Discard/Label")
 player = NodePath("Background/Paladin")
-enemies_amount = 3
+enemies_amount = 4
 enemies_list = Array[PackedScene]([ExtResource("2_fj5cw"), ExtResource("3_m252s"), ExtResource("4_bx4ep"), ExtResource("5_gww48"), ExtResource("6_ooulv"), ExtResource("7_0b0e3"), ExtResource("8_27w27"), ExtResource("3_0b2ql"), ExtResource("10_48jb3"), ExtResource("11_fcvwj"), ExtResource("12_e1h2b"), ExtResource("13_r7mve"), ExtResource("5_vwu31"), ExtResource("15_2jj7x"), ExtResource("6_racjn"), ExtResource("17_2dgl1"), ExtResource("6_o3jlq"), ExtResource("19_tgdrw"), ExtResource("5_d678t"), ExtResource("21_gffsu"), ExtResource("8_tua0m"), ExtResource("4_ucgid")])
 
 [node name="Background" type="TextureRect" parent="."]
@@ -80,12 +80,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 50
 alignment = 1
-
-[node name="Baulfago" parent="Background/Enemies" instance=ExtResource("2_fj5cw")]
-layout_mode = 2
-
-[node name="CapitaoRubro" parent="Background/Enemies" instance=ExtResource("5_gww48")]
-layout_mode = 2
 
 [node name="PlayerHand" type="HBoxContainer" parent="Background" groups=["player_hand"]]
 layout_mode = 0

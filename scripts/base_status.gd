@@ -10,7 +10,8 @@ class_name BaseStatus
 @export_category("Objetos")
 @export var durability_label: Label
 @export var description_label: Label
-@export var status_container: TextureRect
+@export var status_name_label: Label
+@export var status_info: TextureRect
 
 var is_next_turn: bool = false
 
@@ -54,8 +55,9 @@ func update_durability(type: String, origin: String, durability: int = 1) -> voi
 
 
 func _on_mouse_entered() -> void:
-	status_container.visible = true
+	status_name_label.text = status_name.capitalize()
+	status_info.visible = true
 
 
 func _on_mouse_exited() -> void:
-	status_container.visible = false
+	status_info.visible = false

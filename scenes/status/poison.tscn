@@ -14,9 +14,3 @@ status_description = "Causa dano de veneno de 15% da vida máxima"
 [node name="Durability" parent="." index="0"]
 offset_left = -5.0
 text = "1"
-
-[node name="TextureRect" parent="." index="1"]
-offset_left = -75.0
-offset_top = 17.0
-offset_right = 78.0
-offset_bottom = 68.0
