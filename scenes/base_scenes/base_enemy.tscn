@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/base_enemy.gd" id="1_yprrd"]
 [ext_resource type="Texture2D" uid="uid://iq5ww53oaivr" path="res://assets/RpgBattleSystem/HUD/bar/red.png" id="2_458x1"]
 [ext_resource type="Texture2D" uid="uid://d0jd3p4nq6cd6" path="res://assets/Environment/Player/cursor.png" id="3_y5s4n"]
+[ext_resource type="FontFile" uid="uid://d2vre0q12j1kp" path="res://assets/Font/Minecraftia-Regular.ttf" id="4_m37vh"]
 [ext_resource type="Texture2D" uid="uid://cm0o3sonrajcv" path="res://assets/Environment/StatusIcon/5814838.png" id="5_ddb4d"]
-[ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="7_6rlwq"]
 [ext_resource type="Texture2D" uid="uid://bgwcfyp3kr1u8" path="res://assets/Environment/StatusIcon/block.png" id="8_qrc2q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2fj25"]
@@ -15,33 +15,33 @@ radius = 249.546
 radius = 66.4162
 
 [sub_resource type="LabelSettings" id="LabelSettings_osao1"]
-font = ExtResource("7_6rlwq")
+font = ExtResource("4_m37vh")
+font_size = 11
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_n6yf8"]
-font = ExtResource("7_6rlwq")
-font_size = 26
+font = ExtResource("4_m37vh")
+font_size = 17
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vg212"]
-font = ExtResource("7_6rlwq")
-font_size = 22
+font = ExtResource("4_m37vh")
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nfoec"]
-line_spacing = 0.0
-font = ExtResource("7_6rlwq")
+font = ExtResource("4_m37vh")
 font_size = 12
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i003x"]
 line_spacing = 0.0
-font = ExtResource("7_6rlwq")
-outline_size = 5
+font = ExtResource("4_m37vh")
+font_size = 10
+outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [node name="BaseEnemy" type="Control" node_paths=PackedStringArray("health_bar", "health_bar_label", "health_bar_cursor", "animation", "status_container", "action_ballon", "action_ballon_icon", "action_ballon_label", "shield_container", "shield_container_label", "enemy_name_label", "passive_skill_info") groups=["enemy"]]
@@ -89,7 +89,7 @@ scale = Vector2(0.25, 0.25)
 shape = SubResource("CircleShape2D_8x0kb")
 
 [node name="HealthBar" type="TextureProgressBar" parent="CharacterBody2D"]
-custom_minimum_size = Vector2(125, 17)
+custom_minimum_size = Vector2(125, 20)
 offset_left = -63.3333
 offset_top = 50.0
 offset_right = 61.6667
@@ -107,12 +107,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -0.5
-offset_top = -8.5
+offset_top = -4.66666
 offset_right = 0.5
-offset_bottom = 8.5
+offset_bottom = 11.3333
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_osao1")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Cursor" type="TextureRect" parent="CharacterBody2D/HealthBar"]
 visible = false
@@ -157,17 +159,17 @@ expand_mode = 1
 
 [node name="Icon" type="TextureRect" parent="CharacterBody2D/ActionBallon"]
 layout_mode = 0
-offset_left = 24.4762
+offset_left = 21.1429
 offset_top = 20.0
-offset_right = 49.4762
+offset_right = 46.1429
 offset_bottom = 45.0
 expand_mode = 1
 
 [node name="Label" type="Label" parent="CharacterBody2D/ActionBallon"]
 layout_mode = 0
-offset_left = 58.6666
+offset_left = 55.3333
 offset_top = 19.3333
-offset_right = 59.6666
+offset_right = 56.3333
 offset_bottom = 46.3333
 label_settings = SubResource("LabelSettings_n6yf8")
 horizontal_alignment = 1
@@ -191,19 +193,21 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -0.5
-offset_top = -11.5
+offset_top = -7.66667
 offset_right = 0.5
-offset_bottom = 11.5
+offset_bottom = 14.3333
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_vg212")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EnemyName" type="Label" parent="CharacterBody2D"]
 visible = false
 offset_left = -63.0
-offset_top = 70.0
+offset_top = 73.3333
 offset_right = 60.0
-offset_bottom = 89.0
+offset_bottom = 92.3333
 label_settings = SubResource("LabelSettings_nfoec")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -223,7 +227,6 @@ grow_horizontal = 2
 grow_vertical = 0
 label_settings = SubResource("LabelSettings_i003x")
 horizontal_alignment = 1
-vertical_alignment = 1
 autowrap_mode = 2
 
 [connection signal="mouse_entered" from="CharacterBody2D/DetectionArea" to="." method="_on_detection_area_mouse_entered"]

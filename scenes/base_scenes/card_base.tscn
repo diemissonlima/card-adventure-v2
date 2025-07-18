@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bjekvwsvl0b1h"]
+[gd_scene load_steps=19 format=3 uid="uid://bjekvwsvl0b1h"]
 
 [ext_resource type="Texture2D" uid="uid://r6w31d608bf3" path="res://assets/CardSprites/Minion/minion (1).png" id="1_27dmq"]
 [ext_resource type="Script" path="res://scripts/card_base.gd" id="1_y5r1s"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://boj36dh0anhjr" path="res://assets/CardSprites/Minion/minion (3).png" id="6_2wc1b"]
 [ext_resource type="Texture2D" uid="uid://byxalfwtbesqh" path="res://assets/CardSprites/Sprites/potionGreen.png" id="7_24cks"]
 [ext_resource type="Texture2D" uid="uid://cnb511x6opq0" path="res://assets/CardSprites/_Rarity/rarity (1).png" id="11_06fk2"]
+[ext_resource type="FontFile" uid="uid://d2vre0q12j1kp" path="res://assets/Font/Minecraftia-Regular.ttf" id="12_1kjcv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u6666"]
 line_spacing = 0.0
@@ -22,22 +23,22 @@ outline_color = Color(0, 0, 0, 1)
 shader = ExtResource("4_gyndk")
 
 [sub_resource type="LabelSettings" id="LabelSettings_darwe"]
-font = ExtResource("3_sev07")
-font_size = 18
-outline_size = 5
+font = ExtResource("12_1kjcv")
+font_size = 14
+outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1iluj"]
 line_spacing = 0.0
-font = ExtResource("3_sev07")
-font_size = 14
-outline_size = 5
+font = ExtResource("12_1kjcv")
+font_size = 10
+outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_e2in4"]
 line_spacing = 0.0
-font = ExtResource("3_sev07")
-font_size = 14
+font = ExtResource("12_1kjcv")
+font_size = 8
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
@@ -152,10 +153,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -24.0
-offset_top = -15.3889
-offset_right = 28.0
-offset_bottom = 1.61111
+offset_left = -45.5
+offset_top = -16.0556
+offset_right = 49.5
+offset_bottom = 8.94444
 grow_horizontal = 2
 grow_vertical = 2
 text = "Envenenar"
@@ -186,14 +187,16 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -0.5
-offset_top = -6.5
-offset_right = 0.5
-offset_bottom = 6.5
+offset_left = -31.0
+offset_top = -5.5
+offset_right = 32.0
+offset_bottom = 12.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Técnica"
 label_settings = SubResource("LabelSettings_1iluj")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BoxDescription" type="TextureRect" parent="Background"]
 layout_mode = 1

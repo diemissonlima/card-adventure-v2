@@ -6,4 +6,4 @@ res://scenes/actors/paladin.tscn
 res://scenes/base_scenes/base_status.tscn
 res://scenes/cards/envenenar_plus.tscn
 res://scenes/status/poison.tscn
-res://scripts/base_stage.gd
+res://scripts/player_hand.gd

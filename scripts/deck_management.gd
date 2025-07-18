@@ -4,14 +4,10 @@ class_name DeckManager
 
 var decks: Dictionary = {
 	"paladin": [
-		"corte", "corte", "envenenar", "refletir", "fortalecer", "envenenar_plus",
-		"bloquear", "bloquear", "corte_duplo", "enfraquecer", "bloquear",
-		
-		
-		#"corte_rapido", "corte_tornado", "enfraquecer", "envenenar",
-		#"nevoa_venenosa", "pocao_vida", "pocao_vida", "toque_estatico",
-		#"corte_plus", "corte_duplo_plus", "corte_tornado_plus",
-		#"corte_rapido_plus", "bloquear_plus",
+		"corte", "corte_plus", "corte_duplo", "corte_duplo_plus", "corte_tornado",
+		"corte_tornado_plus", "corte_rapido", "corte_rapido_plus", "bloquear",
+		"bloquear_plus", "envenenar", "envenenar_plus", "pocao_vida", "fortalecer",
+		"nevoa_venenosa", "enfraquecer", "toque_estatico", "refletir"
 	]
 }
 

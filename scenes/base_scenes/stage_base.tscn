@@ -22,17 +22,17 @@
 [ext_resource type="PackedScene" uid="uid://buqcovg5nig00" path="res://scenes/enemies/ferrugoide.tscn" id="11_fcvwj"]
 [ext_resource type="Texture2D" uid="uid://bojbgjlb0ypih" path="res://assets/CardSprites/Card Back/_experimental (1).png" id="12_0usm0"]
 [ext_resource type="PackedScene" uid="uid://c8lplwmfv500l" path="res://scenes/enemies/gelmin.tscn" id="12_e1h2b"]
-[ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="13_fp2ub"]
 [ext_resource type="PackedScene" uid="uid://csavotcoj61k3" path="res://scenes/enemies/luminoculo.tscn" id="13_r7mve"]
 [ext_resource type="PackedScene" uid="uid://t4ga1osaurvu" path="res://scenes/enemies/salamancor.tscn" id="15_2jj7x"]
 [ext_resource type="PackedScene" uid="uid://dko7chfvbb5sm" path="res://scenes/enemies/sangue_frio.tscn" id="17_2dgl1"]
 [ext_resource type="PackedScene" uid="uid://waslf4g8f31t" path="res://scenes/enemies/sentinela_verde.tscn" id="19_tgdrw"]
 [ext_resource type="PackedScene" uid="uid://0if1b2jca8na" path="res://scenes/enemies/tessouro.tscn" id="21_gffsu"]
+[ext_resource type="FontFile" uid="uid://d2vre0q12j1kp" path="res://assets/Font/Minecraftia-Regular.ttf" id="28_diwrp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wectu"]
 line_spacing = 0.0
-font = ExtResource("13_fp2ub")
-font_size = 10
+font = ExtResource("28_diwrp")
+font_size = 6
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
@@ -99,6 +99,7 @@ offset_left = 67.0
 offset_top = 81.0
 offset_right = -273.0
 offset_bottom = -111.0
+deck_list = Array[String](["corte", "corte", "corte", "corte_duplo", "bloquear", "bloquear", "envenenar"])
 
 [node name="Deck" type="TextureRect" parent="Background"]
 custom_minimum_size = Vector2(25, 33)
@@ -119,9 +120,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -3.0
-offset_top = -11.0
-offset_right = 3.0
+offset_left = -2.5
+offset_top = -9.0
+offset_right = 2.5
 offset_bottom = 2.0
 grow_horizontal = 2
 text = "5"
@@ -151,9 +152,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -3.0
-offset_top = -11.0
-offset_right = 3.0
+offset_left = -2.5
+offset_top = -9.0
+offset_right = 2.5
 offset_bottom = 2.0
 grow_horizontal = 2
 text = "5"
@@ -175,8 +176,8 @@ offset_bottom = -2.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/outline_size = 3
-theme_override_fonts/font = ExtResource("13_fp2ub")
-theme_override_font_sizes/font_size = 6
+theme_override_fonts/font = ExtResource("28_diwrp")
+theme_override_font_sizes/font_size = 5
 text = "End Turn"
 
 [connection signal="pressed" from="EndTurn" to="." method="_on_end_turn_pressed"]

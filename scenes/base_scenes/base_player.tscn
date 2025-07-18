@@ -1,21 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://kocvxnp1iysl"]
+[gd_scene load_steps=13 format=3 uid="uid://kocvxnp1iysl"]
 
 [ext_resource type="Texture2D" uid="uid://c7886sytemuui" path="res://assets/RpgBattleSystem/char/paladin/sprite-sheet-b-249x100.png" id="1_3nfye"]
 [ext_resource type="Script" path="res://scripts/base_player.gd" id="1_hw64s"]
 [ext_resource type="Texture2D" uid="uid://7013h4tej6cb" path="res://assets/RpgBattleSystem/HUD/bar/background.png" id="2_iag2b"]
 [ext_resource type="Texture2D" uid="uid://iq5ww53oaivr" path="res://assets/RpgBattleSystem/HUD/bar/red.png" id="3_wyvxk"]
+[ext_resource type="FontFile" uid="uid://d2vre0q12j1kp" path="res://assets/Font/Minecraftia-Regular.ttf" id="4_a7yas"]
 [ext_resource type="FontFile" uid="uid://ilvbydbxo4qs" path="res://assets/Font/njo_14.ttf" id="4_hvgfi"]
 [ext_resource type="Texture2D" uid="uid://c4ivufdqq72ll" path="res://assets/RpgBattleSystem/HUD/bar/purple.png" id="5_a8ueb"]
 [ext_resource type="Texture2D" uid="uid://bgwcfyp3kr1u8" path="res://assets/Environment/StatusIcon/block.png" id="6_w1mbq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vxohi"]
-font = ExtResource("4_hvgfi")
+font = ExtResource("4_a7yas")
+font_size = 11
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_n5mal"]
 line_spacing = 0.0
-font = ExtResource("4_hvgfi")
+font = ExtResource("4_a7yas")
+font_size = 11
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
 
@@ -46,13 +49,12 @@ shield_container = NodePath("CharacterBody2D/ShieldContainer")
 animation = NodePath("CharacterBody2D/Animation")
 max_actions = 3
 actions = 3
-deck_list = Array[String](["corte", "corte", "corte", "corte_duplo", "bloquear", "bloquear", "envenenar"])
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 scale = Vector2(0.3, 0.3)
 
 [node name="HealthBar" type="TextureProgressBar" parent="CharacterBody2D"]
-custom_minimum_size = Vector2(127, 17)
+custom_minimum_size = Vector2(127, 20)
 offset_left = -86.6667
 offset_top = 56.6667
 offset_right = 40.3333
@@ -70,9 +72,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -30.0
-offset_top = -8.50001
+offset_top = -5.16668
 offset_right = 30.0
-offset_bottom = 8.49999
+offset_bottom = 11.8333
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_vxohi")
@@ -80,7 +82,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ActionBar" type="TextureProgressBar" parent="CharacterBody2D"]
-custom_minimum_size = Vector2(127, 17)
+custom_minimum_size = Vector2(127, 20)
 offset_left = -86.6666
 offset_top = 80.0001
 offset_right = 40.3334
@@ -98,9 +100,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -0.5
-offset_top = -11.5
+offset_top = -8.16667
 offset_right = 0.5
-offset_bottom = 11.5
+offset_bottom = 14.8333
 grow_horizontal = 2
 grow_vertical = 2
 label_settings = SubResource("LabelSettings_n5mal")
